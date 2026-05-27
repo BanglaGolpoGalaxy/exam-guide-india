@@ -64,7 +64,6 @@ body {
     color: #1b5a7a;
 }
 
-/* ভাষা টগল বাটন */
 .lang-toggle {
     background: #e2e8f0;
     border: none;
@@ -75,7 +74,7 @@ body {
     font-size: 0.85rem;
 }
 
-/* হিরো সেকশন */
+/* হিরো */
 .hero {
     text-align: center;
     padding: 60px 0 40px;
@@ -139,7 +138,7 @@ body {
     color: #0b3b5f;
 }
 
-/* এক্সাম কার্ড গ্রিড */
+/* এক্সাম কার্ড গ্রিড - রঙিন */
 .exam-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -148,25 +147,31 @@ body {
 }
 
 .card {
-    background: white;
     border-radius: 24px;
     padding: 24px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
-    border: 1px solid #e9ecef;
     transition: 0.2s;
 }
-
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
 }
-
 .card h3 {
     font-size: 1.6rem;
     margin-bottom: 8px;
-    color: #0b3b5f;
 }
+.card p {
+    margin: 12px 0;
+}
+
+/* রঙিন কার্ড ক্লাস */
+.card-wbcs { background: #e3f2fd; border-bottom: 5px solid #1e88e5; }
+.card-psc { background: #e8f5e9; border-bottom: 5px solid #43a047; }
+.card-ssc { background: #fff3e0; border-bottom: 5px solid #fb8c00; }
+.card-railway { background: #fce4ec; border-bottom: 5px solid #e91e63; }
+.card-police { background: #e0f2f1; border-bottom: 5px solid #00897b; }
+.card-notes { background: #f3e5f5; border-bottom: 5px solid #8e24aa; }
 
 .btn-explore {
     display: inline-block;
@@ -179,38 +184,38 @@ body {
     margin-top: 12px;
 }
 
-/* হোয়াই গ্রিড */
-.why-grid {
+/* Why Aspirants Trust Us - ডার্ক ব্লু ব্যাকগ্রাউন্ড সেকশন */
+.trust-section {
+    background: #0b2a3b;  /* ডার্ক ব্লু */
+    padding: 50px 0;
+    margin: 50px 0;
+}
+
+.why-grid-dark {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
-    margin: 40px 0;
     text-align: center;
 }
-
-/* ইমপ্যাক্ট নাম্বার */
-.impact-numbers {
-    background: #0b2a3b;
+.trust-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(2px);
+    padding: 24px 12px;
+    border-radius: 28px;
     color: white;
-    padding: 50px 0;
-    margin: 50px 0;
-    border-radius: 32px;
+    transition: 0.2s;
 }
-
-.impact-stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 32px;
-    text-align: center;
+.trust-card:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-5px);
 }
-
-.impact-stats .stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    background: transparent;
-    color: #facc15;
-    padding: 0;
+.trust-card h3 {
+    margin: 12px 0 8px;
+    font-size: 1.3rem;
+}
+.trust-card p {
+    font-size: 0.9rem;
+    opacity: 0.9;
 }
 
 /* রিসোর্স সেকশন */
@@ -231,7 +236,7 @@ body {
     text-align: center;
 }
 
-/* কারেন্ট অ্যাফেয়ার্স লিস্ট */
+/* কারেন্ট অ্যাফেয়ার্স */
 .current-list {
     background: white;
     border-radius: 28px;

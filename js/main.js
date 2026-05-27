@@ -1,8 +1,6 @@
-// ভাষা টগল ফাংশন
-let currentLang = 'en'; // 'en' অথবা 'bn'
+let currentLang = 'en';
 
 function setLanguage(lang) {
-    // সব এলিমেন্ট যাদের data-en ও data-bn আছে
     document.querySelectorAll('[data-en][data-bn]').forEach(el => {
         if (lang === 'bn') {
             el.innerText = el.getAttribute('data-bn');
@@ -10,8 +8,6 @@ function setLanguage(lang) {
             el.innerText = el.getAttribute('data-en');
         }
     });
-    
-    // প্লেসহোল্ডার আপডেট (যেমন ইনপুট ফিল্ড)
     document.querySelectorAll('input[data-en-placeholder][data-bn-placeholder]').forEach(input => {
         if (lang === 'bn') {
             input.placeholder = input.getAttribute('data-bn-placeholder');
@@ -19,30 +15,22 @@ function setLanguage(lang) {
             input.placeholder = input.getAttribute('data-en-placeholder');
         }
     });
-    
-    // টগল বাটনের টেক্সট পরিবর্তন
     const toggleBtn = document.getElementById('langToggle');
     if (toggleBtn) {
         toggleBtn.innerHTML = (lang === 'bn') ? '🔁 English' : '🔁 বাংলা';
     }
-    
     currentLang = lang;
 }
 
-// ইভেন্ট লিসেনার – ডোম লোড হলে
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('langToggle');
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
-            if (currentLang === 'en') {
-                setLanguage('bn');
-            } else {
-                setLanguage('en');
-            }
+            setLanguage(currentLang === 'en' ? 'bn' : 'en');
         });
     }
     
-    // সাবস্ক্রাইব বাটনের জন্য অ্যালার্ট (ডেমো)
+    // সাবস্ক্রাইব বাটন
     const subscribeBtn = document.getElementById('subscribeBtn');
     if (subscribeBtn) {
         subscribeBtn.addEventListener('click', () => {
@@ -56,7 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    // Smooth scroll for anchor links (Exams, About Us, Contact)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
 
-// ডিফল্ট ভাষা ইংরেজি সেট (যেহেতু HTML-এ data-en দেখানো আছে)
 setLanguage('en');
