@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category.name }} – {{ category.full_name }} | Exam Guide India{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="--cat-color: {{ category.color }}; --cat-light: {{ category.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="/">Home</a> <span>›</span>
+            <span>{{ category.name }}</span>
+        </div>
+        <div class="page-hero-icon">{{ category.icon }}</div>
+        <h1 class="page-hero-title">{{ category.full_name }}</h1>
+        <p class="page-hero-desc">{{ category.desc }}</p>
+    </div>
+</section>
+
+<section class="cat-exams-section">
+    <div class="container">
+        <div class="section-label" style="margin-bottom: 36px;">
+            <span class="label-line"></span>
+            <span class="label-text">SELECT YOUR EXAM</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="cat-exam-grid">
+            {% for exam in exams %}
+            <a href="/{{ exam.category }}/{{ exam.key | replace(exam.category + '-', '') }}/" class="cat-exam-card" style="--ec: {{ exam.color }}; --el: {{ exam.light }};">
+                <div class="cat-exam-icon">{{ exam.icon }}</div>
+                <div class="cat-exam-info">
+                    <h2 class="cat-exam-name">{{ exam.name }}</h2>
+                    <p class="cat-exam-full">{{ exam.full_name }}</p>
+                    <p class="cat-exam-meta">Official: <a href="{{ exam.official_url }}" target="_blank" onclick="event.stopPropagation()">{{ exam.official_url | replace('https://','') }}</a></p>
+                </div>
+                <span class="cat-exam-arrow" style="color:{{ exam.color }}">→</span>
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="cat-back">
+            <a href="/" class="btn-back-home">← Back to Home</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

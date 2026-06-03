@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}Exam Guide India | Your Guide. Your Success.{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-left">
+            <div class="hero-badge" data-en="✦ DREAM • PREPARE • ACHIEVE" data-bn="✦ স্বপ্ন • প্রস্তুতি • সাফল্য">✦ DREAM • PREPARE • ACHIEVE</div>
+            <h1 class="hero-heading">
+                <span data-en="Your Journey to a" data-bn="চাকরির যাত্রা">Your Journey to a</span><br>
+                <span data-en="Government Job Starts" data-bn="শুরু হোক">Government Job Starts</span><br>
+                <em class="hero-highlight" data-en="Here!" data-bn="এখান থেকে!">Here!</em>
+            </h1>
+            <p class="hero-sub" data-en="Study smart with the best notes, mock tests, quizzes and latest updates for all competitive exams." data-bn="সেরা নোট, মক টেস্ট, কুইজ ও সর্বশেষ আপডেট সহ স্মার্ট পড়াশোনা করুন।">Study smart with the best notes, mock tests, quizzes and latest updates for all competitive exams.</p>
+            <div class="hero-search">
+                <input type="text" placeholder="What are you looking for?" data-en-placeholder="What are you looking for?" data-bn-placeholder="কী খুঁজছেন?" id="heroSearch">
+                <button class="hero-search-btn" onclick="handleSearch()">🔍</button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><span class="hstat-icon">✅</span><span data-en="Trusted Content" data-bn="বিশ্বস্ত কন্টেন্ট">Trusted Content</span></div>
+                <div class="hero-stat"><span class="hstat-icon">🔄</span><span data-en="Regular Updates" data-bn="নিয়মিত আপডেট">Regular Updates</span></div>
+                <div class="hero-stat"><span class="hstat-icon">👤</span><span data-en="Expert Team" data-bn="বিশেষজ্ঞ টিম">Expert Team</span></div>
+                <div class="hero-stat"><span class="hstat-icon">🏆</span><span data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</span></div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="{{ url_for('static', filename='images/hero-illustration.png') }}" alt="Student studying for competitive exams" class="hero-img">
+        </div>
+    </div>
+</section>
+
+<!-- POPULAR EXAMS -->
+<section class="exams-section" id="popular-exams">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text" data-en="POPULAR EXAMS" data-bn="জনপ্রিয় পরীক্ষা">POPULAR EXAMS</span>
+            <span class="label-line"></span>
+        </div>
+        <h2 class="section-heading" data-en="Choose Your Exam Path" data-bn="আপনার পরীক্ষার পথ বেছে নিন">Choose Your Exam Path</h2>
+        <div class="exam-grid">
+            <a href="/wbcs/" class="exam-card">
+                <div class="exam-icon exam-icon-blue">🏛️</div>
+                <h3 class="exam-name">WBCS</h3>
+                <p class="exam-desc" data-en="West Bengal Civil Service" data-bn="পশ্চিমবঙ্গ সিভিল সার্ভিস">West Bengal Civil Service</p>
+                <span class="btn-explore btn-blue" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+            </a>
+            <a href="/psc/" class="exam-card">
+                <div class="exam-icon exam-icon-green">⚖️</div>
+                <h3 class="exam-name">PSC</h3>
+                <p class="exam-desc" data-en="Public Service Commission" data-bn="পাবলিক সার্ভিস কমিশন">Public Service Commission</p>
+                <span class="btn-explore btn-green" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+            </a>
+            <a href="/ssc/" class="exam-card">
+                <div class="exam-icon exam-icon-purple">🎖️</div>
+                <h3 class="exam-name">SSC</h3>
+                <p class="exam-desc" data-en="Staff Selection Commission" data-bn="স্টাফ সিলেকশন কমিশন">Staff Selection Commission</p>
+                <span class="btn-explore btn-purple" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+            </a>
+            <a href="/railway/" class="exam-card">
+                <div class="exam-icon exam-icon-orange">🚆</div>
+                <h3 class="exam-name exam-orange" data-en="Railway" data-bn="রেলওয়ে">Railway</h3>
+                <p class="exam-desc" data-en="Railway Recruitment Boards" data-bn="রেলওয়ে রিক্রুটমেন্ট বোর্ড">Railway Recruitment Boards</p>
+                <span class="btn-explore btn-orange" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+            </a>
+            <a href="/police/" class="exam-card">
+                <div class="exam-icon exam-icon-red">🛡️</div>
+                <h3 class="exam-name exam-red" data-en="Police" data-bn="পুলিশ">Police</h3>
+                <p class="exam-desc" data-en="Police Recruitment Exams" data-bn="পুলিশ রিক্রুটমেন্ট পরীক্ষা">Police Recruitment Exams</p>
+                <span class="btn-explore btn-red" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+            </a>
+            <a href="/notes/" class="exam-card">
+                <div class="exam-icon exam-icon-teal">📋</div>
+                <h3 class="exam-name exam-teal" data-en="Notes" data-bn="নোটস">Notes</h3>
+                <p class="exam-desc" data-en="Handwritten & PDF Notes" data-bn="হাতে লেখা ও পিডিএফ নোট">Handwritten & PDF Notes</p>
+                <span class="btn-explore btn-teal" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- WHY TRUST US -->
+<section class="trust-section">
+    <div class="container trust-inner">
+        <div class="trust-left">
+            <p class="trust-sub" data-en="Why Aspirants" data-bn="কেন পরীক্ষার্থীরা">Why Aspirants</p>
+            <h2 class="trust-heading" data-en="Trust Us?" data-bn="আমাদের বিশ্বাস করে?">Trust Us?</h2>
+            <a href="/#about-us" class="btn-know" data-en="Know More →" data-bn="আরও জানুন →">Know More →</a>
+        </div>
+        <div class="trust-features">
+            <div class="trust-feature">
+                <div class="tf-icon">👤</div>
+                <div><h4 data-en="Quality Content" data-bn="গুণগত কন্টেন্ট">Quality Content</h4><p data-en="Curated by experts, made for toppers." data-bn="বিশেষজ্ঞদের দ্বারা তৈরি।">Curated by experts, made for toppers.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">🧩</div>
+                <div><h4 data-en="Mock Tests" data-bn="মক টেস্ট">Mock Tests</h4><p data-en="Real exam experience with detailed analysis." data-bn="বিশ্লেষণ সহ বাস্তব অভিজ্ঞতা।">Real exam experience with detailed analysis.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">📈</div>
+                <div><h4 data-en="Performance" data-bn="পারফরম্যান্স">Performance</h4><p data-en="Track progress and improve daily." data-bn="প্রতিদিন অগ্রগতি ট্র্যাক করুন।">Track progress and improve daily.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">🔔</div>
+                <div><h4 data-en="Always Updated" data-bn="সর্বদা আপডেট">Always Updated</h4><p data-en="Latest exam news & notifications." data-bn="সর্বশেষ খবর পান।">Latest exam news & notifications.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">💎</div>
+                <div><h4 data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</h4><p data-en="All resources are completely free." data-bn="সম্পূর্ণ বিনামূল্যে।">All resources are completely free.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IMPACT IN NUMBERS -->
+<section class="impact-section">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text" data-en="Our Impact in Numbers" data-bn="আমাদের প্রভাব সংখ্যায়">Our Impact in Numbers</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-item"><div class="impact-icon">🎓</div><div class="impact-num">50,000+</div><div class="impact-label" data-en="Happy Aspirants" data-bn="সন্তুষ্ট পরীক্ষার্থী">Happy Aspirants</div></div>
+            <div class="impact-item"><div class="impact-icon">📚</div><div class="impact-num">2,500+</div><div class="impact-label" data-en="Study Materials" data-bn="স্টাডি মেটেরিয়াল">Study Materials</div></div>
+            <div class="impact-item"><div class="impact-icon">📝</div><div class="impact-num">10,000+</div><div class="impact-label" data-en="Mock Tests Taken" data-bn="মক টেস্ট নেওয়া হয়েছে">Mock Tests Taken</div></div>
+            <div class="impact-item"><div class="impact-icon">🏆</div><div class="impact-num">1,000+</div><div class="impact-label" data-en="Success Stories" data-bn="সাফল্যের গল্প">Success Stories</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- LATEST NOTIFICATIONS -->
+{% if notifications %}
+<section class="notif-section">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text" data-en="LATEST NOTIFICATIONS" data-bn="সর্বশেষ বিজ্ঞপ্তি">LATEST NOTIFICATIONS</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="notif-ticker">
+            {% for n in notifications %}
+            <a href="{{ n.link or '#' }}" target="_blank" class="notif-item">
+                <span class="notif-badge">{{ n.exam_key.upper().replace('-',' ') }}</span>
+                <span class="notif-title">{{ n.title }}</span>
+                <span class="notif-date">{{ n.date }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- STUDY RESOURCES + CURRENT AFFAIRS -->
+<section class="resources-section">
+    <div class="container resources-inner">
+        <div class="resource-left">
+            <p class="resource-tag" data-en="STUDY RESOURCES" data-bn="পড়ার সংস্থান">STUDY RESOURCES</p>
+            <h2 class="resource-heading" data-en="Notes, Quizzes & More" data-bn="নোট, কুইজ ও আরও কিছু">Notes, Quizzes & More</h2>
+            <p class="resource-desc" data-en="Access handwritten notes, practice quizzes, current affairs and everything you need to crack your dream exam." data-bn="হাতে লেখা নোট, প্র্যাকটিস কুইজ, কারেন্ট অ্যাফেয়ার্স এবং আপনার প্রয়োজনীয় সবকিছু।">Access handwritten notes, practice quizzes, current affairs and everything you need to crack your dream exam.</p>
+            <div class="resource-btns">
+                <a href="/notes/" class="btn-resource-outline" data-en="Explore Notes →" data-bn="নোট দেখুন →">Explore Notes →</a>
+                <a href="/quiz/" class="btn-resource-solid" data-en="Try Quiz →" data-bn="কুইজ চেষ্টা করুন →">Try Quiz →</a>
+            </div>
+        </div>
+        <div class="resource-right">
+            <div class="current-affairs-card">
+                <div class="ca-header">
+                    <span data-en="Current Affairs Today" data-bn="আজকের কারেন্ট অ্যাফেয়ার্স">Current Affairs Today</span>
+                    <span class="ca-badge">New</span>
+                </div>
+                <ul class="ca-list">
+                    <li data-en="Daily Current Affairs – June 2025" data-bn="দৈনিক কারেন্ট অ্যাফেয়ার্স – জুন ২০২৫">Daily Current Affairs – June 2025</li>
+                    <li data-en="Important Govt. Schemes 2025" data-bn="গুরুত্বপূর্ণ সরকারি প্রকল্প ২০২৫">Important Govt. Schemes 2025</li>
+                    <li data-en="Budget 2025 Highlights" data-bn="বাজেট ২০২৫ হাইলাইটস">Budget 2025 Highlights</li>
+                    <li data-en="Appointments & Resignations" data-bn="নিয়োগ ও পদত্যাগ">Appointments &amp; Resignations</li>
+                </ul>
+                <a href="/notes/" class="ca-link" data-en="View All Updates →" data-bn="সব আপডেট দেখুন →">View All Updates →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function handleSearch() {
+    const q = document.getElementById('heroSearch').value.trim().toLowerCase();
+    const map = {wbcs:'/wbcs/',psc:'/psc/',ssc:'/ssc/',railway:'/railway/',police:'/police/',notes:'/notes/',quiz:'/quiz/'};
+    for (const [k, v] of Object.entries(map)) {
+        if (q.includes(k)) { window.location.href = v; return; }
+    }
+    if (q) window.location.href = '/notes/';
+}
+document.getElementById('heroSearch').addEventListener('keydown', e => { if (e.key === 'Enter') handleSearch(); });
+</script>
+
+{% endblock %}

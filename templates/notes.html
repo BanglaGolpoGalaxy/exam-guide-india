@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Study Notes & Materials | Exam Guide India{% endblock %}
+
+{% block content %}
+<section class="page-hero" style="--cat-color:#0d9488; --cat-light:#f0fdfa;">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb"><a href="/">Home</a> <span>›</span> <span>Notes</span></div>
+        <div class="page-hero-icon">📚</div>
+        <h1 class="page-hero-title">Study Notes & Materials</h1>
+        <p class="page-hero-desc">Handwritten notes, PDF guides, practice sets, and current affairs — all free for aspirants.</p>
+    </div>
+</section>
+
+<div class="container" style="padding: 48px 24px;">
+
+    <div class="section-label" style="margin-bottom: 36px;">
+        <span class="label-line"></span>
+        <span class="label-text">FREE STUDY MATERIALS</span>
+        <span class="label-line"></span>
+    </div>
+
+    <div class="notes-category-grid">
+        <div class="notes-cat-card" style="border-top: 4px solid #1d4ed8;">
+            <div class="ncc-header" style="color:#1d4ed8;">🏛️ WBCS Notes</div>
+            <ul class="ncc-list">
+                <li><a href="/wbcs/">WBCS Prelims – GS Complete Notes</a></li>
+                <li><a href="/wbcs/">WBCS History & Culture Notes</a></li>
+                <li><a href="/wbcs/">WBCS Geography of WB Notes</a></li>
+                <li><a href="/wbcs/">WBCS Economy & Polity Notes</a></li>
+            </ul>
+            <a href="/wbcs/" class="ncc-btn" style="background:#eff6ff; color:#1d4ed8;">View All WBCS →</a>
+        </div>
+        <div class="notes-cat-card" style="border-top: 4px solid #7c3aed;">
+            <div class="ncc-header" style="color:#7c3aed;">🎖️ SSC Notes</div>
+            <ul class="ncc-list">
+                <li><a href="/ssc/cgl/">SSC CGL – Quant Shortcut Methods</a></li>
+                <li><a href="/ssc/cgl/">SSC CGL – English Grammar Notes</a></li>
+                <li><a href="/ssc/gd/">SSC GD – GK Complete Digest</a></li>
+                <li><a href="/ssc/chsl/">SSC CHSL – Previous Year Papers</a></li>
+            </ul>
+            <a href="/ssc/" class="ncc-btn" style="background:#f5f3ff; color:#7c3aed;">View All SSC →</a>
+        </div>
+        <div class="notes-cat-card" style="border-top: 4px solid #ea580c;">
+            <div class="ncc-header" style="color:#ea580c;">🚆 Railway Notes</div>
+            <ul class="ncc-list">
+                <li><a href="/railway/ntpc-graduate/">RRB NTPC – Math Formula Sheet</a></li>
+                <li><a href="/railway/group-d/">Railway GK – Indian Railways Facts</a></li>
+                <li><a href="/railway/ntpc-ug/">NTPC UG – Reasoning Practice Set</a></li>
+                <li><a href="/railway/technician/">Technician – Technical Ability Notes</a></li>
+            </ul>
+            <a href="/railway/" class="ncc-btn" style="background:#fff7ed; color:#ea580c;">View All Railway →</a>
+        </div>
+        <div class="notes-cat-card" style="border-top: 4px solid #15803d;">
+            <div class="ncc-header" style="color:#15803d;">⚖️ PSC Notes</div>
+            <ul class="ncc-list">
+                <li><a href="/psc/misc/">WBPSC MISC – GS Notes</a></li>
+                <li><a href="/psc/clerkship/">PSC Clerkship – Arithmetic Guide</a></li>
+                <li><a href="/wbcs/">WBCS – Bengali Literature Notes</a></li>
+                <li><a href="/psc/">WB History Complete Notes</a></li>
+            </ul>
+            <a href="/psc/" class="ncc-btn" style="background:#f0fdf4; color:#15803d;">View All PSC →</a>
+        </div>
+        <div class="notes-cat-card" style="border-top: 4px solid #be123c;">
+            <div class="ncc-header" style="color:#be123c;">👮 Police Notes</div>
+            <ul class="ncc-list">
+                <li><a href="/police/">WB Police SI – Complete GS Notes</a></li>
+                <li><a href="/police/">WB Police – Physical Test Guide</a></li>
+                <li><a href="/police/">WB Constable – Previous Papers</a></li>
+                <li><a href="/police/">WB Police – Bengali Language Notes</a></li>
+            </ul>
+            <a href="/police/" class="ncc-btn" style="background:#fff1f2; color:#be123c;">View All Police →</a>
+        </div>
+        <div class="notes-cat-card" style="border-top: 4px solid #0369a1;">
+            <div class="ncc-header" style="color:#0369a1;">📰 Current Affairs</div>
+            <ul class="ncc-list">
+                <li><a href="#">Daily CA – June 2025</a></li>
+                <li><a href="#">Monthly CA Digest – May 2025</a></li>
+                <li><a href="#">Important Govt. Schemes 2025</a></li>
+                <li><a href="#">Budget 2025 Key Points</a></li>
+            </ul>
+            <a href="#" class="ncc-btn" style="background:#f0f9ff; color:#0369a1;">View All CA →</a>
+        </div>
+    </div>
+
+    <div class="guide-section" style="margin-top: 40px; background: linear-gradient(135deg, #1e1048, #3b1d8a);">
+        <h2 style="color:white; font-size:1.4rem; margin-bottom: 10px;">💎 Premium Notes Collection</h2>
+        <p style="color:#c4b5fd; margin-bottom: 20px;">Get expertly crafted, topic-wise PDF notes for deep preparation.</p>
+        <div class="premium-notes-grid">
+            {% set premium = [
+                ('WBCS Complete Study Pack', 'Prelims + Mains + Interview Prep', '₹299', '/wbcs/'),
+                ('SSC CGL Tier-I + II Pack', 'Quant, Reasoning, GK + English', '₹249', '/ssc/cgl/'),
+                ('Railway NTPC Complete Pack', 'CBT-1 + CBT-2 + Previous Papers', '₹199', '/railway/ntpc-graduate/'),
+                ('PSC MISC Complete Pack', 'Full Syllabus + Practice Sets', '₹199', '/psc/misc/'),
+            ] %}
+            {% for title, desc, price, link in premium %}
+            <div class="premium-note-card">
+                <h4>{{ title }}</h4>
+                <p>{{ desc }}</p>
+                <div class="pnc-footer">
+                    <span class="pnc-price">{{ price }}</span>
+                    <a href="{{ link }}" class="pnc-btn">Get Notes →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="cat-back" style="margin-top: 32px;">
+        <a href="/" class="btn-back-home">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}

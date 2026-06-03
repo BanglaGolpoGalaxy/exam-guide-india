@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exam.name }} – {{ exam.full_name }} | Exam Guide India{% endblock %}
+
+{% block head %}
+<style>
+:root {
+    --exam-color: {{ exam.color }};
+    --exam-light: {{ exam.light }};
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="page-hero" style="--cat-color: {{ exam.color }}; --cat-light: {{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="/">Home</a> <span>›</span>
+            <a href="/{{ exam.category }}/">{{ category.name }}</a> <span>›</span>
+            <span>{{ exam.name }}</span>
+        </div>
+        <div class="page-hero-icon">{{ exam.icon }}</div>
+        <h1 class="page-hero-title">{{ exam.full_name }}</h1>
+        <div class="exam-quick-links">
+            <a href="{{ exam.apply_link }}" target="_blank" class="btn-apply">📋 Apply Online</a>
+            <a href="{{ exam.result_link }}" target="_blank" class="btn-result">📊 Results</a>
+            <a href="{{ exam.official_url }}" target="_blank" class="btn-official">🌐 Official Site</a>
+        </div>
+    </div>
+</section>
+
+<!-- TABS -->
+<div class="container">
+    <div class="exam-tabs" id="examTabs">
+        <button class="tab-btn active" data-tab="overview">📖 Overview</button>
+        <button class="tab-btn" data-tab="notifications">🔔 Notifications</button>
+        <button class="tab-btn" data-tab="vacancies">💼 Vacancies</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div class="tab-content active" id="tab-overview">
+
+        <!-- EXAM PATTERN -->
+        <div class="guide-section">
+            <h2 class="gs-title">📅 Exam Pattern</h2>
+            <div class="table-wrap">
+                <table class="exam-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Subjects / Papers</th>
+                            <th>Questions</th>
+                            <th>Marks</th>
+                            <th>Duration</th>
+                            <th>Negative Marking</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in exam.pattern %}
+                        <tr>
+                            <td><strong>{{ row.stage }}</strong></td>
+                            <td>{{ row.subjects }}</td>
+                            <td>{{ row.questions }}</td>
+                            <td>{{ row.marks }}</td>
+                            <td>{{ row.duration }}</td>
+                            <td>{{ row.negative }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SYLLABUS -->
+        <div class="guide-section">
+            <h2 class="gs-title">📚 Syllabus</h2>
+            <ul class="syllabus-list">
+                {% for item in exam.syllabus %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- QUICK TIPS -->
+        <div class="guide-section tips-section">
+            <h2 class="gs-title">💡 Preparation Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card"><span class="tip-icon">📰</span><h4>Daily Current Affairs</h4><p>Read newspapers and follow exam-specific current affairs regularly.</p></div>
+                <div class="tip-card"><span class="tip-icon">📝</span><h4>Practice Mock Tests</h4><p>Take our free <a href="/quiz/">mock tests</a> to simulate real exam conditions.</p></div>
+                <div class="tip-card"><span class="tip-icon">📋</span><h4>Study Notes</h4><p>Use our <a href="/notes/">curated notes</a> for efficient topic-wise revision.</p></div>
+                <div class="tip-card"><span class="tip-icon">⏰</span><h4>Time Management</h4><p>Create a timetable and stick to it. Consistency beats intensity.</p></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TAB: NOTIFICATIONS -->
+    <div class="tab-content" id="tab-notifications">
+        <div class="guide-section">
+            <h2 class="gs-title">🔔 Latest Notifications</h2>
+            <p class="gs-subtitle">Official notifications scraped from <a href="{{ exam.official_url }}" target="_blank">{{ exam.official_url }}</a> — auto-updated every 6 hours.</p>
+            <div id="notifList" class="notif-list">
+                <div class="loading-spinner">⏳ Loading notifications...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: VACANCIES -->
+    <div class="tab-content" id="tab-vacancies">
+        <div class="guide-section">
+            <h2 class="gs-title">💼 Upcoming Vacancies</h2>
+            <div id="vacancyList" class="vacancy-list">
+                <div class="loading-spinner">⏳ Loading vacancies...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exam-footer-nav">
+        <a href="/{{ exam.category }}/" class="btn-back-home">← Back to {{ category.name }}</a>
+        <a href="{{ exam.apply_link }}" target="_blank" class="btn-apply-big">Apply Now →</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/exam-page.js') }}"></script>
+<script>
+    initExamPage('{{ exam.key }}');
+</script>
+{% endblock %}

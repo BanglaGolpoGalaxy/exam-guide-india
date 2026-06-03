@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Mock Tests & Quiz | Exam Guide India{% endblock %}
+
+{% block content %}
+<section class="page-hero" style="--cat-color:#6c3fbf; --cat-light:#f5f0ff;">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb"><a href="/">Home</a> <span>›</span> <span>Quiz</span></div>
+        <div class="page-hero-icon">📝</div>
+        <h1 class="page-hero-title">Free Mock Tests & Quizzes</h1>
+        <p class="page-hero-desc">Practice with real exam-pattern questions. Track your score and improve daily.</p>
+    </div>
+</section>
+
+<div class="container" style="padding: 48px 24px;">
+    <div class="section-label" style="margin-bottom: 36px;">
+        <span class="label-line"></span>
+        <span class="label-text">CHOOSE A QUIZ</span>
+        <span class="label-line"></span>
+    </div>
+
+    <div id="quizSelectionView">
+        <div class="quiz-grid">
+            {% set quizzes = [
+                ('wbcs1', '🏛️', 'WBCS Prelims', 'General Studies', 50, 30, '#1d4ed8'),
+                ('ssc_cgl1', '🎖️', 'SSC CGL Tier-I', 'Quant + Reasoning + GK + English', 25, 20, '#7c3aed'),
+                ('rrb_ntpc1', '🚆', 'RRB NTPC', 'Mathematics + GK + Reasoning', 20, 15, '#ea580c'),
+                ('psc_misc1', '⚖️', 'PSC MISC', 'General Studies + Arithmetic', 30, 25, '#15803d'),
+                ('police1', '👮', 'WB Police', 'GS + Reasoning + Bengali', 25, 20, '#be123c'),
+                ('ssc_gd1', '🛡️', 'SSC GD', 'GK + Maths + Reasoning', 20, 15, '#dc2626'),
+            ] %}
+            {% for qid, icon, name, subjects, qs, mins, color in quizzes %}
+            <div class="quiz-card" onclick="startQuiz('{{ qid }}')" style="border-top: 4px solid {{ color }};">
+                <div class="quiz-card-icon" style="background: {{ color }}20; color: {{ color }};">{{ icon }}</div>
+                <h3 class="quiz-card-name">{{ name }}</h3>
+                <p class="quiz-card-subjects">{{ subjects }}</p>
+                <div class="quiz-card-meta">
+                    <span>📊 {{ qs }} Questions</span>
+                    <span>⏱️ {{ mins }} Mins</span>
+                </div>
+                <button class="quiz-start-btn" style="background: {{ color }};">Start Quiz</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="quizContainer" style="display:none;"></div>
+
+    <div class="cat-back" style="margin-top: 32px;">
+        <a href="/" class="btn-back-home">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
