@@ -1,13 +1,16 @@
 {% extends "base.html" %}
+{% block title %}{{ category.full_name }} Exams | Exam Guide India{% endblock %}
+{% block meta_desc %}Complete guide for {{ category.full_name }} exams: syllabus, exam pattern, eligibility, salary and latest notifications 2026.{% endblock %}
 
-{% block title %}{{ category.name }} – {{ category.full_name }} | Exam Guide India{% endblock %}
+{% block head %}
+<style>:root{--cat-color:{{ category.color }};--cat-light:{{ category.light }};}</style>
+{% endblock %}
 
 {% block content %}
-
-<section class="page-hero" style="--cat-color: {{ category.color }}; --cat-light: {{ category.light }};">
+<section class="page-hero" style="--cat-color:{{ category.color }};--cat-light:{{ category.light }};">
     <div class="container page-hero-inner">
         <div class="breadcrumb">
-            <a href="/">Home</a> <span>›</span>
+            <a href="/" data-en="Home" data-bn="হোম">Home</a> <span>›</span>
             <span>{{ category.name }}</span>
         </div>
         <div class="page-hero-icon">{{ category.icon }}</div>
@@ -16,31 +19,51 @@
     </div>
 </section>
 
-<section class="cat-exams-section">
-    <div class="container">
-        <div class="section-label" style="margin-bottom: 36px;">
-            <span class="label-line"></span>
-            <span class="label-text">SELECT YOUR EXAM</span>
-            <span class="label-line"></span>
-        </div>
-        <div class="cat-exam-grid">
-            {% for exam in exams %}
-            <a href="/{{ exam.category }}/{{ exam.key | replace(exam.category + '-', '') }}/" class="cat-exam-card" style="--ec: {{ exam.color }}; --el: {{ exam.light }};">
-                <div class="cat-exam-icon">{{ exam.icon }}</div>
-                <div class="cat-exam-info">
-                    <h2 class="cat-exam-name">{{ exam.name }}</h2>
-                    <p class="cat-exam-full">{{ exam.full_name }}</p>
-                    <p class="cat-exam-meta">Official: <a href="{{ exam.official_url }}" target="_blank" onclick="event.stopPropagation()">{{ exam.official_url | replace('https://','') }}</a></p>
-                </div>
-                <span class="cat-exam-arrow" style="color:{{ exam.color }}">→</span>
-            </a>
-            {% endfor %}
-        </div>
-
-        <div class="cat-back">
-            <a href="/" class="btn-back-home">← Back to Home</a>
-        </div>
+<div class="container cat-exams-section">
+    <div class="section-label" style="margin-bottom:28px;">
+        <span class="label-line" style="background:{{ category.color }};"></span>
+        <span class="label-text" style="color:{{ category.color }};" data-en="{{ category.name }} EXAMS" data-bn="{{ category.name }} পরীক্ষা">{{ category.name }} EXAMS</span>
+        <span class="label-line" style="background:{{ category.color }};"></span>
     </div>
-</section>
 
+    <div class="cat-exam-grid">
+        {% for exam in exams %}
+        <a href="/{{ exam.category }}/{{ exam.key | replace(exam.category + '-', '') }}/" class="cat-exam-card" style="--ec:{{ exam.color }};--el:{{ exam.light }};">
+            <div class="cat-exam-icon" style="background:{{ exam.light }};color:{{ exam.color }};">{{ exam.icon }}</div>
+            <div class="cat-exam-info">
+                <div class="cat-exam-name">{{ exam.full_name }}</div>
+                <div class="cat-exam-full">{{ exam.overview[:90] }}...</div>
+                <div class="cat-exam-meta">
+                    <a href="{{ exam.official_url }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🌐 {{ exam.official_url | replace('https://','') }}</a>
+                </div>
+            </div>
+            <div class="cat-exam-arrow" style="color:{{ exam.color }};">→</div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="bottom-cards-row" style="margin-top:32px;">
+        <a href="/notes/" class="bottom-card bc-blue">
+            <div class="bc-icon">📘</div>
+            <div class="bc-content">
+                <h4 data-en="Monthly Current Affairs Notes" data-bn="মাসিক কারেন্ট অ্যাফেয়ার্স">Monthly Current Affairs Notes</h4>
+                <p data-en="Download PDF – June 2026" data-bn="PDF ডাউনলোড – জুন ২০২৬">Download PDF – June 2026</p>
+            </div>
+            <span class="bc-arrow">→</span>
+        </a>
+        <a href="/quiz/" class="bottom-card bc-purple">
+            <div class="bc-icon">📝</div>
+            <div class="bc-content">
+                <h4 data-en="Practice Mock Test" data-bn="প্র্যাকটিস মক টেস্ট">Practice Mock Test</h4>
+                <p data-en="Free quiz – real exam pattern" data-bn="ফ্রি কুইজ – বাস্তব পরীক্ষার ধাঁচে">Free quiz – real exam pattern</p>
+            </div>
+            <span class="bc-arrow">→</span>
+        </a>
+    </div>
+
+    <div class="exam-footer-nav">
+        <a href="/" class="btn-back-home" data-en="← Back to Home" data-bn="← হোমে ফিরুন">← Back to Home</a>
+        <a href="/notes/" class="btn-apply-big" data-en="📚 Study Notes →" data-bn="📚 স্টাডি নোটস →">📚 Study Notes →</a>
+    </div>
+</div>
 {% endblock %}
