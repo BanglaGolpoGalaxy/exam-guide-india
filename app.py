@@ -646,6 +646,89 @@ def quiz():
 def demo_quiz():
     return render_template('demo_quiz.html')
 
+@app.route('/search/', strict_slashes=False)
+def search():
+    q = request.args.get('q', '').strip()
+    return render_template('search.html', q=q)
+
+@app.route('/api/search')
+def api_search():
+    q = request.args.get('q', '').strip().lower()
+    if not q or len(q) < 2:
+        return jsonify([])
+
+    results = []
+
+    # Search exams
+    for key, exam in EXAM_CONFIG.items():
+        score = 0
+        haystack = ' '.join([
+            exam.get('name', ''), exam.get('full_name', ''),
+            exam.get('overview', ''), exam.get('qualification', ''),
+            exam.get('category', ''),
+        ]).lower()
+        if q in haystack:
+            # Boost if query in name directly
+            score = 10 if q in exam.get('name', '').lower() else (
+                     8  if q in exam.get('full_name', '').lower() else 4)
+            cat = exam.get('category', key)
+            if cat == key:
+                url = f'/{cat}/'
+            else:
+                slug = key.replace(cat + '-', '')
+                url = f'/{cat}/{slug}/'
+            results.append({
+                'type': 'exam',
+                'icon': exam.get('icon', '📋'),
+                'title': exam.get('full_name', exam.get('name', '')),
+                'subtitle': f"{exam.get('category', '').upper()} • {exam.get('age_limit', '')}",
+                'url': url,
+                'color': exam.get('color', '#6c3fbf'),
+                'score': score,
+            })
+
+    # Search notes topics
+    notes_topics = [
+        {'title': 'June 2026 Current Affairs',        'subtitle': 'Monthly CA Notes • PDF',        'url': '/notes/demo-notes/', 'icon': '📘'},
+        {'title': 'WBCS Prelims Complete Notes',      'subtitle': 'General Studies • History • Polity', 'url': '/notes/',         'icon': '📚'},
+        {'title': 'SSC CGL Math Shortcuts',           'subtitle': 'Quantitative Aptitude • Tricks', 'url': '/notes/',            'icon': '🔢'},
+        {'title': 'Indian Polity Summary Notes',      'subtitle': 'Constitution • Articles • GK',   'url': '/notes/',            'icon': '🏛️'},
+        {'title': 'English Grammar for Exams',        'subtitle': 'SSC • Railway • Police exams',   'url': '/notes/',            'icon': '📝'},
+        {'title': 'West Bengal GK Notes',             'subtitle': 'History • Geography • Culture',  'url': '/notes/',            'icon': '🗺️'},
+        {'title': 'Railway NTPC Study Material',      'subtitle': 'Maths • Reasoning • GK',        'url': '/notes/',            'icon': '🚆'},
+        {'title': 'WB Police Constable Notes',        'subtitle': 'GS • Reasoning • Bengali',      'url': '/notes/demo-notes/', 'icon': '👮'},
+        {'title': 'Current Affairs May 2026',         'subtitle': 'Monthly CA Notes • PDF',        'url': '/notes/',            'icon': '📰'},
+        {'title': 'Reasoning & Mental Ability Notes', 'subtitle': 'All exams • Shortcuts',         'url': '/notes/',            'icon': '🧠'},
+    ]
+    for n in notes_topics:
+        if q in n['title'].lower() or q in n['subtitle'].lower():
+            results.append({
+                'type': 'notes', 'icon': n['icon'],
+                'title': n['title'], 'subtitle': n['subtitle'],
+                'url': n['url'], 'color': '#1d4ed8', 'score': 3,
+            })
+
+    # Search quizzes
+    quiz_topics = [
+        {'title': 'WBCS Prelims Mock Test',     'subtitle': '5 Questions • General Studies',           'url': '/quiz/'},
+        {'title': 'SSC CGL Tier-I Quiz',        'subtitle': '5 Questions • Quant + Reasoning + GK',    'url': '/quiz/'},
+        {'title': 'RRB NTPC Mock Quiz',         'subtitle': '5 Questions • Maths + GK + Reasoning',    'url': '/quiz/'},
+        {'title': 'PSC MISC Practice Test',     'subtitle': '5 Questions • GS + Arithmetic',           'url': '/quiz/'},
+        {'title': 'WB Police Constable Quiz',   'subtitle': '5 Questions • GS + Reasoning + Bengali',  'url': '/quiz/'},
+        {'title': 'SSC GD Mock Test',           'subtitle': '5 Questions • GK + Maths + Reasoning',    'url': '/quiz/'},
+        {'title': 'Demo Quiz – 10 Questions',   'subtitle': 'Mixed topics • Detailed answers',         'url': '/quiz/demo-quiz/'},
+    ]
+    for qt in quiz_topics:
+        if q in qt['title'].lower() or q in qt['subtitle'].lower():
+            results.append({
+                'type': 'quiz', 'icon': '📝',
+                'title': qt['title'], 'subtitle': qt['subtitle'],
+                'url': qt['url'], 'color': '#7c3aed', 'score': 2,
+            })
+
+    results.sort(key=lambda x: -x['score'])
+    return jsonify(results[:12])
+
 @app.route('/admin', strict_slashes=False)
 def admin():
     return render_template('admin.html', logs=get_scrape_logs(30), notifications=get_all_notifications(50), exam_keys=list(EXAM_CONFIG.keys()))

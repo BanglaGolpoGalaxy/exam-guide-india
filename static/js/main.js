@@ -51,7 +51,22 @@ function handleSubscribe(e) {
     setTimeout(() => { if (msgEl) msgEl.style.display = 'none'; }, 4000);
 }
 
+function handleSearch() {
+    const input = document.getElementById('heroSearch');
+    if (!input) return;
+    const q = input.value.trim();
+    if (q) window.location.href = `/search/?q=${encodeURIComponent(q)}`;
+    else    window.location.href = '/search/';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Hero search — submit on Enter
+    const heroSearch = document.getElementById('heroSearch');
+    if (heroSearch) {
+        heroSearch.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+    }
     const saved = localStorage.getItem('lang') || 'en';
     setLanguage(saved);
 

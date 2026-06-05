@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+{% block title %}Search{% if q %}: "{{ q }}"{% endif %} | Exam Guide India{% endblock %}
+{% block meta_desc %}Search exams, study notes and mock quizzes on Exam Guide India — WBCS, SSC, Railway, PSC and WB Police guides for 2026.{% endblock %}
+
+{% block content %}
+<section class="page-hero" style="--cat-color:#6c3fbf;--cat-light:#f5f0ff;">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb"><a href="/" data-en="Home" data-bn="হোম">Home</a> <span>›</span> <span data-en="Search" data-bn="খোঁজ">Search</span></div>
+        <div class="page-hero-icon">🔍</div>
+        <h1 class="page-hero-title" data-en="Search Exam Guide India" data-bn="পরীক্ষার গাইড খুঁজুন">Search Exam Guide India</h1>
+        <p class="page-hero-desc" data-en="Find exams, notes, and mock tests instantly." data-bn="পরীক্ষা, নোট ও কুইজ সহজে খুঁজে নিন।">Find exams, notes, and mock tests instantly.</p>
+
+        <div class="search-bar-wrap" style="margin-top:20px;max-width:560px;width:100%;">
+            <div class="hero-search" style="max-width:100%;box-shadow:0 4px 20px rgba(108,63,191,0.15);">
+                <input type="text" id="searchInput" class="search-input"
+                       placeholder="Search exam, topic or notes…"
+                       data-en-placeholder="Search exam, topic or notes…"
+                       data-bn-placeholder="পরীক্ষা, বিষয় বা নোট খুঁজুন…"
+                       value="{{ q | e }}" autofocus autocomplete="off">
+                <button class="hero-search-btn" id="searchBtn" aria-label="Search">🔍</button>
+            </div>
+            <div id="liveDropdown" style="display:none;position:absolute;background:#fff;border:1.5px solid #e0d8f8;border-radius:12px;box-shadow:0 8px 28px rgba(108,63,191,0.15);width:100%;max-width:560px;z-index:500;margin-top:4px;overflow:hidden;"></div>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:40px 24px 60px;">
+
+    <!-- Filter Tabs -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:26px;flex-wrap:wrap;">
+        <span style="font-size:0.8rem;font-weight:600;color:#7b8fa1;" data-en="Filter:" data-bn="ফিল্টার:">Filter:</span>
+        <button class="filter-btn active" data-filter="all" data-en="All" data-bn="সব">All</button>
+        <button class="filter-btn" data-filter="exam" data-en="Exams" data-bn="পরীক্ষা">Exams</button>
+        <button class="filter-btn" data-filter="notes" data-en="Notes" data-bn="নোটস">Notes</button>
+        <button class="filter-btn" data-filter="quiz" data-en="Quizzes" data-bn="কুইজ">Quizzes</button>
+    </div>
+
+    <!-- Results count -->
+    <div id="resultsCount" style="font-size:0.82rem;color:#7b8fa1;margin-bottom:18px;"></div>
+
+    <!-- Results Grid -->
+    <div id="resultsGrid"></div>
+
+    <!-- Empty / Initial State -->
+    <div id="emptyState" style="text-align:center;padding:64px 24px;">
+        <div style="font-size:3rem;margin-bottom:12px;">🔍</div>
+        <h2 style="font-size:1.3rem;font-weight:700;color:#1a1a2e;margin-bottom:8px;" data-en="Start searching…" data-bn="খুঁজতে শুরু করুন…">Start searching…</h2>
+        <p style="font-size:0.88rem;color:#64748b;max-width:380px;margin:0 auto 24px;" data-en="Type an exam name, subject or topic above to find relevant guides, notes and quizzes." data-bn="উপরে পরীক্ষার নাম, বিষয় বা টপিক লিখুন।">Type an exam name, subject or topic above to find relevant guides, notes and quizzes.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+            {% for tag in ['WBCS','SSC CGL','RRB NTPC','WB Police','PSC Misc','Railway','Polity','Current Affairs','Notes','Quiz'] %}
+            <button class="search-tag" onclick="setQuery('{{ tag }}')">{{ tag }}</button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="noResults" style="display:none;text-align:center;padding:48px 24px;">
+        <div style="font-size:2.8rem;margin-bottom:12px;">😕</div>
+        <h2 style="font-size:1.2rem;font-weight:700;color:#1a1a2e;margin-bottom:8px;" data-en="No results found" data-bn="কোনো ফলাফল পাওয়া যায়নি">No results found</h2>
+        <p style="font-size:0.86rem;color:#64748b;margin-bottom:20px;" data-en="Try different keywords or browse the categories below." data-bn="ভিন্ন কীওয়ার্ড চেষ্টা করুন।">Try different keywords or browse the categories below.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="/psc/"     class="btn-apply" style="font-size:0.82rem;padding:8px 16px;">PSC Exams</a>
+            <a href="/ssc/"     class="btn-apply" style="font-size:0.82rem;padding:8px 16px;">SSC Exams</a>
+            <a href="/railway/" class="btn-apply" style="font-size:0.82rem;padding:8px 16px;">Railway</a>
+            <a href="/police/"  class="btn-apply" style="font-size:0.82rem;padding:8px 16px;">Police</a>
+            <a href="/notes/"   class="btn-apply" style="font-size:0.82rem;padding:8px 16px;">Notes</a>
+        </div>
+    </div>
+
+    <!-- Popular Exams quick links (shown always at bottom) -->
+    <div style="margin-top:40px;border-top:1px solid #ede8f8;padding-top:32px;">
+        <div class="section-label" style="margin-bottom:20px;justify-content:flex-start;">
+            <span class="label-line" style="flex:0 0 30px;"></span>
+            <span class="label-text" data-en="POPULAR GUIDES" data-bn="জনপ্রিয় গাইড">POPULAR GUIDES</span>
+        </div>
+        <div class="exam-grid" style="grid-template-columns:repeat(6,1fr);">
+            {% set cards = [
+                ('wbcs',    '🏛️', 'WBCS',    'Civil Service',   '/wbcs/',            'ec-blue'),
+                ('psc',     '⚖️', 'PSC MISC','State Services',  '/psc/misc/',        'ec-green'),
+                ('ssc',     '🎖️', 'SSC CGL', 'Central Govt',   '/ssc/cgl/',         'ec-purple'),
+                ('railway', '🚆', 'RRB NTPC','Railway Jobs',    '/railway/ntpc-graduate/','ec-orange'),
+                ('police',  '👮', 'WB Police','Constable / SI', '/police/',          'ec-red'),
+                ('notes',   '📚', 'Notes',   'Study Material',  '/notes/',           'ec-teal'),
+            ] %}
+            {% for key, icon, name, desc, url, cls in cards %}
+            <a href="{{ url }}" class="exam-card {{ cls }}">
+                <div class="exam-icon">{{ icon }}</div>
+                <div class="exam-name">{{ name }}</div>
+                <div class="exam-desc">{{ desc }}</div>
+                <span class="btn-explore" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+.filter-btn{padding:6px 16px;border:1.5px solid #ede8f8;border-radius:20px;background:#fff;font-size:0.8rem;font-weight:600;color:#64748b;cursor:pointer;transition:all 0.15s;font-family:inherit;}
+.filter-btn.active,.filter-btn:hover{background:#6c3fbf;color:#fff;border-color:#6c3fbf;}
+.search-tag{padding:6px 14px;border:1.5px solid #ede8f8;border-radius:20px;background:#faf8ff;font-size:0.79rem;font-weight:600;color:#6c3fbf;cursor:pointer;transition:background 0.15s;font-family:inherit;}
+.search-tag:hover{background:#f0e9ff;}
+.result-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:#fff;border:1.5px solid #ede8f8;border-radius:14px;color:#1e2a3e;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;margin-bottom:10px;}
+.result-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(108,63,191,0.1);border-color:#c8b8ef;}
+.result-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.result-info{flex:1;min-width:0;}
+.result-title{font-size:0.95rem;font-weight:700;color:#1a1a2e;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.result-sub{font-size:0.77rem;color:#64748b;}
+.result-type-badge{padding:3px 10px;border-radius:20px;font-size:0.68rem;font-weight:700;white-space:nowrap;flex-shrink:0;}
+.result-arrow{font-size:1.1rem;color:#94a3b8;flex-shrink:0;}
+.live-item{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;transition:background 0.12s;border-bottom:1px solid #f5f0ff;text-decoration:none;color:#1e2a3e;}
+.live-item:hover{background:#faf8ff;}
+.live-item:last-child{border-bottom:none;}
+.live-item-icon{font-size:1.1rem;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.live-item-title{font-size:0.84rem;font-weight:600;color:#1a1a2e;}
+.live-item-sub{font-size:0.73rem;color:#94a3b8;}
+.live-see-all{display:block;text-align:center;padding:10px;font-size:0.82rem;font-weight:600;color:#6c3fbf;background:#faf8ff;cursor:pointer;border-top:1px solid #ede8f8;}
+.live-see-all:hover{background:#f0e9ff;}
+mark{background:#fde68a;border-radius:2px;padding:0 1px;}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const INITIAL_Q = {{ q | tojson }};
+let allResults = [];
+let activeFilter = 'all';
+let debounceTimer = null;
+const input   = document.getElementById('searchInput');
+const grid    = document.getElementById('resultsGrid');
+const count   = document.getElementById('resultsCount');
+const empty   = document.getElementById('emptyState');
+const noRes   = document.getElementById('noResults');
+const dropdown= document.getElementById('liveDropdown');
+
+const TYPE_LABELS = { exam: 'Exam Guide', notes: 'Study Notes', quiz: 'Mock Test' };
+const TYPE_COLORS = { exam: '#1d4ed820', notes: '#15803d20', quiz: '#7c3aed20' };
+const TYPE_BADGE  = { exam: '#dbeafe:#1d4ed8', notes: '#dcfce7:#15803d', quiz: '#ede9fe:#7c3aed' };
+
+function hl(text, q) {
+    if (!q) return text;
+    const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+    return text.replace(re, '<mark>$1</mark>');
+}
+
+function renderResults(results) {
+    const filtered = activeFilter === 'all' ? results : results.filter(r => r.type === activeFilter);
+    empty.style.display  = (results.length === 0 && !input.value.trim()) ? 'block' : 'none';
+    noRes.style.display  = (results.length === 0 && input.value.trim()) ? 'block' : 'none';
+    grid.style.display   = filtered.length > 0 ? 'block' : 'none';
+
+    const q = input.value.trim().toLowerCase();
+    count.textContent = filtered.length > 0
+        ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''} found`
+        : '';
+
+    grid.innerHTML = filtered.map(r => {
+        const badgeParts = (TYPE_BADGE[r.type] || '#f1f5f9:#64748b').split(':');
+        return `
+        <a href="${r.url}" class="result-card">
+            <div class="result-icon" style="background:${TYPE_COLORS[r.type]||'#f1f5f9'};color:${r.color};">${r.icon}</div>
+            <div class="result-info">
+                <div class="result-title">${hl(r.title, q)}</div>
+                <div class="result-sub">${hl(r.subtitle, q)}</div>
+            </div>
+            <span class="result-type-badge" style="background:${badgeParts[0]};color:${badgeParts[1]};">${TYPE_LABELS[r.type]||r.type}</span>
+            <span class="result-arrow">›</span>
+        </a>`;
+    }).join('');
+}
+
+function renderDropdown(results) {
+    if (!results.length || !input.value.trim()) { dropdown.style.display='none'; return; }
+    const top = results.slice(0, 5);
+    dropdown.innerHTML = top.map(r => `
+        <a href="${r.url}" class="live-item">
+            <span class="live-item-icon" style="background:${TYPE_COLORS[r.type]||'#f1f5f9'};color:${r.color};">${r.icon}</span>
+            <span>
+                <div class="live-item-title">${r.title}</div>
+                <div class="live-item-sub">${r.subtitle}</div>
+            </span>
+        </a>`).join('') +
+        (results.length > 5 ? `<div class="live-see-all" onclick="submitSearch()">See all ${results.length} results →</div>` : '');
+    dropdown.style.display = 'block';
+}
+
+async function doSearch(q) {
+    if (!q || q.length < 2) {
+        allResults = [];
+        renderResults([]);
+        dropdown.style.display = 'none';
+        empty.style.display  = 'block';
+        noRes.style.display  = 'none';
+        grid.style.display   = 'none';
+        count.textContent = '';
+        return;
+    }
+    try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`);
+        allResults = await res.json();
+        renderResults(allResults);
+        renderDropdown(allResults);
+    } catch(e) {
+        console.error(e);
+    }
+}
+
+function submitSearch() {
+    dropdown.style.display = 'none';
+    const q = input.value.trim();
+    if (q) {
+        history.replaceState(null, '', `/search/?q=${encodeURIComponent(q)}`);
+        doSearch(q);
+    }
+}
+
+function setQuery(q) {
+    input.value = q;
+    submitSearch();
+    input.focus();
+}
+
+// Event listeners
+input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        const q = input.value.trim();
+        history.replaceState(null, '', q ? `/search/?q=${encodeURIComponent(q)}` : '/search/');
+        doSearch(q);
+    }, 220);
+});
+
+input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); submitSearch(); }
+    if (e.key === 'Escape') { dropdown.style.display = 'none'; }
+});
+
+document.getElementById('searchBtn').addEventListener('click', submitSearch);
+
+document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && e.target !== input) dropdown.style.display = 'none';
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        renderResults(allResults);
+    });
+});
+
+// Init
+if (INITIAL_Q) {
+    doSearch(INITIAL_Q);
+} else {
+    empty.style.display = 'block';
+    grid.style.display  = 'none';
+}
+
+// Position dropdown under search bar
+const searchWrap = document.querySelector('.search-bar-wrap');
+if (searchWrap) {
+    searchWrap.style.position = 'relative';
+    searchWrap.appendChild(dropdown);
+}
+</script>
+{% endblock %}
