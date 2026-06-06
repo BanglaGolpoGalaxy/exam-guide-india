@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Exam Guide India | Government Exam Preparation{% endblock %}</title>
+    <meta name="description" content="{% block meta_desc %}Exam Guide India – Free study notes, mock tests, exam patterns, syllabus, notifications and vacancies for WBCS, PSC, SSC, Railway and WB Police exams.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keys %}WBCS, PSC, SSC CGL, Railway NTPC, WB Police, government exam preparation, free notes, mock test, syllabus, exam pattern, West Bengal, পরীক্ষা প্রস্তুতি{% endblock %}">
+    <link rel="canonical" href="https://examguideindia.in{{ request.path }}">
+
+    <meta property="og:title" content="{% block og_title %}Exam Guide India{% endblock %}">
+    <meta property="og:description" content="{% block og_desc %}Free exam prep for WBCS, SSC, Railway, PSC and WB Police. Notes, Mock Tests, Syllabus, Notifications.{% endblock %}">
+    <meta property="og:image" content="/static/images/logo.png">
+    <meta property="og:url" content="https://examguideindia.in{{ request.path }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Exam Guide India">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Exam Guide India","url":"https://examguideindia.in","description":"Free exam preparation for WBCS, PSC, SSC, Railway and WB Police competitive exams.","potentialAction":{"@type":"SearchAction","target":"https://examguideindia.in/?q={search_term_string}","query-input":"required name=search_term_string"}}
+    </script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+<header class="navbar-wrapper">
+    <div class="container navbar">
+        <a href="/" class="logo">
+            <span class="logo-icon">🎓</span>
+            <div class="logo-text">
+                <span class="logo-title" data-en="Exam Guide India" data-bn="পরীক্ষা গাইড ইন্ডিয়া">Exam Guide India</span>
+                <span class="logo-sub">Your Guide. Your Success.</span>
+            </div>
+        </a>
+        <nav class="nav-links" id="mainNav">
+            <a href="/" class="nav-link {% if request.path=='/' %}active{% endif %}" data-en="Home" data-bn="হোম">Home</a>
+            <a href="/#popular-exams" class="nav-link" data-en="Exams" data-bn="পরীক্ষা">Exams</a>
+            <div class="nav-dropdown">
+                <span class="nav-link dropdown-trigger" data-en="Browse ▾" data-bn="দেখুন ▾">Browse ▾</span>
+                <div class="dropdown-menu">
+                    <a href="/wbcs/" class="dropdown-item">🏛️ WBCS</a>
+                    <a href="/psc/" class="dropdown-item">⚖️ PSC</a>
+                    <a href="/ssc/" class="dropdown-item">🎖️ SSC</a>
+                    <a href="/railway/" class="dropdown-item">🚆 Railway</a>
+                    <a href="/police/" class="dropdown-item">👮 WB Police</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="/police/wbp-constable/" class="dropdown-item dropdown-sub">↳ WBP Constable</a>
+                    <a href="/police/wbp-si/" class="dropdown-item dropdown-sub">↳ WBP SI</a>
+                    <a href="/police/kolkata-police/" class="dropdown-item dropdown-sub">↳ Kolkata Police</a>
+                </div>
+            </div>
+            <a href="/notes/" class="nav-link {% if '/notes' in request.path %}active{% endif %}" data-en="Notes" data-bn="নোটস">Notes</a>
+            <a href="/quiz/" class="nav-link {% if '/quiz' in request.path %}active{% endif %}" data-en="Quiz" data-bn="কুইজ">Quiz</a>
+            <a href="/about/" class="nav-link {% if '/about' in request.path %}active{% endif %}" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+            <a href="/contact/" class="nav-link {% if '/contact' in request.path %}active{% endif %}" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="lang-toggle" id="langToggle" aria-label="Toggle language">🔁 বাংলা</button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
+        </div>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col footer-brand">
+            <div class="footer-logo">
+                <span style="font-size:1.6rem">🎓</span>
+                <div><span class="footer-logo-title">Exam Guide India</span><span class="footer-logo-sub">Your Guide. Your Success.</span></div>
+            </div>
+            <p class="footer-brand-desc" data-en="A free exam preparation portal dedicated to helping aspirants crack WBCS, PSC, SSC, Railway and Police exams with authentic study materials and timely updates." data-bn="WBCS, PSC, SSC, রেলওয়ে ও পুলিশ পরীক্ষায় সাফল্যের জন্য বিনামূল্যে প্রস্তুতির সুযোগ।">A free exam preparation portal dedicated to helping aspirants crack WBCS, PSC, SSC, Railway and Police exams with authentic study materials and timely updates.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                <a href="#" class="social-icon" aria-label="Telegram">✈️</a>
+                <a href="#" class="social-icon" aria-label="YouTube">▶️</a>
+                <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-heading" data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4>
+            <a href="/" data-en="Home" data-bn="হোম">Home</a>
+            <a href="/about/" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+            <a href="/notes/" data-en="Notes" data-bn="নোটস">Notes</a>
+            <a href="/quiz/" data-en="Quiz" data-bn="কুইজ">Quiz</a>
+            <a href="/contact/" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-heading" data-en="Popular Exams" data-bn="জনপ্রিয় পরীক্ষা">Popular Exams</h4>
+            <a href="/wbcs/">WBCS</a>
+            <a href="/psc/misc/">PSC MISC</a>
+            <a href="/ssc/cgl/">SSC CGL</a>
+            <a href="/railway/ntpc-graduate/">Railway NTPC</a>
+            <a href="/police/wbp-constable/">WBP Constable</a>
+            <a href="/police/kolkata-police/">Kolkata Police</a>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-heading" data-en="Stay Updated" data-bn="আপডেট থাকুন">Stay Updated</h4>
+            <p data-en="Get the latest exam notifications and study resources straight to your inbox." data-bn="সর্বশেষ পরীক্ষার বিজ্ঞপ্তি ও স্টাডি মেটেরিয়াল পান।">Get the latest exam notifications and study resources straight to your inbox.</p>
+            <form class="subscribe" onsubmit="handleSubscribe(event)">
+                <input type="email" id="emailInput" placeholder="Your email address" data-en-placeholder="Your email address" data-bn-placeholder="আপনার ইমেল ঠিকানা" required>
+                <button type="submit" data-en="Subscribe" data-bn="সাবস্ক্রাইব">Subscribe</button>
+            </form>
+            <div id="subscribeMsg" style="margin-top:6px;font-size:0.76rem;color:#86efac;display:none;"></div>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p data-en="© 2026 Exam Guide India. All rights reserved." data-bn="© ২০২৬ পরীক্ষা গাইড ইন্ডিয়া। সর্বস্বত্ব সংরক্ষিত।">© 2026 Exam Guide India. All rights reserved.</p>
+        <p data-en="Made with ❤️ for Aspirants across West Bengal" data-bn="পশ্চিমবঙ্গের পরীক্ষার্থীদের জন্য ❤️">Made with ❤️ for Aspirants across West Bengal</p>
+    </div>
+    <a href="#" class="scroll-top" aria-label="Back to top">↑</a>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

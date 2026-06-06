@@ -1,0 +1,52 @@
+Build a complete full-stack web application for "Exam Guide India" with the following specifications:
+
+1. Homepage (index.html) with:
+   - Navigation bar: Home, Exams, Notes, Quiz, About Us, Contact (all working links)
+   - Hero section: "Dream • Prepare • Achieve"
+   - Popular exams section: cards for WBCS, PSC, SSC, Railway, Police, Notes. Each card has a distinct background color and links to respective subpages.
+   - "Why Aspirants Trust Us" section: dark blue background, 5 cards (Quality Content, Mock Tests, Performance, Always Updated, 100% Free).
+   - Study Resources section and Current Affairs list.
+   - Footer with quick links and email subscription.
+   - Language toggle button (Bengali/English) that toggles all text on the page.
+
+2. Subpages for each exam category (create separate HTML files inside folders):
+   - For Railway: /railway/ntpc-graduate.html, /railway/ntpc-ug.html, /railway/group-d.html, /railway/technician.html
+   - For SSC: /ssc/cgl.html, /ssc/chsl.html, /ssc/gd.html, /ssc/mts.html
+   - For PSC: /psc/misc.html, /psc/clerkship.html, /psc/wbcs.html (WBCS already exists but restructure)
+   - Also keep existing WBCS, Police, Notes pages.
+
+3. Each subpage must include:
+   - Same header and language toggle as homepage.
+   - Exam pattern (table format).
+   - Syllabus (bullet points).
+   - Important notices (latest notifications with download links) – these should be dynamically loaded.
+   - Upcoming vacancies (display numbers and dates).
+   - Online form fill link (direct official link).
+   - Result link (official result page).
+   - All this data must be automatically updated from official websites using a backend robot (scraper).
+
+4. Backend automation (robot):
+   - Use Node.js (Express) or Python (Flask) with cron jobs.
+   - Scrape official websites: 
+        * SSC: ssc.nic.in
+        * PSC: psc.wb.gov.in
+        * Railway: rrbapply.gov.in, indianrailways.gov.in
+        * WBPolice: wbpolice.gov.in
+   - Collect latest notifications (title, date, download link), upcoming vacancies, results.
+   - Store data in a JSON file or SQLite database.
+   - Frontend JavaScript fetches data from backend API (e.g., `/api/notifications?exam=railway-groupd`) and displays dynamically.
+   - Set up cron job to run scraper every 6 hours.
+
+5. Frontend functionality:
+   - All navigation links must work correctly.
+   - Each subpage loads its own exam-specific data from backend.
+   - Language toggle (Bengali/English) works on every page (shared JS).
+   - Responsive design (mobile friendly).
+
+6. Tech stack (choose one):
+   - Option A: Node.js + Express + EJS (server-side rendering) + SQLite + Puppeteer/Cheerio.
+   - Option B: Python + Flask + Jinja2 + SQLite + BeautifulSoup/Selenium.
+
+7. Provide full code with file structure, setup instructions, and deployment guide for Replit.
+
+Make sure to implement the scraper with error handling (if official site changes, fallback to last cached data). Also include a manual update button in admin panel ( /admin ) to trigger scrape.

@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% block title %}{{ exam.name }} – {{ exam.full_name }} | Exam Guide India{% endblock %}
+{% block meta_desc %}Complete guide for {{ exam.full_name }}: exam pattern, syllabus, age limit, eligibility, salary, selection process and latest 2026 notifications.{% endblock %}
+{% block og_title %}{{ exam.name }} – {{ exam.full_name }} | Exam Guide India{% endblock %}
+
+{% block head %}
+<style>:root{--exam-color:{{ exam.color }};--exam-light:{{ exam.light }};}</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="--cat-color:{{ exam.color }};--cat-light:{{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="/">Home</a> <span>›</span>
+            <a href="/{{ exam.category }}/">{{ category.name }}</a> <span>›</span>
+            <span>{{ exam.name }}</span>
+        </div>
+        <div class="page-hero-icon">{{ exam.icon }}</div>
+        <h1 class="page-hero-title">{{ exam.full_name }}</h1>
+        <p class="page-hero-desc">{{ exam.overview[:180] }}...</p>
+        <div class="exam-quick-links">
+            <a href="{{ exam.apply_link }}" target="_blank" rel="noopener" class="btn-apply">📋 <span data-en="Apply Online" data-bn="আবেদন করুন">Apply Online</span></a>
+            <a href="{{ exam.result_link }}" target="_blank" rel="noopener" class="btn-result">📊 <span data-en="Results" data-bn="ফলাফল">Results</span></a>
+            <a href="{{ exam.official_url }}" target="_blank" rel="noopener" class="btn-official">🌐 <span data-en="Official Site" data-bn="অফিসিয়াল সাইট">Official Site</span></a>
+        </div>
+        {% if exam.sub_pages %}
+        <div class="sub-page-links">
+            <span style="font-size:0.78rem;color:#6c3fbf;font-weight:600;" data-en="Sub-pages:" data-bn="সাব-পেজ:">Sub-pages:</span>
+            {% for sp in exam.sub_pages %}
+            <a href="{{ sp.url }}" class="sub-page-btn">{{ sp.name }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<div class="container">
+    <div class="exam-tabs" id="examTabs">
+        <button class="tab-btn active" data-tab="overview" data-en="📖 Overview" data-bn="📖 সংক্ষিপ্ত বিবরণ">📖 Overview</button>
+        <button class="tab-btn" data-tab="eligibility" data-en="👤 Eligibility" data-bn="👤 যোগ্যতা">👤 Eligibility</button>
+        <button class="tab-btn" data-tab="notifications" data-en="🔔 Notifications" data-bn="🔔 বিজ্ঞপ্তি">🔔 Notifications</button>
+        <button class="tab-btn" data-tab="vacancies" data-en="💼 Vacancies" data-bn="💼 শূন্যপদ">💼 Vacancies</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div class="tab-content active" id="tab-overview">
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="📌 Exam Overview" data-bn="📌 পরীক্ষার সংক্ষিপ্ত বিবরণ">📌 Exam Overview</h2>
+            <p style="font-size:0.9rem;color:#374151;line-height:1.8;">{{ exam.overview }}</p>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="📅 Exam Pattern" data-bn="📅 পরীক্ষার ধরন">📅 Exam Pattern</h2>
+            <div class="table-wrap">
+                <table class="exam-table">
+                    <thead>
+                        <tr><th data-en="Stage" data-bn="পর্যায়">Stage</th><th data-en="Subjects / Papers" data-bn="বিষয় / পেপার">Subjects / Papers</th><th data-en="Questions" data-bn="প্রশ্ন">Questions</th><th data-en="Marks" data-bn="নম্বর">Marks</th><th data-en="Duration" data-bn="সময়">Duration</th><th data-en="Negative Marking" data-bn="নেগেটিভ মার্কিং">Negative Marking</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for row in exam.pattern %}
+                        <tr>
+                            <td><strong>{{ row.stage }}</strong></td>
+                            <td>{{ row.subjects }}</td>
+                            <td>{{ row.questions }}</td>
+                            <td>{{ row.marks }}</td>
+                            <td>{{ row.duration }}</td>
+                            <td>{{ row.negative }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="📚 Syllabus" data-bn="📚 সিলেবাস">📚 Syllabus</h2>
+            <ul class="syllabus-list">
+                {% for item in exam.syllabus %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="🗺️ Selection Process" data-bn="🗺️ বাছাই প্রক্রিয়া">🗺️ Selection Process</h2>
+            <div class="selection-steps">
+                {% for step in exam.selection_process %}
+                <div class="sel-step">
+                    <div class="sel-num">{{ loop.index }}</div>
+                    <div class="sel-text">{{ step }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="guide-section tips-section">
+            <h2 class="gs-title" data-en="💡 Preparation Tips" data-bn="💡 প্রস্তুতির টিপস">💡 Preparation Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card"><span class="tip-icon">📰</span><h4 data-en="Daily Current Affairs" data-bn="দৈনিক কারেন্ট অ্যাফেয়ার্স">Daily Current Affairs</h4><p data-en="Read newspapers and follow exam-specific current affairs daily." data-bn="নিয়মিত সংবাদপত্র পড়ুন।">Read newspapers and follow exam-specific current affairs daily.</p></div>
+                <div class="tip-card"><span class="tip-icon">📝</span><h4 data-en="Practice Mock Tests" data-bn="মক টেস্ট দিন">Practice Mock Tests</h4><p data-en="Take our free mock tests to simulate real exam conditions." data-bn="বাস্তব পরিবেশে মক টেস্ট দিন।">Take our <a href="/quiz/">free mock tests</a> to simulate real exam conditions.</p></div>
+                <div class="tip-card"><span class="tip-icon">📋</span><h4 data-en="Curated Notes" data-bn="কিউরেটেড নোটস">Curated Notes</h4><p data-en="Use our topic-wise notes for efficient revision." data-bn="টপিক অনুযায়ী নোট দিয়ে রিভিশন করুন।">Use our <a href="/notes/">topic-wise notes</a> for efficient revision.</p></div>
+                <div class="tip-card"><span class="tip-icon">⏰</span><h4 data-en="Time Management" data-bn="সময় ব্যবস্থাপনা">Time Management</h4><p data-en="Create a timetable and stick to it. Consistency beats intensity." data-bn="রুটিন তৈরি করুন এবং মেনে চলুন।">Create a timetable. Consistency beats intensity.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: ELIGIBILITY -->
+    <div class="tab-content" id="tab-eligibility">
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="👤 Age Limit" data-bn="👤 বয়সসীমা">👤 Age Limit</h2>
+            <div class="elig-row"><span class="elig-label" data-en="General Category:" data-bn="সাধারণ শ্রেণি:">General Category:</span><span class="elig-val">{{ exam.age_limit }}</span></div>
+            <div class="elig-row elig-relax"><span class="elig-label" data-en="Age Relaxation:" data-bn="বয়স শিথিল:">Age Relaxation:</span><span class="elig-val">{{ exam.age_relaxation }}</span></div>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="🎓 Educational Qualification" data-bn="🎓 শিক্ষাগত যোগ্যতা">🎓 Educational Qualification</h2>
+            <p style="font-size:0.9rem;color:#374151;line-height:1.8;padding:4px 0;">{{ exam.qualification }}</p>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="💰 Posts & Salary (7th CPC)" data-bn="💰 পদ ও বেতন (7th CPC)">💰 Posts & Salary (7th CPC)</h2>
+            <div class="table-wrap">
+                <table class="exam-table">
+                    <thead>
+                        <tr><th data-en="Post / Designation" data-bn="পদ">Post / Designation</th><th data-en="Pay Level" data-bn="পে লেভেল">Pay Level</th><th data-en="Grade Pay" data-bn="গ্রেড পে">Grade Pay</th><th data-en="Approx. Salary" data-bn="আনুমানিক বেতন">Approx. Salary</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for p in exam.posts %}
+                        <tr>
+                            <td><strong>{{ p.post }}</strong></td>
+                            <td>{{ p.pay_level }}</td>
+                            <td>{{ p.grade_pay }}</td>
+                            <td>{{ p.salary }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.75rem;color:#94a3b8;margin-top:10px;" data-en="* Salary figures are approximate under 7th CPC. Actual salary includes DA, HRA, TA and other allowances as applicable." data-bn="* বেতন 7th CPC অনুযায়ী আনুমানিক। প্রকৃত বেতনে DA, HRA, TA সহ অন্যান্য ভাতা অন্তর্ভুক্ত।">* Salary figures are approximate under 7th CPC. Actual salary includes DA, HRA, TA and other allowances as applicable.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="🪙 Application Fee" data-bn="🪙 আবেদন ফি">🪙 Application Fee</h2>
+            <div class="fee-grid">
+                <div class="fee-card"><div class="fee-cat" data-en="General / OBC" data-bn="সাধারণ / OBC">General / OBC</div><div class="fee-amt">{{ exam.app_fee.general }}</div></div>
+                <div class="fee-card fee-card-green"><div class="fee-cat" data-en="SC / ST / PwD" data-bn="SC / ST / PwD">SC / ST / PwD</div><div class="fee-amt">{{ exam.app_fee.sc_st }}</div></div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="🔗 Important Links" data-bn="🔗 গুরুত্বপূর্ণ লিংক">🔗 Important Links</h2>
+            <div class="important-links">
+                <a href="{{ exam.official_url }}" target="_blank" rel="noopener" class="imp-link"><span>🌐</span><span data-en="Official Website" data-bn="অফিসিয়াল ওয়েবসাইট">Official Website</span></a>
+                <a href="{{ exam.apply_link }}" target="_blank" rel="noopener" class="imp-link"><span>📋</span><span data-en="Apply Online" data-bn="অনলাইনে আবেদন">Apply Online</span></a>
+                <a href="{{ exam.result_link }}" target="_blank" rel="noopener" class="imp-link"><span>📊</span><span data-en="Result / Merit List" data-bn="ফলাফল / মেরিট লিস্ট">Result / Merit List</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: NOTIFICATIONS -->
+    <div class="tab-content" id="tab-notifications">
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="🔔 Latest Notifications" data-bn="🔔 সর্বশেষ বিজ্ঞপ্তি">🔔 Latest Notifications</h2>
+            <p class="gs-subtitle" data-en="Auto-updated from official source every 6 hours. Click any item to view the original notification." data-bn="প্রতি ৬ ঘণ্টায় অফিসিয়াল সোর্স থেকে স্বয়ংক্রিয়ভাবে আপডেট।">Auto-updated from official source every 6 hours. Click any item to view the original notification.</p>
+            <div id="notifList" class="notif-list"><div class="loading-spinner">⏳ <span data-en="Loading notifications..." data-bn="লোড হচ্ছে...">Loading notifications...</span></div></div>
+        </div>
+        <div class="guide-section" style="background:#fafaff;border-style:dashed;">
+            <p style="font-size:0.85rem;color:#64748b;text-align:center;" data-en="📌 Latest notice: {{ exam.notice }}" data-bn="📌 সর্বশেষ বিজ্ঞপ্তি: সরকারি ওয়েবসাইট দেখুন।">📌 {{ exam.notice }}</p>
+        </div>
+    </div>
+
+    <!-- TAB: VACANCIES -->
+    <div class="tab-content" id="tab-vacancies">
+        <div class="guide-section">
+            <h2 class="gs-title" data-en="💼 Vacancies" data-bn="💼 শূন্যপদ">💼 Vacancies</h2>
+            <div id="vacancyList" class="vacancy-list"><div class="loading-spinner">⏳ <span data-en="Loading vacancies..." data-bn="লোড হচ্ছে...">Loading vacancies...</span></div></div>
+        </div>
+        <div class="guide-section" style="background:#fafaff;border-style:dashed;">
+            <p style="font-size:0.85rem;color:#64748b;text-align:center;" data-en="📌 {{ exam.vacancy }}" data-bn="📌 সর্বশেষ শূন্যপদ তথ্যের জন্য অফিসিয়াল ওয়েবসাইট দেখুন।">📌 {{ exam.vacancy }}</p>
+        </div>
+    </div>
+
+    <!-- BOTTOM CARDS: Monthly CA + Mock Test -->
+    <div class="bottom-cards-row">
+        <a href="/notes/demo-notes/" class="bottom-card bc-blue">
+            <div class="bc-icon">📘</div>
+            <div class="bc-content">
+                <h4 data-en="Monthly Current Affairs Notes" data-bn="মাসিক কারেন্ট অ্যাফেয়ার্স নোট">Monthly Current Affairs Notes</h4>
+                <p data-en="Download PDF – June 2026 edition" data-bn="PDF ডাউনলোড করুন – জুন ২০২৬">Download PDF – June 2026 edition</p>
+            </div>
+            <span class="bc-arrow">→</span>
+        </a>
+        <a href="/quiz/demo-quiz/" class="bottom-card bc-purple">
+            <div class="bc-icon">📝</div>
+            <div class="bc-content">
+                <h4 data-en="Practice Mock Test" data-bn="প্র্যাকটিস মক টেস্ট">Practice Mock Test</h4>
+                <p data-en="Start free quiz – exam pattern questions" data-bn="ফ্রি কুইজ শুরু করুন – পরীক্ষার ধাঁচে প্রশ্ন">Start free quiz – exam pattern questions</p>
+            </div>
+            <span class="bc-arrow">→</span>
+        </a>
+    </div>
+
+    <div class="exam-footer-nav">
+        <a href="/{{ exam.category }}/" class="btn-back-home">← <span data-en="Back to {{ category.name }}" data-bn="{{ category.name }}-এ ফিরুন">Back to {{ category.name }}</span></a>
+        <a href="{{ exam.apply_link }}" target="_blank" rel="noopener" class="btn-apply-big" data-en="Apply Now →" data-bn="এখনই আবেদন করুন →">Apply Now →</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/exam-page.js') }}"></script>
+<script>initExamPage('{{ exam.key }}');</script>
+{% endblock %}

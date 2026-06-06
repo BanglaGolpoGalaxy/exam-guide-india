@@ -1,109 +1,252 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Exam Guide India | Your Guide. Your Success.</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- টপ বার -->
-<div class="top-bar" id="topBar" data-en="⭐ India's most trusted exam prep platform" data-bn="⭐ ভারতের সবচেয়ে বিশ্বস্ত পরীক্ষা প্রস্তুতি প্ল্যাটফর্ম">
-    ⭐ India's most trusted exam prep platform
-</div>
-
-<div class="container">
-    <div class="navbar">
+<!-- NAVBAR -->
+<header class="navbar-wrapper">
+    <div class="container navbar">
         <div class="logo">
-            <h1>📘 Exam Guide India</h1>
-            <p>Your Guide. Your Success.</p>
+            <span class="logo-icon">🎓</span>
+            <div class="logo-text">
+                <span class="logo-title" data-en="Exam Guide India" data-bn="পরীক্ষা গাইড ইন্ডিয়া">Exam Guide India</span>
+                <span class="logo-sub" data-en="Your Guide. Your Success." data-bn="আপনার গাইড। আপনার সাফল্য।">Your Guide. Your Success.</span>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li>
-            <li><a href="#popular-exams" data-en="Exams" data-bn="পরীক্ষা">Exams</a></li>
-            <li><a href="notes/" data-en="Notes" data-bn="নোটস">Notes</a></li>
-            <li><a href="quiz/" data-en="Quiz" data-bn="কুইজ">Quiz</a></li>
-            <li><a href="#about-us" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a></li>
-            <li><a href="#contact" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
-        </ul>
-        <button class="lang-toggle" id="langToggle">🔁 বাংলা</button>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link active" data-en="Home" data-bn="হোম">Home</a>
+            <a href="#popular-exams" class="nav-link" data-en="Exams" data-bn="পরীক্ষা">Exams <span class="nav-arrow">▾</span></a>
+            <a href="notes/" class="nav-link" data-en="Notes" data-bn="নোটস">Notes</a>
+            <a href="quiz/" class="nav-link" data-en="Quiz" data-bn="কুইজ">Quiz</a>
+            <a href="#about-us" class="nav-link" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+            <a href="#contact" class="nav-link" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="nav-search-btn" aria-label="Search">🔍</button>
+            <button class="btn-login" data-en="Login / Register" data-bn="লগইন / নিবন্ধন">Login / Register</button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+        </div>
     </div>
-</div>
+</header>
 
-<!-- হিরো সেকশন -->
+<!-- HERO -->
 <section class="hero">
-    <div class="container">
-        <h2><span data-en="DREAM • PREPARE • ACHIEVE" data-bn="স্বপ্ন • প্রস্তুতি • সাফল্য">DREAM • PREPARE • ACHIEVE</span></h2>
-        <h3 data-en="Your Journey to a Government Job Starts Here!" data-bn="চাকরির যাত্রা শুরু হোক এখান থেকে!">Your Journey to a Government Job Starts Here!</h3>
-        <p data-en="Study smart with the best notes, mock tests, quizzes and latest updates for all competitive exams." data-bn="সেরা নোট, মক টেস্ট, কুইজ ও সর্বশেষ আপডেট সহ স্মার্ট পড়াশোনা করুন।">
-            Study smart with the best notes, mock tests, quizzes and latest updates for all competitive exams.
-        </p>
-        <div class="search-badge" data-en="🔍 What are you looking for?" data-bn="🔍 কী খুঁজছেন?">🔍 What are you looking for?</div>
-        <div class="stats-row">
-            <div class="stat-item"><span class="stat-number" data-en="Trusted Content" data-bn="বিশ্বস্ত কন্টেন্ট">Trusted Content</span></div>
-            <div class="stat-item"><span class="stat-number" data-en="Regular Updates" data-bn="নিয়মিত আপডেট">Regular Updates</span></div>
-            <div class="stat-item"><span class="stat-number" data-en="Expert Team" data-bn="বিশেষজ্ঞ টিম">Expert Team</span></div>
-            <div class="stat-item"><span class="stat-number" data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</span></div>
+    <div class="container hero-inner">
+        <div class="hero-left">
+            <div class="hero-badge" data-en="✦ DREAM • PREPARE • ACHIEVE" data-bn="✦ স্বপ্ন • প্রস্তুতি • সাফল্য">✦ DREAM • PREPARE • ACHIEVE</div>
+            <h1 class="hero-heading">
+                <span data-en="Your Journey to a" data-bn="চাকরির যাত্রা">Your Journey to a</span><br>
+                <span data-en="Government Job Starts" data-bn="শুরু হোক">Government Job Starts</span><br>
+                <em class="hero-highlight" data-en="Here!" data-bn="এখান থেকে!">Here!</em>
+            </h1>
+            <p class="hero-sub" data-en="Study smart with the best notes, mock tests, quizzes and latest updates for all competitive exams." data-bn="সেরা নোট, মক টেস্ট, কুইজ ও সর্বশেষ আপডেট সহ স্মার্ট পড়াশোনা করুন।">
+                Study smart with the best notes, mock tests, quizzes and latest updates for all competitive exams.
+            </p>
+            <div class="hero-search">
+                <input type="text" placeholder="What are you looking for?" data-en-placeholder="What are you looking for?" data-bn-placeholder="কী খুঁজছেন?" id="heroSearch">
+                <button class="hero-search-btn">🔍</button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><span class="hstat-icon">✅</span><span data-en="Trusted Content" data-bn="বিশ্বস্ত কন্টেন্ট">Trusted Content</span></div>
+                <div class="hero-stat"><span class="hstat-icon">🔄</span><span data-en="Regular Updates" data-bn="নিয়মিত আপডেট">Regular Updates</span></div>
+                <div class="hero-stat"><span class="hstat-icon">👤</span><span data-en="Expert Team" data-bn="বিশেষজ্ঞ টিম">Expert Team</span></div>
+                <div class="hero-stat"><span class="hstat-icon">🏆</span><span data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</span></div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="images/hero-illustration.png" alt="Student studying" class="hero-img">
         </div>
     </div>
 </section>
 
-<div class="container" id="popular-exams">
-    <h2 class="section-title" data-en="POPULAR EXAMS" data-bn="জনপ্রিয় পরীক্ষা">POPULAR EXAMS</h2>
-    <p style="text-align:center; margin-bottom:20px;" data-en="Choose Your Exam Path" data-bn="আপনার পরীক্ষার পথ বেছে নিন">Choose Your Exam Path</p>
-
-    <div class="exam-grid">
-        <div class="card card-wbcs"><h3>📌 WBCS</h3><p data-en="West Bengal Civil Service" data-bn="পশ্চিমবঙ্গ সিভিল সার্ভিস">West Bengal Civil Service</p><a href="wbcs/" class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a></div>
-        <div class="card card-psc"><h3>📌 PSC</h3><p data-en="Public Service Commission" data-bn="পাবলিক সার্ভিস কমিশন">Public Service Commission</p><a href="psc/" class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a></div>
-        <div class="card card-ssc"><h3>📌 SSC</h3><p data-en="Staff Selection Commission" data-bn="স্টাফ সিলেকশন কমিশন">Staff Selection Commission</p><a href="ssc/" class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a></div>
-        <div class="card card-railway"><h3>🚆 Railway</h3><p data-en="Railway Recruitment Boards" data-bn="রেলওয়ে রিক্রুটমেন্ট বোর্ড">Railway Recruitment Boards</p><a href="railway/" class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a></div>
-        <div class="card card-police"><h3>👮 Police</h3><p data-en="Police Recruitment Exams" data-bn="পুলিশ রিক্রুটমেন্ট পরীক্ষা">Police Recruitment Exams</p><a href="police/" class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a></div>
-        <div class="card card-notes"><h3>📓 Notes</h3><p data-en="Handwritten & PDF Notes" data-bn="হাতে লেখা ও পিডিএফ নোট">Handwritten & PDF Notes</p><a href="notes/" class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a></div>
+<!-- POPULAR EXAMS -->
+<section class="exams-section" id="popular-exams">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text" data-en="POPULAR EXAMS" data-bn="জনপ্রিয় পরীক্ষা">POPULAR EXAMS</span>
+            <span class="label-line"></span>
+        </div>
+        <h2 class="section-heading" data-en="Choose Your Exam Path" data-bn="আপনার পরীক্ষার পথ বেছে নিন">Choose Your Exam Path</h2>
+        <div class="exam-grid">
+            <div class="exam-card">
+                <div class="exam-icon exam-icon-blue">🏛️</div>
+                <h3 class="exam-name" data-en="WBCS" data-bn="ডব্লিউবিসিএস">WBCS</h3>
+                <p class="exam-desc" data-en="West Bengal Civil Service" data-bn="পশ্চিমবঙ্গ সিভিল সার্ভিস">West Bengal Civil Service</p>
+                <a href="wbcs/" class="btn-explore btn-blue" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a>
+            </div>
+            <div class="exam-card">
+                <div class="exam-icon exam-icon-green">⚖️</div>
+                <h3 class="exam-name" data-en="PSC" data-bn="পিএসসি">PSC</h3>
+                <p class="exam-desc" data-en="Public Service Commission" data-bn="পাবলিক সার্ভিস কমিশন">Public Service Commission</p>
+                <a href="psc/" class="btn-explore btn-green" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a>
+            </div>
+            <div class="exam-card">
+                <div class="exam-icon exam-icon-purple">🎖️</div>
+                <h3 class="exam-name" data-en="SSC" data-bn="এসএসসি">SSC</h3>
+                <p class="exam-desc" data-en="Staff Selection Commission" data-bn="স্টাফ সিলেকশন কমিশন">Staff Selection Commission</p>
+                <a href="ssc/" class="btn-explore btn-purple" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a>
+            </div>
+            <div class="exam-card">
+                <div class="exam-icon exam-icon-orange">🚆</div>
+                <h3 class="exam-name exam-orange" data-en="Railway" data-bn="রেলওয়ে">Railway</h3>
+                <p class="exam-desc" data-en="Railway Recruitment Boards" data-bn="রেলওয়ে রিক্রুটমেন্ট বোর্ড">Railway Recruitment Boards</p>
+                <a href="railway/" class="btn-explore btn-orange" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a>
+            </div>
+            <div class="exam-card">
+                <div class="exam-icon exam-icon-red">🛡️</div>
+                <h3 class="exam-name exam-red" data-en="Police" data-bn="পুলিশ">Police</h3>
+                <p class="exam-desc" data-en="Police Recruitment Exams" data-bn="পুলিশ রিক্রুটমেন্ট পরীক্ষা">Police Recruitment Exams</p>
+                <a href="police/" class="btn-explore btn-red" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a>
+            </div>
+            <div class="exam-card">
+                <div class="exam-icon exam-icon-teal">📋</div>
+                <h3 class="exam-name exam-teal" data-en="Notes" data-bn="নোটস">Notes</h3>
+                <p class="exam-desc" data-en="Handwritten & PDF Notes" data-bn="হাতে লেখা ও পিডিএফ নোট">Handwritten & PDF Notes</p>
+                <a href="notes/" class="btn-explore btn-teal" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</a>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-<!-- Why Aspirants Trust Us (Dark Blue Background, No numbers) -->
+<!-- WHY TRUST US -->
 <section class="trust-section">
-    <div class="container">
-        <h2 class="section-title" style="color: white;" data-en="Why Aspirants Trust Us?" data-bn="কেন পরীক্ষার্থীরা আমাদের বিশ্বাস করে?">Why Aspirants Trust Us?</h2>
-        <div class="why-grid-dark">
-            <div class="trust-card"><span style="font-size:2rem;">📚</span><h3 data-en="Quality Content" data-bn="গুণগত কন্টেন্ট">Quality Content</h3><p data-en="Curated by experts, made for toppers." data-bn="বিশেষজ্ঞদের দ্বারা তৈরি, টপারদের জন্য।">Curated by experts, made for toppers.</p></div>
-            <div class="trust-card"><span style="font-size:2rem;">📝</span><h3 data-en="Mock Tests" data-bn="মক টেস্ট">Mock Tests</h3><p data-en="Real exam experience with detailed analysis." data-bn="বিশ্লেষণ সহ বাস্তব পরীক্ষার অভিজ্ঞতা।">Real exam experience with detailed analysis.</p></div>
-            <div class="trust-card"><span style="font-size:2rem;">📈</span><h3 data-en="Performance" data-bn="পারফরম্যান্স">Performance</h3><p data-en="Track progress and improve daily." data-bn="অগ্রগতি ট্র্যাক করুন এবং প্রতিদিন উন্নতি করুন।">Track progress and improve daily.</p></div>
-            <div class="trust-card"><span style="font-size:2rem;">🔄</span><h3 data-en="Always Updated" data-bn="সর্বদা আপডেট">Always Updated</h3><p data-en="Get the latest exam news & notifications." data-bn="সর্বশেষ পরীক্ষার খবর ও নোটিফিকেশন পান।">Get the latest exam news & notifications.</p></div>
-            <div class="trust-card"><span style="font-size:2rem;">💰</span><h3 data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</h3><p data-en="All resources are completely free." data-bn="সমস্ত সংস্থান সম্পূর্ণ বিনামূল্যে।">All resources are completely free.</p></div>
+    <div class="container trust-inner">
+        <div class="trust-left">
+            <p class="trust-sub" data-en="Why Aspirants" data-bn="কেন পরীক্ষার্থীরা">Why Aspirants</p>
+            <h2 class="trust-heading" data-en="Trust Us?" data-bn="আমাদের বিশ্বাস করে?">Trust Us?</h2>
+            <a href="#about-us" class="btn-know" data-en="Know More →" data-bn="আরও জানুন →">Know More →</a>
+        </div>
+        <div class="trust-features">
+            <div class="trust-feature">
+                <div class="tf-icon">👤</div>
+                <div>
+                    <h4 data-en="Quality Content" data-bn="গুণগত কন্টেন্ট">Quality Content</h4>
+                    <p data-en="Curated by experts, made for toppers." data-bn="বিশেষজ্ঞদের দ্বারা তৈরি।">Curated by experts, made for toppers.</p>
+                </div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">🧩</div>
+                <div>
+                    <h4 data-en="Mock Tests" data-bn="মক টেস্ট">Mock Tests</h4>
+                    <p data-en="Real exam experience with detailed analysis." data-bn="বিশ্লেষণ সহ বাস্তব অভিজ্ঞতা।">Real exam experience with detailed analysis.</p>
+                </div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">📈</div>
+                <div>
+                    <h4 data-en="Performance" data-bn="পারফরম্যান্স">Performance</h4>
+                    <p data-en="Track progress and improve daily." data-bn="প্রতিদিন অগ্রগতি ট্র্যাক করুন।">Track progress and improve daily.</p>
+                </div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">🔔</div>
+                <div>
+                    <h4 data-en="Always Updated" data-bn="সর্বদা আপডেট">Always Updated</h4>
+                    <p data-en="Get the latest exam news & notifications." data-bn="সর্বশেষ খবর পান।">Get the latest exam news & notifications.</p>
+                </div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">💎</div>
+                <div>
+                    <h4 data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</h4>
+                    <p data-en="All resources are completely free." data-bn="সম্পূর্ণ বিনামূল্যে।">All resources are completely free.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- স্টাডি রিসোর্সেস ও কারেন্ট অ্যাফেয়ার্স (আগের মতো) -->
-<div class="container">
-    <div class="resource-section">
-        <div class="resource-card"><h3 data-en="📘 STUDY RESOURCES" data-bn="📘 পড়ার সংস্থান">📘 STUDY RESOURCES</h3><p data-en="Notes, Quizzes & More" data-bn="নোট, কুইজ ও আরও কিছু">Notes, Quizzes & More</p><p data-en="Access handwritten notes, practice quizzes, current affairs and everything you need." data-bn="হাতে লেখা নোট, প্র্যাকটিস কুইজ, কারেন্ট অ্যাফেয়ার্স এবং আপনার প্রয়োজনীয় সবকিছু অ্যাক্সেস করুন।">Access handwritten notes, practice quizzes, current affairs and everything you need.</p><a href="notes/" class="btn-explore" data-en="Explore Notes →" data-bn="নোট দেখুন →">Explore Notes →</a> <a href="quiz/" class="btn-explore" style="background:#e67e22;" data-en="Try Quiz →" data-bn="কুইজ চেষ্টা করুন →">Try Quiz →</a></div>
+<!-- IMPACT IN NUMBERS -->
+<section class="impact-section">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text" data-en="Our Impact in Numbers" data-bn="আমাদের প্রভাব সংখ্যায়">Our Impact in Numbers</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-item">
+                <div class="impact-icon">🎓</div>
+                <div class="impact-num">50,000+</div>
+                <div class="impact-label" data-en="Happy Aspirants" data-bn="সন্তুষ্ট পরীক্ষার্থী">Happy Aspirants</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon">📚</div>
+                <div class="impact-num">2,500+</div>
+                <div class="impact-label" data-en="Study Materials" data-bn="স্টাডি মেটেরিয়াল">Study Materials</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon">📝</div>
+                <div class="impact-num">10,000+</div>
+                <div class="impact-label" data-en="Mock Tests Taken" data-bn="মক টেস্ট নেওয়া হয়েছে">Mock Tests Taken</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-icon">🏆</div>
+                <div class="impact-num">1,000+</div>
+                <div class="impact-label" data-en="Success Stories" data-bn="সাফল্যের গল্প">Success Stories</div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="current-list">
-        <h3 data-en="📰 Current Affairs Today" data-bn="📰 আজকের কারেন্ট অ্যাফেয়ার্স">📰 Current Affairs Today</h3>
-        <ul>
-            <li data-en="✅ Daily Current Affairs – 27 May 2025" data-bn="✅ দৈনিক কারেন্ট অ্যাফেয়ার্স – ২৭ মে ২০২৫">✅ Daily Current Affairs – 27 May 2025</li>
-            <li data-en="✅ Important Govt. Schemes 2025" data-bn="✅ গুরুত্বপূর্ণ সরকারি প্রকল্প ২০২৫">✅ Important Govt. Schemes 2025</li>
-            <li data-en="✅ Budget 2025 Highlights" data-bn="✅ বাজেট ২০২৫ হাইলাইটস">✅ Budget 2025 Highlights</li>
-            <li data-en="✅ Appointments & Resignations" data-bn="✅ নিয়োগ ও পদত্যাগ">✅ Appointments & Resignations</li>
-        </ul>
-        <div style="text-align:right;"><a href="#" data-en="View All Updates →" data-bn="সব আপডেট দেখুন →">View All Updates →</a></div>
+<!-- STUDY RESOURCES + CURRENT AFFAIRS -->
+<section class="resources-section">
+    <div class="container resources-inner">
+        <div class="resource-left">
+            <p class="resource-tag" data-en="STUDY RESOURCES" data-bn="পড়ার সংস্থান">STUDY RESOURCES</p>
+            <h2 class="resource-heading" data-en="Notes, Quizzes & More" data-bn="নোট, কুইজ ও আরও কিছু">Notes, Quizzes & More</h2>
+            <p class="resource-desc" data-en="Access handwritten notes, practice quizzes, current affairs and everything you need to crack your dream exam." data-bn="হাতে লেখা নোট, প্র্যাকটিস কুইজ, কারেন্ট অ্যাফেয়ার্স এবং আপনার প্রয়োজনীয় সবকিছু।">Access handwritten notes, practice quizzes, current affairs and everything you need to crack your dream exam.</p>
+            <div class="resource-btns">
+                <a href="notes/" class="btn-resource-outline" data-en="Explore Notes →" data-bn="নোট দেখুন →">Explore Notes →</a>
+                <a href="quiz/" class="btn-resource-solid" data-en="Try Quiz →" data-bn="কুইজ চেষ্টা করুন →">Try Quiz →</a>
+            </div>
+        </div>
+        <div class="resource-right">
+            <div class="current-affairs-card">
+                <div class="ca-header">
+                    <span data-en="Current Affairs Today" data-bn="আজকের কারেন্ট অ্যাফেয়ার্স">Current Affairs Today</span>
+                    <span class="ca-badge">New</span>
+                </div>
+                <ul class="ca-list">
+                    <li data-en="Daily Current Affairs – 18 May 2024" data-bn="দৈনিক কারেন্ট অ্যাফেয়ার্স – ১৮ মে ২০২৪">Daily Current Affairs – 18 May 2024</li>
+                    <li data-en="Important Govt. Schemes 2024" data-bn="গুরুত্বপূর্ণ সরকারি প্রকল্প ২০২৪">Important Govt. Schemes 2024</li>
+                    <li data-en="Budget 2024 Highlights" data-bn="বাজেট ২০২৪ হাইলাইটস">Budget 2024 Highlights</li>
+                    <li data-en="Appointments & Resignations" data-bn="নিয়োগ ও পদত্যাগ">Appointments &amp; Resignations</li>
+                </ul>
+                <a href="#" class="ca-link" data-en="View All Updates →" data-bn="সব আপডেট দেখুন →">View All Updates →</a>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-<!-- ফুটার (About Us এবং Contact এর জন্য অ্যাঙ্কর) -->
-<footer>
+<!-- FOOTER -->
+<footer id="contact">
     <div class="container footer-grid">
-        <div class="footer-col" id="about-us">
-            <h4 data-en="Exam Guide India" data-bn="পরীক্ষা গাইড ইন্ডিয়া">Exam Guide India</h4>
-            <p data-en="Your Guide. Your Success. A one-stop destination for government exam preparation." data-bn="আপনার গাইড। আপনার সাফল্য। সরকারি চাকরির প্রস্তুতির একক গন্তব্য।">Your Guide. Your Success. A one-stop destination for government exam preparation.</p>
+        <div class="footer-col footer-brand" id="about-us">
+            <div class="footer-logo">
+                <span class="logo-icon">🎓</span>
+                <div class="logo-text">
+                    <span class="footer-logo-title">Exam Guide India</span>
+                    <span class="footer-logo-sub">Your Guide. Your Success.</span>
+                </div>
+            </div>
+            <p class="footer-brand-desc" data-en="A one-stop destination for government exam preparation. Study smart, practice more, achieve your dreams." data-bn="সরকারি চাকরির প্রস্তুতির একক গন্তব্য। স্মার্ট পড়াশোনা করুন, আরও অনুশীলন করুন, স্বপ্ন পূরণ করুন।">A one-stop destination for government exam preparation. Study smart, practice more, achieve your dreams.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                <a href="#" class="social-icon" aria-label="Telegram">✈️</a>
+                <a href="#" class="social-icon" aria-label="YouTube">▶️</a>
+                <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+            </div>
         </div>
         <div class="footer-col">
-            <h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4>
+            <h4 class="footer-heading" data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4>
             <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
             <a href="#popular-exams" data-en="Exams" data-bn="পরীক্ষা">Exams</a>
             <a href="notes/" data-en="Notes" data-bn="নোটস">Notes</a>
@@ -112,15 +255,15 @@
             <a href="#contact" data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</a>
         </div>
         <div class="footer-col">
-            <h4 data-en="Popular Exams" data-bn="জনপ্রিয় পরীক্ষা">Popular Exams</h4>
-            <a href="wbcs/" data-en="WBCS" data-bn="ডব্লিউবিসিএস">WBCS</a>
-            <a href="psc/" data-en="PSC" data-bn="পিএসসি">PSC</a>
-            <a href="ssc/" data-en="SSC" data-bn="এসএসসি">SSC</a>
+            <h4 class="footer-heading" data-en="Popular Exams" data-bn="জনপ্রিয় পরীক্ষা">Popular Exams</h4>
+            <a href="wbcs/">WBCS</a>
+            <a href="psc/">PSC</a>
+            <a href="ssc/">SSC</a>
             <a href="railway/" data-en="Railway" data-bn="রেলওয়ে">Railway</a>
             <a href="police/" data-en="Police" data-bn="পুলিশ">Police</a>
         </div>
-        <div class="footer-col" id="contact">
-            <h4 data-en="Stay Updated" data-bn="আপডেট থাকুন">Stay Updated</h4>
+        <div class="footer-col">
+            <h4 class="footer-heading" data-en="Stay Updated" data-bn="আপডেট থাকুন">Stay Updated</h4>
             <p data-en="Get the latest updates and study materials delivered to your inbox." data-bn="সর্বশেষ আপডেট এবং স্টাডি মেটেরিয়াল আপনার ইনবক্সে পান।">Get the latest updates and study materials delivered to your inbox.</p>
             <div class="subscribe">
                 <input type="email" id="emailInput" placeholder="Enter your email" data-en-placeholder="Enter your email" data-bn-placeholder="আপনার ইমেল দিন">
@@ -128,9 +271,11 @@
             </div>
         </div>
     </div>
-    <div class="container copyright">
-        <p>© 2025 Exam Guide India. All rights reserved. <br> Made with ❤️ for Aspirants</p>
+    <div class="container footer-bottom">
+        <p data-en="© 2024 Exam Guide India. All rights reserved." data-bn="© ২০২৪ পরীক্ষা গাইড ইন্ডিয়া। সর্বস্বত্ব সংরক্ষিত।">© 2024 Exam Guide India. All rights reserved.</p>
+        <p data-en="Made with ❤️ for Aspirants" data-bn="পরীক্ষার্থীদের জন্য ❤️ দিয়ে তৈরি">Made with ❤️ for Aspirants</p>
     </div>
+    <a href="#" class="scroll-top" aria-label="Back to top">↑</a>
 </footer>
 
 <script src="js/main.js"></script>

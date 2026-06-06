@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Free Mock Tests & Quizzes 2026 | Exam Guide India{% endblock %}
+{% block meta_desc %}Free mock tests and quiz for WBCS, SSC CGL, RRB NTPC, PSC MISC, WB Police and SSC GD. Practice with real exam pattern questions and get instant scoring.{% endblock %}
+
+{% block content %}
+<section class="page-hero" style="--cat-color:#6c3fbf;--cat-light:#f5f0ff;">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb"><a href="/" data-en="Home" data-bn="হোম">Home</a> <span>›</span> <span data-en="Quiz" data-bn="কুইজ">Quiz</span></div>
+        <div class="page-hero-icon">📝</div>
+        <h1 class="page-hero-title" data-en="Free Mock Tests & Quizzes" data-bn="বিনামূল্যে মক টেস্ট ও কুইজ">Free Mock Tests & Quizzes</h1>
+        <p class="page-hero-desc" data-en="Practice with real exam-pattern questions for WBCS, SSC, Railway and Police exams. Track your score instantly." data-bn="WBCS, SSC, রেলওয়ে ও পুলিশ পরীক্ষার বাস্তব প্রশ্নপত্রের ধাঁচে প্র্যাকটিস করুন।">Practice with real exam-pattern questions for WBCS, SSC, Railway and Police exams. Track your score instantly.</p>
+        <div style="margin-top:12px;">
+            <a href="/quiz/demo-quiz/" class="btn-apply" data-en="📝 Try Demo Quiz →" data-bn="📝 ডেমো কুইজ →">📝 Try Demo Quiz →</a>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:48px 24px;">
+    <div class="section-label" style="margin-bottom:28px;">
+        <span class="label-line"></span>
+        <span class="label-text" data-en="CHOOSE A QUIZ" data-bn="একটি কুইজ বেছে নিন">CHOOSE A QUIZ</span>
+        <span class="label-line"></span>
+    </div>
+
+    <div id="quizSelectionView">
+        <div class="quiz-grid">
+            {% set quizzes = [
+                ('wbcs1',    '🏛️', 'WBCS Prelims',   'General Studies',                   5, 10, '#1d4ed8'),
+                ('ssc_cgl1', '🎖️', 'SSC CGL Tier-I', 'Quant + Reasoning + GK + English',  5, 10, '#7c3aed'),
+                ('rrb_ntpc1','🚆', 'RRB NTPC',       'Mathematics + GK + Reasoning',       5, 10, '#ea580c'),
+                ('psc_misc1','⚖️', 'PSC MISC',       'General Studies + Arithmetic',       5, 10, '#15803d'),
+                ('police1',  '👮', 'WB Police',      'GS + Reasoning + Bengali',           5, 10, '#be123c'),
+                ('ssc_gd1',  '🛡️', 'SSC GD',         'GK + Maths + Reasoning',             5, 10, '#dc2626'),
+            ] %}
+            {% for qid, icon, name, subjects, qs, mins, color in quizzes %}
+            <div class="quiz-card" onclick="startQuiz('{{ qid }}')" style="border-top:4px solid {{ color }};">
+                <div class="quiz-card-icon" style="background:{{ color }}20;color:{{ color }};">{{ icon }}</div>
+                <h3 class="quiz-card-name">{{ name }}</h3>
+                <p class="quiz-card-subjects">{{ subjects }}</p>
+                <div class="quiz-card-meta">
+                    <span>📊 {{ qs }} <span data-en="Questions" data-bn="প্রশ্ন">Questions</span></span>
+                    <span>⏱️ {{ mins }} <span data-en="Mins" data-bn="মিনিট">Mins</span></span>
+                </div>
+                <button class="quiz-start-btn" style="background:{{ color }};" data-en="Start Quiz" data-bn="কুইজ শুরু করুন">Start Quiz</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="guide-section" style="margin-top:28px;background:#f5f0ff;border-color:#d8ccf8;text-align:center;">
+            <p style="font-size:0.88rem;color:#5b21b6;margin-bottom:12px;" data-en="📘 Want more questions? Try our extended 10-question Demo Quiz with detailed explanations." data-bn="📘 আরও প্রশ্ন চান? বিস্তারিত ব্যাখ্যাসহ আমাদের ১০ প্রশ্নের ডেমো কুইজ চেষ্টা করুন।">📘 Want more questions? Try our extended 10-question Demo Quiz with detailed explanations.</p>
+            <a href="/quiz/demo-quiz/" class="btn-apply-big" data-en="📝 Go to Demo Quiz →" data-bn="📝 ডেমো কুইজে যান →">📝 Go to Demo Quiz →</a>
+        </div>
+    </div>
+
+    <div id="quizContainer" style="display:none;"></div>
+
+    <div class="cat-back" style="margin-top:28px;">
+        <a href="/" class="btn-back-home" data-en="← Back to Home" data-bn="← হোমে ফিরুন">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
