@@ -165,46 +165,36 @@
             <span class="label-line"></span>
         </div>
         <div class="notif-ticker">
-            {% if notifications %}
-                {% for n in notifications %}
-                <a href="{{ n.link or '#' }}" target="_blank" rel="noopener" class="notif-item">
-                    <span class="notif-badge">{{ n.exam_key.upper().replace('-',' ') }}</span>
-                    <span class="notif-title">{{ n.title }}</span>
-                    <span class="notif-date">{{ n.date }}</span>
-                </a>
-                {% endfor %}
-            {% else %}
             <a href="/police/wbp-constable/" class="notif-item">
                 <span class="notif-badge">WB POLICE</span>
-                <span class="notif-title">West Bengal Police Recruitment 2026 – Constable &amp; SI</span>
+                <span class="notif-title">West Bengal Police – Constable Recruitment Notification Released</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
             <a href="/police/kolkata-police/" class="notif-item">
                 <span class="notif-badge">KOL POLICE</span>
-                <span class="notif-title">Kolkata Police Recruitment 2026 – Constable &amp; SI</span>
+                <span class="notif-title">Kolkata Police – Constable Recruitment Update</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
             <a href="/notes/" class="notif-item">
-                <span class="notif-badge">WBSSC</span>
-                <span class="notif-title">WBSSC Group C Recruitment 2026 – Clerical Posts</span>
+                <span class="notif-badge">WBSSC C</span>
+                <span class="notif-title">WBSSC Group C – New Recruitment Notice 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
             <a href="/notes/" class="notif-item">
-                <span class="notif-badge">WBSSC</span>
-                <span class="notif-title">WBSSC Group D Recruitment 2026 – Support Staff</span>
+                <span class="notif-badge">WBSSC D</span>
+                <span class="notif-title">WBSSC Group D – Recruitment Notification 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
             <a href="/notes/" class="notif-item">
                 <span class="notif-badge">PANCHAYAT</span>
-                <span class="notif-title">West Bengal Panchayat Recruitment 2026</span>
+                <span class="notif-title">Panchayat – Recruitment Advertisement 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
             <a href="/railway/group-d/" class="notif-item">
                 <span class="notif-badge">RAILWAY</span>
-                <span class="notif-title">Railway Group D Recruitment 2026 – RRB</span>
+                <span class="notif-title">Railway Group D – RRB Group D Latest Update 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
-            {% endif %}
         </div>
         <div style="text-align:center; margin-top:14px;">
             <a href="/notes/" class="ca-link">View All Notifications →</a>
