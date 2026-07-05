@@ -149,10 +149,6 @@
                 <div><h4 data-en="Auto Notifications" data-bn="স্বয়ংক্রিয় আপডেট">Auto Notifications</h4><p data-en="Scraped from official sites every 6 hours automatically." data-bn="প্রতি ৬ ঘণ্টায় স্বয়ংক্রিয়ভাবে আপডেট।">Scraped from official sites every 6 hours automatically.</p></div>
             </div>
             <div class="trust-feature">
-                <div class="tf-icon">🌐</div>
-                <div><h4 data-en="Bilingual (EN/BN)" data-bn="দ্বিভাষিক (EN/BN)">Bilingual (EN/BN)</h4><p data-en="Every page available in English and Bengali." data-bn="প্রতিটি পাতা বাংলা ও ইংরেজিতে পাওয়া যায়।">Every page available in English and Bengali.</p></div>
-            </div>
-            <div class="trust-feature">
                 <div class="tf-icon">💎</div>
                 <div><h4 data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</h4><p data-en="All resources, notes and tests are completely free." data-bn="সম্পূর্ণ বিনামূল্যে সব সংস্থান।">All resources, notes and tests are completely free.</p></div>
             </div>
@@ -161,29 +157,60 @@
 </section>
 
 <!-- LATEST NOTIFICATIONS -->
-{% if notifications %}
 <section class="notif-section">
     <div class="container">
         <div class="section-label">
             <span class="label-line"></span>
-            <span class="label-text" data-en="LATEST NOTIFICATIONS" data-bn="সর্বশেষ বিজ্ঞপ্তি">LATEST NOTIFICATIONS</span>
+            <span class="label-text">LATEST NOTIFICATIONS</span>
             <span class="label-line"></span>
         </div>
         <div class="notif-ticker">
-            {% for n in notifications %}
-            <a href="{{ n.link or '#' }}" target="_blank" rel="noopener" class="notif-item">
-                <span class="notif-badge">{{ n.exam_key.upper().replace('-',' ') }}</span>
-                <span class="notif-title">{{ n.title }}</span>
-                <span class="notif-date">{{ n.date }}</span>
+            {% if notifications %}
+                {% for n in notifications %}
+                <a href="{{ n.link or '#' }}" target="_blank" rel="noopener" class="notif-item">
+                    <span class="notif-badge">{{ n.exam_key.upper().replace('-',' ') }}</span>
+                    <span class="notif-title">{{ n.title }}</span>
+                    <span class="notif-date">{{ n.date }}</span>
+                </a>
+                {% endfor %}
+            {% else %}
+            <a href="/police/wbp-constable/" class="notif-item">
+                <span class="notif-badge">WB POLICE</span>
+                <span class="notif-title">West Bengal Police Recruitment 2026 – Constable &amp; SI</span>
+                <span class="notif-date">Jul 2026</span>
             </a>
-            {% endfor %}
+            <a href="/police/kolkata-police/" class="notif-item">
+                <span class="notif-badge">KOL POLICE</span>
+                <span class="notif-title">Kolkata Police Recruitment 2026 – Constable &amp; SI</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/notes/" class="notif-item">
+                <span class="notif-badge">WBSSC</span>
+                <span class="notif-title">WBSSC Group C Recruitment 2026 – Clerical Posts</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/notes/" class="notif-item">
+                <span class="notif-badge">WBSSC</span>
+                <span class="notif-title">WBSSC Group D Recruitment 2026 – Support Staff</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/notes/" class="notif-item">
+                <span class="notif-badge">PANCHAYAT</span>
+                <span class="notif-title">West Bengal Panchayat Recruitment 2026</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/railway/group-d/" class="notif-item">
+                <span class="notif-badge">RAILWAY</span>
+                <span class="notif-title">Railway Group D Recruitment 2026 – RRB</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            {% endif %}
         </div>
         <div style="text-align:center; margin-top:14px;">
-            <a href="/notes/" class="ca-link" data-en="View All Notifications →" data-bn="সব বিজ্ঞপ্তি দেখুন →">View All Notifications →</a>
+            <a href="/notes/" class="ca-link">View All Notifications →</a>
         </div>
     </div>
 </section>
-{% endif %}
 
 <!-- MONTHLY CURRENT AFFAIRS + RESOURCES -->
 <section class="resources-section">

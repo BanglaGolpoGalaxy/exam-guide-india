@@ -1,0 +1,164 @@
+Update ONLY the Home Page UI.
+
+Do NOT change routes, backend, Flask logic, MongoDB, models, APIs, authentication, templates structure or business logic.
+
+Keep the current responsive layout and design language.
+
+Complete the following tasks exactly.
+
+==================================================
+1. LATEST NOTIFICATIONS SECTION
+==================================================
+
+Keep the existing Latest Notifications section.
+
+Replace only the notification contents.
+
+Use these six notifications:
+
+• West Bengal Police Recruitment
+• Kolkata Police Recruitment
+• WBSSC Group C Recruitment
+• WBSSC Group D Recruitment
+• Panchayat Recruitment
+• Railway Group D Recruitment
+
+Each notification should have:
+
+• Category Badge
+• Title
+• Date
+• Same list style
+• Same spacing
+• Same typography
+• Same hover effect
+
+Do NOT redesign this section.
+
+Change ONLY the background color.
+
+Current background is pure white.
+
+Replace it with a very light soft background that matches the website theme.
+
+Preferred color:
+#F7FBF4
+
+(or another very light sage / saffron-white tone.)
+
+==================================================
+2. WHY ASPIRANTS TRUST US
+==================================================
+
+Keep the complete section design unchanged.
+
+Remove ONLY this feature:
+
+"Bilingual (EN/BN)"
+
+Delete only that single feature card.
+
+Keep all remaining feature cards perfectly aligned with equal spacing.
+
+==================================================
+3. NOTES, QUIZZES & MORE SECTION
+==================================================
+
+Keep the layout exactly the same.
+
+Do NOT redesign.
+
+Only change the background color.
+
+Current background is too dark purple.
+
+Replace it with a lighter blue-purple gradient.
+
+Suggested gradient:
+
+linear-gradient(
+135deg,
+#5F6EF5 0%,
+#6F63FF 50%,
+#7C6BFF 100%
+)
+
+The section should feel brighter and visually separate from the footer.
+
+Also add a small vertical spacing (about 30px) between this section and the footer.
+
+Currently both sections visually merge together.
+
+==================================================
+4. FOOTER
+==================================================
+
+Keep footer design unchanged.
+
+Only update the Popular Exams list.
+
+Replace existing exams with:
+
+• West Bengal Police
+• Kolkata Police
+• WBSSC Group C
+• WBSSC Group D
+• Panchayat
+• Railway Group D
+
+Do not change any other footer content.
+
+==================================================
+5. TOP RUNNING ANNOUNCEMENT BAR
+==================================================
+
+Add a thin announcement bar above the header.
+
+It should span full width.
+
+Height around 38–42px.
+
+Use a beautiful gradient matching the site.
+
+Suggested gradient:
+
+#5B4DF5 → #6C63FF
+
+Text color:
+White
+
+Scrolling marquee should continuously move from right to left.
+
+Example announcement:
+
+📢 West Bengal Police Update • Kolkata Police Recruitment • WBSSC Group C • WBSSC Group D • Panchayat Recruitment • Railway Group D • Free Notes • Mock Test • Current Affairs
+
+Animation should be smooth and infinite.
+
+Responsive on mobile.
+
+==================================================
+GENERAL RULES
+==================================================
+
+✔ Do NOT modify backend.
+
+✔ Do NOT modify routing.
+
+✔ Do NOT modify database.
+
+✔ Do NOT modify authentication.
+
+✔ Do NOT change responsive behavior.
+
+✔ Do NOT redesign sections.
+
+✔ Preserve current animations.
+
+✔ Preserve typography.
+
+✔ Preserve spacing.
+
+✔ Preserve cards.
+
+Only perform the UI updates listed above.
