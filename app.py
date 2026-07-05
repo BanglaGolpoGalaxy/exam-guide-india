@@ -533,6 +533,105 @@ KOLKATA_POLICE = {
     'vacancy': VACANCY_TEXT,
 }
 
+WBSSC_GROUP_C = {
+    'key': 'wbssc-group-c', 'name': 'WBSSC Group C',
+    'full_name': 'West Bengal School Service Commission – Group C Recruitment',
+    'icon': '📋', 'color': '#7c3aed', 'light': '#f5f3ff',
+    'official_url': 'https://wbssc.in',
+    'apply_link': 'https://wbssc.in',
+    'result_link': 'https://wbssc.in',
+    'category': 'exam',
+    'overview': 'The West Bengal School Service Commission (WBSSC) conducts Group C recruitment for clerical and non-teaching posts in government and government-aided secondary schools across West Bengal. Posts include Upper Division Clerk, Lower Division Clerk, and Laboratory Assistant.',
+    'pattern': [
+        {'stage': 'Written Test (MCQ)', 'subjects': 'General Studies · English · Bengali · Arithmetic · Reasoning', 'questions': 100, 'marks': 100, 'duration': '90 min', 'negative': '0.25'},
+        {'stage': 'Interview / Personality Test', 'subjects': 'Viva-Voce (for select posts)', 'questions': '—', 'marks': 25, 'duration': '—', 'negative': '—'},
+    ],
+    'syllabus': [
+        'General Studies: History of India & West Bengal, Geography, Indian Polity & Constitution, Science & Technology',
+        'English: Grammar, Comprehension, Vocabulary, Error Detection',
+        'Bengali: Grammar, Composition, Comprehension',
+        'Arithmetic: Percentage, Ratio, Profit & Loss, Simple & Compound Interest, Time-Speed-Distance (Class X level)',
+        'Reasoning & Mental Ability: Analogies, Series, Coding-Decoding, Direction Sense',
+        'Computer Basics: MS Office, Internet, Email fundamentals',
+    ],
+    'age_limit': '18–40 years (general category)',
+    'age_relaxation': 'SC/ST of WB: +5 years | OBC-A/B: +3 years | PwD: +10 years',
+    'qualification': "Passed Higher Secondary (10+2) or Bachelor's degree as per post. LDC posts require 10+2; UDC posts may require graduation.",
+    'posts': [
+        {'post': 'Upper Division Clerk (UDC)', 'pay_level': 'Level 7', 'grade_pay': '₹4,200', 'salary': '₹25,500 – ₹81,100/month'},
+        {'post': 'Lower Division Clerk (LDC)', 'pay_level': 'Level 5', 'grade_pay': '₹2,900', 'salary': '₹17,500 – ₹44,200/month'},
+        {'post': 'Laboratory Assistant', 'pay_level': 'Level 5', 'grade_pay': '₹2,900', 'salary': '₹17,500 – ₹44,200/month'},
+    ],
+    'selection_process': ['Written Test (MCQ)', 'Interview / Personality Test (select posts)', 'Document Verification & Background Check'],
+    'app_fee': {'general': '₹160', 'obc': '₹120', 'sc_st': '₹60 (SC/ST of WB)'},
+    'notice': NOTICE_TEXT, 'vacancy': VACANCY_TEXT, 'sub_pages': [],
+}
+
+WBSSC_GROUP_D = {
+    'key': 'wbssc-group-d', 'name': 'WBSSC Group D',
+    'full_name': 'West Bengal School Service Commission – Group D Recruitment',
+    'icon': '🏗️', 'color': '#d97706', 'light': '#fffbeb',
+    'official_url': 'https://wbssc.in',
+    'apply_link': 'https://wbssc.in',
+    'result_link': 'https://wbssc.in',
+    'category': 'exam',
+    'overview': 'WBSSC Group D recruitment fills support staff and non-teaching positions in government and government-aided schools across West Bengal. Posts include Peon, Night Guard, Sweeper, and other Group D support roles across all districts.',
+    'pattern': [
+        {'stage': 'Written Test (MCQ)', 'subjects': 'General Studies & Arithmetic (Class VIII level)', 'questions': 75, 'marks': 75, 'duration': '60 min', 'negative': '0.25'},
+    ],
+    'syllabus': [
+        'General Studies (Class VIII level): History, Geography, Science, Current Affairs',
+        'Arithmetic: Basic Calculations, Percentages, Simple Interest, Time & Work (Class VIII standard)',
+        'Bengali Language: Basic Grammar, Reading Comprehension',
+        'General Knowledge: State & National Events',
+    ],
+    'age_limit': '18–40 years (general category)',
+    'age_relaxation': 'SC/ST of WB: +5 years | OBC-A/B: +3 years | PwD: +10 years',
+    'qualification': 'Passed Class 8 (Class VIII) or Class 10 (Madhyamik) depending on the post applied for.',
+    'posts': [
+        {'post': 'Peon / Group D Staff', 'pay_level': 'Level 1', 'grade_pay': '₹1,800', 'salary': '₹18,000 – ₹56,900/month'},
+        {'post': 'Night Guard / Watchman', 'pay_level': 'Level 1', 'grade_pay': '₹1,800', 'salary': '₹18,000 – ₹56,900/month'},
+    ],
+    'selection_process': ['Written Test (MCQ)', 'Document Verification', 'Background Check'],
+    'app_fee': {'general': '₹160', 'obc': '₹120', 'sc_st': '₹60 (SC/ST of WB)'},
+    'notice': NOTICE_TEXT, 'vacancy': VACANCY_TEXT, 'sub_pages': [],
+}
+
+PANCHAYAT = {
+    'key': 'panchayat', 'name': 'Panchayat',
+    'full_name': 'West Bengal Panchayat & Rural Development Recruitment',
+    'icon': '🌿', 'color': '#15803d', 'light': '#f0fdf4',
+    'official_url': 'https://wbprd.gov.in',
+    'apply_link': 'https://wbprd.gov.in',
+    'result_link': 'https://wbprd.gov.in',
+    'category': 'exam',
+    'overview': 'West Bengal Panchayat and Rural Development Department conducts recruitment for various posts in Gram Panchayats, Panchayat Samitis, and Zilla Parishads across West Bengal. Posts include Sahayak, Nirman Sahayak, Data Entry Operator, and Accounts Clerk.',
+    'pattern': [
+        {'stage': 'Written Test (MCQ)', 'subjects': 'General Studies · Arithmetic · Reasoning · Bengali/English', 'questions': 100, 'marks': 100, 'duration': '90 min', 'negative': '0.25'},
+        {'stage': 'Computer Proficiency Test', 'subjects': 'MS Office, Data Entry (for DEO posts)', 'questions': '—', 'marks': 'Qualifying', 'duration': '30 min', 'negative': '—'},
+    ],
+    'syllabus': [
+        'General Studies: Indian Polity, History, Geography, Science & Technology, Environment',
+        'Current Affairs & General Knowledge: State & National level (last 6 months)',
+        'Arithmetic: Percentage, Ratio, Profit & Loss, Time & Work, Simple Interest (Class X level)',
+        'Reasoning & Mental Ability: Analogy, Series, Coding-Decoding, Blood Relations',
+        'Bengali Language: Grammar, Comprehension, Letter Writing',
+        'Computer Basics: MS Word, Excel, Internet, Email (for DEO/office posts)',
+    ],
+    'age_limit': '18–40 years (general category)',
+    'age_relaxation': 'SC/ST of WB: +5 years | OBC-A/B of WB: +3 years | PwD: +10 years | Ex-Servicemen: as per WB rules',
+    'qualification': "Varies by post: Class 10 for Sahayak; 10+2 for Accounts Clerk; Bachelor's degree for Technical posts. Computer knowledge required for office posts.",
+    'posts': [
+        {'post': 'Sahayak (Panchayat Level)', 'pay_level': 'Level 3', 'grade_pay': '₹2,000', 'salary': '₹21,700 – ₹69,100/month'},
+        {'post': 'Nirman Sahayak', 'pay_level': 'Level 5', 'grade_pay': '₹2,900', 'salary': '₹25,500 – ₹81,100/month'},
+        {'post': 'Data Entry Operator (DEO)', 'pay_level': 'Level 4', 'grade_pay': '₹2,400', 'salary': '₹25,500 – ₹81,100/month'},
+        {'post': 'Accounts Clerk', 'pay_level': 'Level 5', 'grade_pay': '₹2,900', 'salary': '₹25,500 – ₹81,100/month'},
+    ],
+    'selection_process': ['Written Test (MCQ)', 'Computer Proficiency Test (for office posts)', 'Document Verification & Background Check'],
+    'app_fee': {'general': '₹200', 'obc': '₹150', 'sc_st': '₹50 (SC/ST of WB)'},
+    'notice': NOTICE_TEXT, 'vacancy': VACANCY_TEXT, 'sub_pages': [],
+}
+
 CATEGORY_CONFIG = {
     'wbcs': {'name': 'WBCS', 'full_name': 'West Bengal Civil Service', 'icon': '🏛️', 'color': '#1d4ed8', 'light': '#eff6ff', 'desc': 'The most prestigious state civil service exam in West Bengal, conducted by WBPSC.', 'exams': ['wbcs']},
     'psc': {'name': 'PSC', 'full_name': 'West Bengal Public Service Commission', 'icon': '⚖️', 'color': '#15803d', 'light': '#f0fdf4', 'desc': 'Exams for various Group B and C posts across West Bengal government departments.', 'exams': ['psc-misc', 'psc-clerkship']},
@@ -540,6 +639,7 @@ CATEGORY_CONFIG = {
     'railway': {'name': 'Railway', 'full_name': 'Railway Recruitment Board', 'icon': '🚆', 'color': '#ea580c', 'light': '#fff7ed', 'desc': 'RRB recruitment for various posts in Indian Railways – one of the largest employers in India.', 'exams': ['railway-ntpc-graduate', 'railway-ntpc-ug', 'railway-group-d', 'railway-technician']},
     'police': {'name': 'Police', 'full_name': 'West Bengal Police Recruitment Board', 'icon': '👮', 'color': '#be123c', 'light': '#fff1f2', 'desc': 'WB Police and Kolkata Police recruitment for SI, Constable, and other posts.', 'exams': ['police']},
     'notes': {'name': 'Notes', 'full_name': 'Study Notes & Materials', 'icon': '📚', 'color': '#0d9488', 'light': '#f0fdfa', 'desc': '', 'exams': []},
+    'exam': {'name': 'Exams', 'full_name': 'WB Government Exams', 'icon': '📋', 'color': '#6c3fbf', 'light': '#f5f0ff', 'desc': '', 'exams': []},
 }
 
 
@@ -629,6 +729,47 @@ def wbp_si():
 @app.route('/police/kolkata-police/', strict_slashes=False)
 def kolkata_police():
     return render_template('police_sub.html', exam=KOLKATA_POLICE)
+
+@app.route('/exam/', strict_slashes=False)
+def exam_home():
+    return redirect('/#popular-exams')
+
+@app.route('/exam/wbp-constable/', strict_slashes=False)
+def exam_wbp_constable_dashboard():
+    return render_template('exam_dashboard.html', exam={**WBP_CONSTABLE, 'detail_url': '/police/wbp-constable/'})
+
+@app.route('/exam/kolkata-police/', strict_slashes=False)
+def exam_kolkata_police_dashboard():
+    return render_template('exam_dashboard.html', exam={**KOLKATA_POLICE, 'detail_url': '/police/kolkata-police/'})
+
+@app.route('/exam/wbssc-group-c/', strict_slashes=False)
+def exam_wbssc_group_c_dashboard():
+    return render_template('exam_dashboard.html', exam={**WBSSC_GROUP_C, 'detail_url': '/exam/wbssc-group-c/detail/'})
+
+@app.route('/exam/wbssc-group-c/detail/', strict_slashes=False)
+def exam_wbssc_group_c_detail():
+    return render_template('exam_page.html', exam=WBSSC_GROUP_C, category=CATEGORY_CONFIG['exam'])
+
+@app.route('/exam/wbssc-group-d/', strict_slashes=False)
+def exam_wbssc_group_d_dashboard():
+    return render_template('exam_dashboard.html', exam={**WBSSC_GROUP_D, 'detail_url': '/exam/wbssc-group-d/detail/'})
+
+@app.route('/exam/wbssc-group-d/detail/', strict_slashes=False)
+def exam_wbssc_group_d_detail():
+    return render_template('exam_page.html', exam=WBSSC_GROUP_D, category=CATEGORY_CONFIG['exam'])
+
+@app.route('/exam/panchayat/', strict_slashes=False)
+def exam_panchayat_dashboard():
+    return render_template('exam_dashboard.html', exam={**PANCHAYAT, 'detail_url': '/exam/panchayat/detail/'})
+
+@app.route('/exam/panchayat/detail/', strict_slashes=False)
+def exam_panchayat_detail():
+    return render_template('exam_page.html', exam=PANCHAYAT, category=CATEGORY_CONFIG['exam'])
+
+@app.route('/exam/railway-group-d/', strict_slashes=False)
+def exam_railway_group_d_dashboard():
+    rg = EXAM_CONFIG['railway-group-d']
+    return render_template('exam_dashboard.html', exam={**rg, 'detail_url': '/railway/group-d/'})
 
 @app.route('/notes/', strict_slashes=False)
 def notes():
