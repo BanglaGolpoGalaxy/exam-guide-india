@@ -37,7 +37,7 @@ a { text-decoration: none; }
 .hero-highlight { font-style: italic; font-weight: 800; color: #6c3fbf; font-size: 2.7rem; }
 .hero-sub { font-size: 0.9rem; color: #5a6880; max-width: 440px; margin-bottom: 24px; line-height: 1.7; }
 .hero-search { display: flex; align-items: center; background: #fff; border: 1.5px solid #e0d8f8; border-radius: 50px; overflow: hidden; max-width: 420px; box-shadow: 0 4px 16px rgba(108,63,191,0.1); margin-bottom: 24px; }
-.hero-search input { flex: 1; border: none; outline: none; padding: 12px 18px; font-size: 0.88rem; background: transparent; font-family: inherit; }
+.hero-search input { flex: 1; min-width: 0; border: none; outline: none; padding: 12px 18px; font-size: 0.88rem; background: transparent; font-family: inherit; }
 .hero-search-btn { background: #6c3fbf; border: none; width: 44px; height: 44px; border-radius: 50%; margin: 4px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .hero-search-btn:hover { background: #5b31a8; }
 .hero-stats { display: flex; flex-wrap: wrap; gap: 16px; }
@@ -93,7 +93,7 @@ a { text-decoration: none; }
 .notif-item { display: flex; align-items: center; gap: 12px; padding: 11px 16px; border: 1px solid #ede8f8; border-radius: 10px; color: #1e2a3e; transition: background 0.15s; flex-wrap: wrap; }
 .notif-item:hover { background: #faf8ff; }
 .notif-badge { background: #6c3fbf; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; white-space: nowrap; }
-.notif-title { flex: 1; font-size: 0.85rem; font-weight: 500; min-width: 160px; }
+.notif-title { flex: 1; font-size: 0.85rem; font-weight: 500; min-width: 0; word-break: break-word; }
 .notif-date { font-size: 0.74rem; color: #94a3b8; white-space: nowrap; }
 .ca-link { color: #6c3fbf; font-size: 0.82rem; font-weight: 600; }
 .ca-link:hover { text-decoration: underline; }
@@ -176,12 +176,12 @@ a { text-decoration: none; }
 .elig-row { display: flex; gap: 16px; align-items: flex-start; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; }
 .elig-row { background: #f8fafc; }
 .elig-relax { background: #f0fdf4; }
-.elig-label { font-weight: 600; font-size: 0.84rem; color: #1a1a2e; min-width: 140px; flex-shrink: 0; }
+.elig-label { font-weight: 600; font-size: 0.84rem; color: #1a1a2e; min-width: 120px; flex-shrink: 0; }
 .elig-val { font-size: 0.84rem; color: #374151; line-height: 1.6; }
 
 /* ── FEE ── */
 .fee-grid { display: flex; gap: 16px; flex-wrap: wrap; }
-.fee-card { flex: 1; min-width: 180px; background: #f8fafc; border: 1.5px solid #ede8f8; border-radius: 12px; padding: 18px; text-align: center; }
+.fee-card { flex: 1; min-width: 140px; background: #f8fafc; border: 1.5px solid #ede8f8; border-radius: 12px; padding: 18px; text-align: center; }
 .fee-card-green { background: #f0fdf4; border-color: #bbf7d0; }
 .fee-cat { font-size: 0.78rem; font-weight: 600; color: #64748b; margin-bottom: 6px; }
 .fee-amt { font-size: 1.4rem; font-weight: 800; color: #1a1a2e; }
@@ -420,9 +420,69 @@ footer { background: #0b1526; color: #94a3b8; padding: 52px 0 0; }
     .exam-quick-links { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 480px) {
-    .exam-grid { grid-template-columns: repeat(2, 1fr); }
+    .exam-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .tips-grid { grid-template-columns: 1fr; }
     .exam-footer-nav { flex-direction: column; }
     .fee-grid { flex-direction: column; }
     .promise-grid { grid-template-columns: 1fr; }
+    /* Heading scale-down on small phones */
+    .hero-heading { font-size: 1.65rem; }
+    .hero-highlight { font-size: 1.85rem; }
+    /* Reduce container side padding slightly */
+    .container { padding: 0 16px; }
+    /* Exam card text tighten */
+    .exam-name { font-size: 0.82rem; }
+    .exam-desc { font-size: 0.68rem; }
+    /* Elig rows stack on narrow */
+    .elig-row { flex-direction: column; gap: 4px; }
+    .elig-label { min-width: unset; }
+    /* Nav: shrink lang toggle */
+    .lang-toggle { padding: 6px 10px; font-size: 0.74rem; }
+    /* Logo text on very small bars */
+    .logo-title { font-size: 0.95rem; }
+    .logo-sub { display: none; }
+    /* Resource headings */
+    .resource-heading { font-size: 1.4rem; }
+    /* Section heading */
+    .section-heading { font-size: 1.5rem; }
+    /* Trust features single column */
+    .trust-features { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    /* Search page filter buttons wrap */
+    .search-bar-wrap { max-width: 100%; }
+}
+
+/* ── 360px and below — narrowest phones ── */
+@media (max-width: 360px) {
+    .container { padding: 0 12px; }
+    .exam-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .hero-heading { font-size: 1.5rem; }
+    .hero-highlight { font-size: 1.65rem; }
+    .hero-search input { padding: 10px 12px; font-size: 0.82rem; }
+    .hero-search-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+    /* Navbar: hide logo subtitle, shrink toggle */
+    .lang-toggle { padding: 5px 8px; font-size: 0.7rem; }
+    .logo-icon { font-size: 1.4rem; }
+    .logo-title { font-size: 0.88rem; }
+    /* Notification rows stack naturally */
+    .notif-item { gap: 8px; padding: 10px 12px; }
+    /* Page hero tighter */
+    .page-hero-title { font-size: 1.35rem; }
+    .page-hero-inner { padding: 24px 0 20px; }
+    /* Fee cards in a column always */
+    .fee-grid { flex-direction: column; }
+    .fee-card { min-width: unset; width: 100%; }
+    /* Guide section padding */
+    .guide-section { padding: 18px 14px; }
+    /* Exam table: allow scroll */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* Footer */
+    .footer-grid { gap: 24px; }
+    .subscribe { flex-direction: column; border-radius: 8px; }
+    .subscribe input { border-radius: 8px 8px 0 0; }
+    .subscribe button { border-radius: 0 0 8px 8px; padding: 10px; }
+    /* Hero stats single column */
+    .hero-stats { gap: 10px; }
+    /* Bottom card stacking */
+    .bottom-card { flex-direction: column; text-align: center; }
+    .bc-arrow { display: none; }
 }

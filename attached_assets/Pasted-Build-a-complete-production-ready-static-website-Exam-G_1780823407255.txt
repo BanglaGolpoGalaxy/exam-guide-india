@@ -1,0 +1,79 @@
+Build a complete, production-ready static website "Exam Guide India" with the following exact specifications. The site must be fully responsive, especially fix the mobile view where content was cutting off on the right side (ensure no horizontal scroll, proper overflow handling, viewport meta tag, and mobile-first CSS).
+
+## MOBILE RESPONSIVENESS (CRITICAL FIX)
+- Use viewport meta tag: `<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">`
+- In CSS, apply `* { margin:0; padding:0; box-sizing: border-box; } body { overflow-x: hidden; max-width: 100%; }`
+- Ensure all containers have `max-width: 100%;` and use `flex-wrap: wrap` or grid with `auto-fit`.
+- Test for small screens (320px-480px): navbar must wrap, cards become full width, text does not overflow.
+- Remove any fixed width that causes cutting. Use relative units (%, rem, vw) instead of px for main containers.
+
+## LANGUAGE & CONTENT
+- Use ONLY Bengali language throughout the site (no English/Bengali toggle). All UI text, buttons, headings, and meta tags must be in Bengali.
+- Remove any language toggle button and related JavaScript.
+
+## FOCUSED EXAMS (ONLY THESE THREE CATEGORIES)
+Keep only these exam types, remove all others (WBCS, SSC, PSC Misc, Clerkship, Railway NTPC graduate/UG/Technician, etc.):
+
+1. **West Bengal Police (WBP)** – cover all sub-exams:  
+   - WBP Constable  
+   - WBP Sub Inspector (SI)  
+   - Kolkata Police (constable, SI)  
+   Create a separate page for each inside `/police/` folder. Also create `/police/index.html` that lists these three with cards. Each final page must include: exam pattern, syllabus, age limit, qualification, posts & salary, selection process, application fee, official links, upcoming vacancies, result placeholder.
+
+2. **RRB Group D** (Railway) – one detailed page: `/railway/group-d.html` with full exam overview, pattern, syllabus, eligibility, salary, selection process, etc.
+
+3. **Panchayat Exams** (West Bengal Panchayat) – one page: `/panchayat/index.html` covering Panchayat Karmee, Gram Panchayat Secretary, etc. Include similar sections as above.
+
+No other exam pages. Remove their folders and files.
+
+## STATIC ARCHITECTURE & DATA
+- No backend, no Flask, no database. Remove `app.py`, `data/exams.db`, `templates/`, `static/` (if any).
+- All exam data (pattern, syllabus, eligibility, dates, notices, vacancy numbers) will be stored in a **single JSON file** named `data/exams.json`.
+- The static HTML pages will fetch this JSON via JavaScript (fetch API) and dynamically populate content. This makes updating easy without changing HTML.
+
+## SCRAPER / ROBOT (GitHub Actions)
+- Keep scraper functionality as a **GitHub Actions cron job** (no server needed).  
+- Write a Python script `scraper/run.py` that scrapes official websites (WBP, RRB, Panchayat) and updates `data/exams.json` with latest notifications, vacancies, results, and important dates.  
+- Add a GitHub Actions workflow `.github/workflows/scrape.yml` that runs every 12 hours and auto-commits changes.  
+- Provide manual trigger via `workflow_dispatch`.
+
+## FRONTEND (STATIC HTML/CSS/JS) – BENGALI ONLY
+- Design: clean, modern, professional. Use the same colorful cards as before but with Bengali text.  
+- Homepage (`index.html`) will show three main exam cards: "পশ্চিমবঙ্গ পুলিশ", "আরআরবি গ্রুপ ডি", "পঞ্চায়েত পরীক্ষা".  
+- Clicking on "পশ্চিমবঙ্গ পুলিশ" card leads to `/police/index.html` which contains sub-cards for Constable, SI, Kolkata Police.  
+- Each final exam page (e.g., `/police/constable.html`) will fetch data from `exams.json` and inject into predefined sections (pattern table, syllabus list, etc.).  
+- On each exam page, include two action cards: "মাসিক কারেন্ট অ্যাফেয়ার্স নোটস" (links to `/notes/demo-notes.html`) and "প্র্যাকটিস মক টেস্ট" (links to `/quiz/demo-quiz.html`).  
+- All links, buttons, and navigation must work. No dead ends.
+
+## REMOVE UNNECESSARY FILES
+Delete all previously existing exam folders (wbcs, ssc, psc, railway/ntpc-*, police old index, etc.) except for the new structure.  
+Remove: `app.py`, `templates/`, `static/`, `data/exams.db`, `requirements.txt` (unless needed for scraper), `.replit`, `attached_assets/`.  
+Keep: `index.html`, `css/style.css`, `js/main.js` (modified to be Bengali only), `images/`, `scraper/`, `.github/workflows/scrape.yml`.
+
+## SEO & META TAGS (Bengali only)
+- Every page must have unique meta title and meta description in Bengali.  
+- Open Graph tags (og:title, og:description, og:image, og:url) and Twitter card.  
+- JSON-LD schema for `WebSite` and `EducationWeb`.  
+- Canonical tags.  
+- Favicon.
+
+## DEMO PAGES
+- `/notes/demo-notes.html` – simple notes preview with message "শীঘ্রই সম্পূর্ণ নোট আসছে".
+- `/quiz/demo-quiz.html` – a functional sample MCQ quiz (at least 3 questions) with score display, using JavaScript.
+- `/404.html` – custom 404 page.
+
+## OUTPUT REQUIREMENTS
+Provide the complete file tree and the full source code of:
+- `index.html`
+- `css/style.css`
+- `js/main.js` (only Bengali, no language toggle; functions for fetching JSON and populating pages)
+- `data/exams.json` (example structure with placeholder data for WBP Constable, SI, Kolkata Police, RRB Group D, Panchayat)
+- `scraper/run.py`
+- `.github/workflows/scrape.yml`
+- `/police/index.html`, `/police/constable.html`, `/police/si.html`, `/police/kolkata-police.html`
+- `/railway/group-d.html`
+- `/panchayat/index.html`
+- `/notes/demo-notes.html`, `/quiz/demo-quiz.html`, `/404.html`
+- `images/` placeholder (logo.png, favicon.ico)
+
+Ensure the site is fully static, works perfectly on GitHub Pages, updates automatically via GitHub Actions scraper, and has zero backend dependencies. The mobile view must be flawless (no right-side cutting, no horizontal scroll). Make all code complete, professional, and ready to copy-paste into a fresh GitHub repository. Include a short deployment guide for GitHub Pages and enabling Actions.
