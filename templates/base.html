@@ -32,15 +32,15 @@
         <a href="/" class="logo">
             <span class="logo-icon">🎓</span>
             <div class="logo-text">
-                <span class="logo-title" data-en="Exam Guide India" data-bn="পরীক্ষা গাইড ইন্ডিয়া">Exam Guide India</span>
+                <span class="logo-title">Exam Guide India</span>
                 <span class="logo-sub">Your Guide. Your Success.</span>
             </div>
         </a>
         <nav class="nav-links" id="mainNav">
-            <a href="/" class="nav-link {% if request.path=='/' %}active{% endif %}" data-en="Home" data-bn="হোম">Home</a>
-            <a href="/#popular-exams" class="nav-link" data-en="Exams" data-bn="পরীক্ষা">Exams</a>
+            <a href="/" class="nav-link {% if request.path=='/' %}active{% endif %}">Home</a>
+            <a href="/#popular-exams" class="nav-link">Exams</a>
             <div class="nav-dropdown">
-                <span class="nav-link dropdown-trigger" data-en="Browse ▾" data-bn="দেখুন ▾">Browse ▾</span>
+                <span class="nav-link dropdown-trigger">Browse ▾</span>
                 <div class="dropdown-menu">
                     <a href="/wbcs/" class="dropdown-item">🏛️ WBCS</a>
                     <a href="/psc/" class="dropdown-item">⚖️ PSC</a>
@@ -53,13 +53,14 @@
                     <a href="/police/kolkata-police/" class="dropdown-item dropdown-sub">↳ Kolkata Police</a>
                 </div>
             </div>
-            <a href="/notes/" class="nav-link {% if '/notes' in request.path %}active{% endif %}" data-en="Notes" data-bn="নোটস">Notes</a>
-            <a href="/quiz/" class="nav-link {% if '/quiz' in request.path %}active{% endif %}" data-en="Quiz" data-bn="কুইজ">Quiz</a>
-            <a href="/about/" class="nav-link {% if '/about' in request.path %}active{% endif %}" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
-            <a href="/contact/" class="nav-link {% if '/contact' in request.path %}active{% endif %}" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+            <a href="/notes/" class="nav-link {% if '/notes' in request.path %}active{% endif %}">Notes</a>
+            <a href="/quiz/" class="nav-link {% if '/quiz' in request.path %}active{% endif %}">Quiz</a>
+            <a href="/about/" class="nav-link {% if '/about' in request.path %}active{% endif %}">About Us</a>
+            <a href="/contact/" class="nav-link {% if '/contact' in request.path %}active{% endif %}">Contact</a>
         </nav>
         <div class="nav-actions">
-            <button class="lang-toggle" id="langToggle" aria-label="Toggle language">🔁 বাংলা</button>
+            <a href="/login" class="btn-nav-login">Login</a>
+            <a href="/register" class="btn-nav-register">Register</a>
             <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
         </div>
     </div>

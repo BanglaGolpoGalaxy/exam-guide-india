@@ -38,47 +38,91 @@
     <div class="container">
         <div class="section-label">
             <span class="label-line"></span>
-            <span class="label-text" data-en="POPULAR EXAMS" data-bn="জনপ্রিয় পরীক্ষা">POPULAR EXAMS</span>
+            <span class="label-text">Popular Exams</span>
             <span class="label-line"></span>
         </div>
-        <h2 class="section-heading" data-en="Choose Your Exam Path" data-bn="আপনার পরীক্ষার পথ বেছে নিন">Choose Your Exam Path</h2>
+        <h2 class="section-heading">Choose Your Exam</h2>
+        <p class="section-subtitle">আপনার পছন্দের পরীক্ষাটি নির্বাচন করুন এবং সম্পূর্ণ প্রস্তুতি শুরু করুন।</p>
         <div class="exam-grid">
-            <a href="/wbcs/" class="exam-card ec-blue">
-                <div class="exam-icon">🏛️</div>
-                <h3 class="exam-name">WBCS</h3>
-                <p class="exam-desc" data-en="West Bengal Civil Service" data-bn="পশ্চিমবঙ্গ সিভিল সার্ভিস">West Bengal Civil Service</p>
-                <span class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
-            </a>
-            <a href="/psc/" class="exam-card ec-green">
-                <div class="exam-icon">⚖️</div>
-                <h3 class="exam-name">PSC</h3>
-                <p class="exam-desc" data-en="Public Service Commission" data-bn="পাবলিক সার্ভিস কমিশন">Public Service Commission</p>
-                <span class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
-            </a>
-            <a href="/ssc/" class="exam-card ec-purple">
-                <div class="exam-icon">🎖️</div>
-                <h3 class="exam-name">SSC</h3>
-                <p class="exam-desc" data-en="Staff Selection Commission" data-bn="স্টাফ সিলেকশন কমিশন">Staff Selection Commission</p>
-                <span class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
-            </a>
-            <a href="/railway/" class="exam-card ec-orange">
-                <div class="exam-icon">🚆</div>
-                <h3 class="exam-name" data-en="Railway" data-bn="রেলওয়ে">Railway</h3>
-                <p class="exam-desc" data-en="Railway Recruitment Boards" data-bn="রেলওয়ে রিক্রুটমেন্ট বোর্ড">Railway Recruitment Boards</p>
-                <span class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
-            </a>
-            <a href="/police/" class="exam-card ec-red">
+
+            <!-- 1. West Bengal Police – Khaki -->
+            <a href="/police/wbp-constable/" class="exam-card ec-khaki">
                 <div class="exam-icon">🛡️</div>
-                <h3 class="exam-name" data-en="Police" data-bn="পুলিশ">Police</h3>
-                <p class="exam-desc" data-en="WB Police Recruitment" data-bn="WB পুলিশ রিক্রুটমেন্ট">WB Police Recruitment</p>
-                <span class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+                <h3 class="exam-name">West Bengal Police</h3>
+                <p class="exam-desc">Constable &amp; SI Preparation</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
             </a>
-            <a href="/notes/" class="exam-card ec-teal">
+
+            <!-- 2. Kolkata Police – Soft Light Blue -->
+            <a href="/police/kolkata-police/" class="exam-card ec-skyblue">
+                <div class="exam-icon">👮</div>
+                <h3 class="exam-name">Kolkata Police</h3>
+                <p class="exam-desc">Constable &amp; SI Preparation</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 3. WBSSC Group C – Soft Purple -->
+            <a href="/notes/" class="exam-card ec-purple">
                 <div class="exam-icon">📋</div>
-                <h3 class="exam-name" data-en="Notes" data-bn="নোটস">Notes</h3>
-                <p class="exam-desc" data-en="Handwritten & PDF Notes" data-bn="হাতে লেখা ও PDF নোট">Handwritten & PDF Notes</p>
-                <span class="btn-explore" data-en="Explore →" data-bn="বিস্তারিত →">Explore →</span>
+                <h3 class="exam-name">WBSSC Group C</h3>
+                <p class="exam-desc">Clerical Recruitment</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
             </a>
+
+            <!-- 4. WBSSC Group D – Soft Golden Yellow -->
+            <a href="/notes/" class="exam-card ec-golden">
+                <div class="exam-icon">🏗️</div>
+                <h3 class="exam-name">WBSSC Group D</h3>
+                <p class="exam-desc">Support Staff Recruitment</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 5. Panchayat – Soft Green -->
+            <a href="/notes/" class="exam-card ec-green">
+                <div class="exam-icon">🌿</div>
+                <h3 class="exam-name">Panchayat</h3>
+                <p class="exam-desc">West Bengal Panchayat Exam</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 6. Railway Group D – Soft Red -->
+            <a href="/railway/group-d/" class="exam-card ec-red">
+                <div class="exam-icon">🚆</div>
+                <h3 class="exam-name">Railway Group D</h3>
+                <p class="exam-desc">RRB Group D Preparation</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
         </div>
     </div>
 </section>

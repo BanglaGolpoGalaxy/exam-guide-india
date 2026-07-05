@@ -28,6 +28,10 @@ a { text-decoration: none; }
 .lang-toggle { background: #f0ebff; border: 1.5px solid #d8ccf8; padding: 7px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.8rem; color: #5b21b6; transition: background 0.2s; font-family: inherit; }
 .lang-toggle:hover { background: #e6dbff; }
 .hamburger { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #3d4f6e; }
+.btn-nav-login { color: #5b21b6; font-weight: 600; font-size: 0.83rem; padding: 6px 14px; border: 1.5px solid #d8ccf8; border-radius: 7px; background: #f5f0ff; transition: background 0.2s; white-space: nowrap; }
+.btn-nav-login:hover { background: #ede5ff; }
+.btn-nav-register { color: #fff; font-weight: 600; font-size: 0.83rem; padding: 6px 14px; border: 1.5px solid #6c3fbf; border-radius: 7px; background: #6c3fbf; transition: background 0.2s; white-space: nowrap; }
+.btn-nav-register:hover { background: #5b31a8; }
 
 /* ── HERO ── */
 .hero { background: linear-gradient(135deg, #fdf6ee 0%, #fef9f5 50%, #f0eaff 100%); overflow: hidden; }
@@ -73,6 +77,21 @@ a { text-decoration: none; }
 .ec-blue .btn-explore  { color: #1d4ed8; } .ec-green .btn-explore { color: #15803d; } .ec-purple .btn-explore{ color: #7c3aed; }
 .ec-orange .btn-explore{ color: #ea580c; } .ec-red .btn-explore   { color: #be123c; } .ec-teal .btn-explore  { color: #0d9488; }
 .exam-card:hover .btn-explore { opacity: 0.8; }
+/* New colour variants */
+.ec-khaki   { background: #faf6e8; border-color: #d4c47a; border-bottom: 4px solid #8b7340; } .ec-khaki .exam-icon   { background: #ede8c0; }
+.ec-skyblue { background: #f0f9ff; border-color: #bae6fd; border-bottom: 4px solid #0284c7; } .ec-skyblue .exam-icon { background: #e0f2fe; }
+.ec-golden  { background: #fffbeb; border-color: #fde68a; border-bottom: 4px solid #d97706; } .ec-golden .exam-icon  { background: #fef3c7; }
+.ec-khaki:hover   { border-color: #8b7340; } .ec-skyblue:hover { border-color: #0284c7; } .ec-golden:hover  { border-color: #d97706; }
+.ec-khaki .btn-explore   { color: #8b7340; }
+.ec-skyblue .btn-explore { color: #0284c7; }
+.ec-golden .btn-explore  { color: #d97706; }
+/* Card action tags */
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; justify-content: center; }
+.card-tag  { font-size: 0.6rem; font-weight: 600; padding: 2px 7px; border-radius: 10px; background: rgba(0,0,0,0.06); color: inherit; letter-spacing: 0.02em; }
+/* Section subtitle */
+.section-subtitle { text-align: center; font-size: 0.88rem; color: #64748b; margin-top: -22px; margin-bottom: 28px; line-height: 1.6; }
+/* Exam desc tighter when tags present */
+.exam-card .card-tags ~ .btn-explore { margin-top: 2px; }
 
 /* ── TRUST ── */
 .trust-section { background: #0f1b35; padding: 50px 0; }
