@@ -181,26 +181,6 @@
         </div>
     </div>
 
-    <!-- BOTTOM CARDS: Monthly CA + Mock Test -->
-    <div class="bottom-cards-row">
-        <a href="/notes/demo-notes/" class="bottom-card bc-blue">
-            <div class="bc-icon">📘</div>
-            <div class="bc-content">
-                <h4 data-en="Monthly Current Affairs Notes" data-bn="মাসিক কারেন্ট অ্যাফেয়ার্স নোট">Monthly Current Affairs Notes</h4>
-                <p data-en="Download PDF – June 2026 edition" data-bn="PDF ডাউনলোড করুন – জুন ২০২৬">Download PDF – June 2026 edition</p>
-            </div>
-            <span class="bc-arrow">→</span>
-        </a>
-        <a href="/quiz/demo-quiz/" class="bottom-card bc-purple">
-            <div class="bc-icon">📝</div>
-            <div class="bc-content">
-                <h4 data-en="Practice Mock Test" data-bn="প্র্যাকটিস মক টেস্ট">Practice Mock Test</h4>
-                <p data-en="Start free quiz – exam pattern questions" data-bn="ফ্রি কুইজ শুরু করুন – পরীক্ষার ধাঁচে প্রশ্ন">Start free quiz – exam pattern questions</p>
-            </div>
-            <span class="bc-arrow">→</span>
-        </a>
-    </div>
-
     <div class="exam-footer-nav">
         <a href="/{{ exam.category }}/" class="btn-back-home">← <span data-en="Back to {{ category.name }}" data-bn="{{ category.name }}-এ ফিরুন">Back to {{ category.name }}</span></a>
         <a href="{{ exam.apply_link }}" target="_blank" rel="noopener" class="btn-apply-big" data-en="Apply Now →" data-bn="এখনই আবেদন করুন →">Apply Now →</a>
@@ -211,6 +191,28 @@
     <div class="container">
         <p class="cross-nav-label">— Explore More Sections —</p>
         <div class="cross-nav-grid">
+            {% if section_base %}
+            <a href="{{ section_base }}/notes/" class="cross-nav-card cnc-green">
+                <span class="cnc-icon">📚</span>
+                <span class="cnc-name">Notes</span>
+            </a>
+            <a href="{{ section_base }}/quiz/" class="cross-nav-card cnc-orange">
+                <span class="cnc-icon">📝</span>
+                <span class="cnc-name">Quiz</span>
+            </a>
+            <a href="{{ section_base }}/mock-test/" class="cross-nav-card cnc-purple">
+                <span class="cnc-icon">🎯</span>
+                <span class="cnc-name">Mock Test</span>
+            </a>
+            <a href="{{ section_base }}/current-affairs/" class="cross-nav-card cnc-cyan">
+                <span class="cnc-icon">📰</span>
+                <span class="cnc-name">Current Affairs</span>
+            </a>
+            <a href="{{ section_base }}/previous-papers/" class="cross-nav-card cnc-gold">
+                <span class="cnc-icon">📜</span>
+                <span class="cnc-name">Previous Year Papers</span>
+            </a>
+            {% else %}
             <a href="/notes/" class="cross-nav-card cnc-green">
                 <span class="cnc-icon">📚</span>
                 <span class="cnc-name">Notes</span>
@@ -231,6 +233,7 @@
                 <span class="cnc-icon">📜</span>
                 <span class="cnc-name">Previous Year Papers</span>
             </a>
+            {% endif %}
         </div>
     </div>
 </section>

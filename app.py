@@ -642,6 +642,100 @@ CATEGORY_CONFIG = {
     'exam': {'name': 'Exams', 'full_name': 'WB Government Exams', 'icon': '📋', 'color': '#6c3fbf', 'light': '#f5f0ff', 'desc': '', 'exams': []},
 }
 
+EXAM_SUBJECTS = {
+    'wbp-constable': [
+        {'icon': '🏛️', 'name': 'General Knowledge', 'desc': 'History · Geography · Polity · Science'},
+        {'icon': '📰', 'name': 'Current Affairs', 'desc': 'National & State · Last 6 months'},
+        {'icon': '🔢', 'name': 'Arithmetic', 'desc': 'Percentage · Ratio · Time & Distance · Profit & Loss'},
+        {'icon': '🧠', 'name': 'Reasoning', 'desc': 'Analogies · Series · Blood Relations · Direction Sense'},
+        {'icon': '🇬🇧', 'name': 'English Language', 'desc': 'Grammar · Comprehension · Vocabulary'},
+        {'icon': '🔤', 'name': 'Bengali Language', 'desc': 'Grammar · Comprehension · Idioms'},
+        {'icon': '💻', 'name': 'Computer Basics', 'desc': 'MS Office · Internet · Email'},
+    ],
+    'kolkata-police': [
+        {'icon': '🏛️', 'name': 'General Knowledge', 'desc': 'History of Kolkata & WB · Polity · Geography'},
+        {'icon': '📰', 'name': 'Current Affairs', 'desc': 'Local · National · International events'},
+        {'icon': '🔢', 'name': 'Arithmetic', 'desc': 'Class X level Mathematics'},
+        {'icon': '🧠', 'name': 'Reasoning & Mental Ability', 'desc': 'Analogies · Series · Direction Sense'},
+        {'icon': '🇬🇧', 'name': 'English Language', 'desc': 'Grammar · Comprehension'},
+        {'icon': '🔤', 'name': 'Bengali Language', 'desc': 'Grammar · Comprehension'},
+        {'icon': '💻', 'name': 'Computer Knowledge', 'desc': 'MS Office · Internet · Email'},
+    ],
+    'wbssc-group-c': [
+        {'icon': '🏛️', 'name': 'General Studies', 'desc': 'History · Geography · Polity · Science & Technology'},
+        {'icon': '🇬🇧', 'name': 'English', 'desc': 'Grammar · Comprehension · Error Detection'},
+        {'icon': '🔤', 'name': 'Bengali', 'desc': 'Grammar · Composition · Comprehension'},
+        {'icon': '🔢', 'name': 'Arithmetic & Numerical Ability', 'desc': 'Percentage · Ratio · Simple Interest · Time & Work'},
+        {'icon': '🧠', 'name': 'Reasoning & Mental Ability', 'desc': 'Analogies · Series · Coding-Decoding'},
+        {'icon': '💻', 'name': 'Computer Basics', 'desc': 'MS Office · Internet · Email fundamentals'},
+    ],
+    'wbssc-group-d': [
+        {'icon': '🏛️', 'name': 'General Studies', 'desc': 'History · Geography · Science (Class VIII level)'},
+        {'icon': '🔢', 'name': 'Basic Arithmetic', 'desc': 'Percentages · Simple Interest · Time & Work'},
+        {'icon': '🔤', 'name': 'Bengali Language', 'desc': 'Basic Grammar · Reading Comprehension'},
+        {'icon': '📰', 'name': 'General Knowledge', 'desc': 'State & National Events'},
+    ],
+    'panchayat': [
+        {'icon': '🏛️', 'name': 'General Studies', 'desc': 'Indian Polity · History · Geography · Science'},
+        {'icon': '📰', 'name': 'Current Affairs & GK', 'desc': 'State & National level · Last 6 months'},
+        {'icon': '🔢', 'name': 'Arithmetic', 'desc': 'Percentage · Ratio · Time & Work · Simple Interest'},
+        {'icon': '🧠', 'name': 'Reasoning & Mental Ability', 'desc': 'Analogy · Series · Coding-Decoding · Blood Relations'},
+        {'icon': '🔤', 'name': 'Bengali Language', 'desc': 'Grammar · Comprehension · Letter Writing'},
+        {'icon': '💻', 'name': 'Computer Basics', 'desc': 'MS Word · Excel · Internet · Email'},
+    ],
+    'railway-group-d': [
+        {'icon': '🔬', 'name': 'General Science', 'desc': 'Physics · Chemistry · Life Sciences (Class X level)'},
+        {'icon': '🏛️', 'name': 'General Knowledge & CA', 'desc': 'History · Polity · Geography · Railways · Current Affairs'},
+        {'icon': '🔢', 'name': 'Mathematics', 'desc': 'Arithmetic · Algebra · Geometry (Class X level)'},
+        {'icon': '🧠', 'name': 'General Intelligence & Reasoning', 'desc': 'Analogies · Coding-Decoding · Series · Direction Sense'},
+    ],
+}
+
+EXAM_BY_SLUG = {
+    'wbp-constable': {**WBP_CONSTABLE, 'detail_url': '/police/wbp-constable/', 'dashboard_url': '/exam/wbp-constable/', 'subjects': EXAM_SUBJECTS['wbp-constable']},
+    'kolkata-police': {**KOLKATA_POLICE, 'detail_url': '/police/kolkata-police/', 'dashboard_url': '/exam/kolkata-police/', 'subjects': EXAM_SUBJECTS['kolkata-police']},
+    'wbssc-group-c': {**WBSSC_GROUP_C, 'detail_url': '/exam/wbssc-group-c/detail/', 'dashboard_url': '/exam/wbssc-group-c/', 'subjects': EXAM_SUBJECTS['wbssc-group-c']},
+    'wbssc-group-d': {**WBSSC_GROUP_D, 'detail_url': '/exam/wbssc-group-d/detail/', 'dashboard_url': '/exam/wbssc-group-d/', 'subjects': EXAM_SUBJECTS['wbssc-group-d']},
+    'panchayat': {**PANCHAYAT, 'detail_url': '/exam/panchayat/detail/', 'dashboard_url': '/exam/panchayat/', 'subjects': EXAM_SUBJECTS['panchayat']},
+    'railway-group-d': {**EXAM_CONFIG['railway-group-d'], 'detail_url': '/railway/group-d/', 'dashboard_url': '/exam/railway-group-d/', 'subjects': EXAM_SUBJECTS['railway-group-d']},
+}
+
+
+@app.route('/exam/<slug>/notes/', strict_slashes=False)
+def exam_section_notes(slug):
+    exam = EXAM_BY_SLUG.get(slug)
+    if not exam:
+        return redirect('/#popular-exams')
+    return render_template('exam_notes.html', exam=exam)
+
+@app.route('/exam/<slug>/quiz/', strict_slashes=False)
+def exam_section_quiz(slug):
+    exam = EXAM_BY_SLUG.get(slug)
+    if not exam:
+        return redirect('/#popular-exams')
+    return render_template('exam_quiz.html', exam=exam, mock_test=False)
+
+@app.route('/exam/<slug>/mock-test/', strict_slashes=False)
+def exam_section_mock_test(slug):
+    exam = EXAM_BY_SLUG.get(slug)
+    if not exam:
+        return redirect('/#popular-exams')
+    return render_template('exam_quiz.html', exam=exam, mock_test=True)
+
+@app.route('/exam/<slug>/current-affairs/', strict_slashes=False)
+def exam_section_current_affairs(slug):
+    exam = EXAM_BY_SLUG.get(slug)
+    if not exam:
+        return redirect('/#popular-exams')
+    return render_template('exam_current_affairs.html', exam=exam)
+
+@app.route('/exam/<slug>/previous-papers/', strict_slashes=False)
+def exam_section_previous_papers(slug):
+    exam = EXAM_BY_SLUG.get(slug)
+    if not exam:
+        return redirect('/#popular-exams')
+    return render_template('exam_papers.html', exam=exam)
+
 
 @app.route('/')
 def home():
@@ -708,7 +802,7 @@ def railway_ntpc_ug():
 
 @app.route('/railway/group-d/', strict_slashes=False)
 def railway_group_d():
-    return render_template('exam_page.html', exam=EXAM_CONFIG['railway-group-d'], category=CATEGORY_CONFIG['railway'])
+    return render_template('exam_page.html', exam=EXAM_CONFIG['railway-group-d'], category=CATEGORY_CONFIG['railway'], section_base='/exam/railway-group-d')
 
 @app.route('/railway/technician/', strict_slashes=False)
 def railway_technician():
@@ -720,7 +814,7 @@ def police():
 
 @app.route('/police/wbp-constable/', strict_slashes=False)
 def wbp_constable():
-    return render_template('police_sub.html', exam=WBP_CONSTABLE)
+    return render_template('police_sub.html', exam=WBP_CONSTABLE, section_base='/exam/wbp-constable')
 
 @app.route('/police/wbp-si/', strict_slashes=False)
 def wbp_si():
@@ -728,7 +822,7 @@ def wbp_si():
 
 @app.route('/police/kolkata-police/', strict_slashes=False)
 def kolkata_police():
-    return render_template('police_sub.html', exam=KOLKATA_POLICE)
+    return render_template('police_sub.html', exam=KOLKATA_POLICE, section_base='/exam/kolkata-police')
 
 @app.route('/exam/', strict_slashes=False)
 def exam_home():
@@ -748,7 +842,7 @@ def exam_wbssc_group_c_dashboard():
 
 @app.route('/exam/wbssc-group-c/detail/', strict_slashes=False)
 def exam_wbssc_group_c_detail():
-    return render_template('exam_page.html', exam=WBSSC_GROUP_C, category=CATEGORY_CONFIG['exam'])
+    return render_template('exam_page.html', exam=WBSSC_GROUP_C, category=CATEGORY_CONFIG['exam'], section_base='/exam/wbssc-group-c')
 
 @app.route('/exam/wbssc-group-d/', strict_slashes=False)
 def exam_wbssc_group_d_dashboard():
@@ -756,7 +850,7 @@ def exam_wbssc_group_d_dashboard():
 
 @app.route('/exam/wbssc-group-d/detail/', strict_slashes=False)
 def exam_wbssc_group_d_detail():
-    return render_template('exam_page.html', exam=WBSSC_GROUP_D, category=CATEGORY_CONFIG['exam'])
+    return render_template('exam_page.html', exam=WBSSC_GROUP_D, category=CATEGORY_CONFIG['exam'], section_base='/exam/wbssc-group-d')
 
 @app.route('/exam/panchayat/', strict_slashes=False)
 def exam_panchayat_dashboard():
@@ -764,7 +858,7 @@ def exam_panchayat_dashboard():
 
 @app.route('/exam/panchayat/detail/', strict_slashes=False)
 def exam_panchayat_detail():
-    return render_template('exam_page.html', exam=PANCHAYAT, category=CATEGORY_CONFIG['exam'])
+    return render_template('exam_page.html', exam=PANCHAYAT, category=CATEGORY_CONFIG['exam'], section_base='/exam/panchayat')
 
 @app.route('/exam/railway-group-d/', strict_slashes=False)
 def exam_railway_group_d_dashboard():

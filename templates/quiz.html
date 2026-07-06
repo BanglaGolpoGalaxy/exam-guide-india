@@ -25,15 +25,15 @@
     <div id="quizSelectionView">
         <div class="quiz-grid">
             {% set quizzes = [
-                ('wbcs1',    '🏛️', 'WBCS Prelims',   'General Studies',                   5, 10, '#1d4ed8'),
-                ('ssc_cgl1', '🎖️', 'SSC CGL Tier-I', 'Quant + Reasoning + GK + English',  5, 10, '#7c3aed'),
-                ('rrb_ntpc1','🚆', 'RRB NTPC',       'Mathematics + GK + Reasoning',       5, 10, '#ea580c'),
-                ('psc_misc1','⚖️', 'PSC MISC',       'General Studies + Arithmetic',       5, 10, '#15803d'),
-                ('police1',  '👮', 'WB Police',      'GS + Reasoning + Bengali',           5, 10, '#be123c'),
-                ('ssc_gd1',  '🛡️', 'SSC GD',         'GK + Maths + Reasoning',             5, 10, '#dc2626'),
+                ('/exam/wbp-constable/quiz/',      '🛡️', 'WB Police',        'GK + Arithmetic + Reasoning + Bengali',  5, 10, '#be123c'),
+                ('/exam/kolkata-police/quiz/',     '🚔', 'Kolkata Police',   'GK + Arithmetic + Reasoning + Language', 5, 10, '#0369a1'),
+                ('/exam/wbssc-group-c/quiz/',      '📋', 'WBSSC Group C',    'GS + English + Bengali + Arithmetic',    5, 10, '#7c3aed'),
+                ('/exam/wbssc-group-d/quiz/',      '🏗️', 'WBSSC Group D',    'General Studies + Basic Arithmetic',     5, 10, '#d97706'),
+                ('/exam/panchayat/quiz/',          '🌿', 'Panchayat',        'GS + Reasoning + Arithmetic + Bengali',  5, 10, '#15803d'),
+                ('/exam/railway-group-d/quiz/',    '🚆', 'Railway Group D',  'Science + Maths + GK + Reasoning',       5, 10, '#ea580c'),
             ] %}
-            {% for qid, icon, name, subjects, qs, mins, color in quizzes %}
-            <div class="quiz-card" onclick="startQuiz('{{ qid }}')" style="border-top:4px solid {{ color }};">
+            {% for url, icon, name, subjects, qs, mins, color in quizzes %}
+            <div class="quiz-card" style="border-top:4px solid {{ color }};">
                 <div class="quiz-card-icon" style="background:{{ color }}20;color:{{ color }};">{{ icon }}</div>
                 <h3 class="quiz-card-name">{{ name }}</h3>
                 <p class="quiz-card-subjects">{{ subjects }}</p>
@@ -41,14 +41,14 @@
                     <span>📊 {{ qs }} <span data-en="Questions" data-bn="প্রশ্ন">Questions</span></span>
                     <span>⏱️ {{ mins }} <span data-en="Mins" data-bn="মিনিট">Mins</span></span>
                 </div>
-                <button class="quiz-start-btn" style="background:{{ color }};" data-en="Start Quiz" data-bn="কুইজ শুরু করুন">Start Quiz</button>
+                <a href="{{ url }}" class="quiz-start-btn" style="background:{{ color }};text-decoration:none;display:block;text-align:center;" data-en="Start Quiz" data-bn="কুইজ শুরু করুন">Start Quiz</a>
             </div>
             {% endfor %}
         </div>
 
         <div class="guide-section" style="margin-top:28px;background:#f5f0ff;border-color:#d8ccf8;text-align:center;">
-            <p style="font-size:0.88rem;color:#5b21b6;margin-bottom:12px;" data-en="📘 Want more questions? Try our extended 10-question Demo Quiz with detailed explanations." data-bn="📘 আরও প্রশ্ন চান? বিস্তারিত ব্যাখ্যাসহ আমাদের ১০ প্রশ্নের ডেমো কুইজ চেষ্টা করুন।">📘 Want more questions? Try our extended 10-question Demo Quiz with detailed explanations.</p>
-            <a href="/quiz/demo-quiz/" class="btn-apply-big" data-en="📝 Go to Demo Quiz →" data-bn="📝 ডেমো কুইজে যান →">📝 Go to Demo Quiz →</a>
+            <p style="font-size:0.88rem;color:#5b21b6;margin-bottom:12px;">📘 Want a full-length mock test? Try our 10-question Demo Quiz with detailed explanations.</p>
+            <a href="/quiz/demo-quiz/" class="btn-apply-big">📝 Go to Demo Quiz →</a>
         </div>
     </div>
 
