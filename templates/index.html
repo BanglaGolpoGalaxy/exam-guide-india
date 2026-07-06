@@ -165,32 +165,32 @@
             <span class="label-line"></span>
         </div>
         <div class="notif-ticker">
-            <a href="/police/wbp-constable/" class="notif-item">
+            <a href="/exam/wbp-constable/" class="notif-item">
                 <span class="notif-badge">WB POLICE</span>
                 <span class="notif-title">West Bengal Police – Constable Recruitment Notification Released</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
-            <a href="/police/kolkata-police/" class="notif-item">
+            <a href="/exam/kolkata-police/" class="notif-item">
                 <span class="notif-badge">KOL POLICE</span>
                 <span class="notif-title">Kolkata Police – Constable Recruitment Update</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
-            <a href="/notes/" class="notif-item">
+            <a href="/exam/wbssc-group-c/" class="notif-item">
                 <span class="notif-badge">WBSSC C</span>
                 <span class="notif-title">WBSSC Group C – New Recruitment Notice 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
-            <a href="/notes/" class="notif-item">
+            <a href="/exam/wbssc-group-d/" class="notif-item">
                 <span class="notif-badge">WBSSC D</span>
                 <span class="notif-title">WBSSC Group D – Recruitment Notification 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
-            <a href="/notes/" class="notif-item">
+            <a href="/exam/panchayat/" class="notif-item">
                 <span class="notif-badge">PANCHAYAT</span>
                 <span class="notif-title">Panchayat – Recruitment Advertisement 2026</span>
                 <span class="notif-date">Jul 2026</span>
             </a>
-            <a href="/railway/group-d/" class="notif-item">
+            <a href="/exam/railway-group-d/" class="notif-item">
                 <span class="notif-badge">RAILWAY</span>
                 <span class="notif-title">Railway Group D – RRB Group D Latest Update 2026</span>
                 <span class="notif-date">Jul 2026</span>
@@ -235,7 +235,7 @@
 <script>
 function handleSearch(){
     const q=document.getElementById('heroSearch').value.trim().toLowerCase();
-    const map={wbcs:'/wbcs/',psc:'/psc/',ssc:'/ssc/',railway:'/railway/',police:'/police/',notes:'/notes/',quiz:'/quiz/',constable:'/police/wbp-constable/',kolkata:'/police/kolkata-police/'};
+    const map={wbcs:'/wbcs/',psc:'/psc/',ssc:'/ssc/',railway:'/railway/',police:'/exam/wbp-constable/',notes:'/notes/',quiz:'/quiz/',constable:'/exam/wbp-constable/',kolkata:'/exam/kolkata-police/',panchayat:'/exam/panchayat/',wbssc:'/exam/wbssc-group-c/'};
     for(const[k,v] of Object.entries(map)){if(q.includes(k)){window.location.href=v;return;}}
     if(q)window.location.href='/notes/';
 }
