@@ -1,0 +1,132 @@
+Update only the Home Page UI. Do NOT change routes, backend, database, models, authentication or business logic.
+
+Follow these requirements exactly:
+
+1. Popular Exams Section
+
+Keep exactly 6 cards.
+
+Card order:
+
+1. West Bengal Police
+2. Kolkata Police
+3. WBSSC Group C
+4. WBSSC Group D
+5. Panchayat
+6. Railway Group D
+
+2. Section Heading
+
+Small title:
+Popular Exams
+
+Main title:
+Choose Your Exam
+
+Subtitle (Bangla):
+আপনার পছন্দের পরীক্ষাটি নির্বাচন করুন এবং সম্পূর্ণ প্রস্তুতি শুরু করুন।
+
+3. Card Content
+
+Each card must contain:
+
+• Icon
+• Exam Name
+• Short Description
+• Three small action tags
+• Explore button
+
+The three action tags must be:
+
+Exam Pattern
+Study Materials
+Mock Test
+
+(Exactly like the reference design.)
+
+Card text:
+
+West Bengal Police
+Title: West Bengal Police
+Subtitle: Constable & SI Preparation
+
+Kolkata Police
+Title: Kolkata Police
+Subtitle: Constable & SI Preparation
+
+WBSSC Group C
+Title: WBSSC Group C
+Subtitle: Clerical Recruitment
+
+WBSSC Group D
+Title: WBSSC Group D
+Subtitle: Support Staff Recruitment
+
+Panchayat
+Title: Panchayat
+Subtitle: West Bengal Panchayat Exam
+
+Railway Group D
+Title: Railway Group D
+Subtitle: RRB Group D Preparation
+
+4. Card Design
+
+Do NOT redesign the cards.
+
+Keep the current modern UI exactly as it is.
+
+Keep:
+
+• same card size
+• same spacing
+• same border radius
+• same hover animation
+• same icon position
+• same typography
+• same Explore button
+
+Only change card colors:
+
+West Bengal Police → Khaki
+Kolkata Police → Light Blue
+WBSSC Group C → Purple
+WBSSC Group D → Golden Yellow
+Panchayat → Soft Green
+Railway Group D → Soft Red
+
+5. Header
+
+Remove the Language Toggle completely.
+
+Keep only:
+
+Login
+Register
+
+6. Mobile Responsive Fix
+
+Currently the homepage slightly overflows on the right side.
+
+Find the exact CSS causing the overflow and fix it.
+
+Requirements:
+
+• No horizontal scrolling
+• No right-side cut-off
+• Cards fit perfectly on all mobile screens
+• Search bar fits inside container
+• Hero section remains responsive
+
+7. Important
+
+Do NOT modify:
+
+• Backend
+• Database
+• Admin Panel
+• Authentication
+• Routes
+• Existing functionality
+
+Only polish the Home Page UI according to these requirements.

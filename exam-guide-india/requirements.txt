@@ -4,9 +4,3 @@ beautifulsoup4>=4.12.0
 apscheduler>=3.10.0
 lxml>=5.0.0
 gunicorn
-apscheduler
-beautifulsoup4
-Flask
-gunicorn
-lxml
-requests

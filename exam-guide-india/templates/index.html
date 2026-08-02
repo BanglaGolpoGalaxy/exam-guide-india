@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block title %}Exam Guide India | Free WBCS, SSC, Railway & Police Exam Preparation 2026{% endblock %}
+{% block meta_desc %}Free preparation for WBCS, PSC, SSC CGL, CHSL, GD, Railway NTPC, Group D, and WB Police exams. Get syllabus, exam pattern, notes, mock tests and latest 2026 notifications.{% endblock %}
+{% block meta_keys %}WBCS 2026, SSC CGL 2026, Railway NTPC 2026, WB Police 2026, PSC Misc 2026, government exam notes, free mock test, exam syllabus West Bengal{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-left">
+            <div class="hero-badge" data-en="✦ DREAM • PREPARE • ACHIEVE" data-bn="✦ স্বপ্ন • প্রস্তুতি • সাফল্য">✦ DREAM • PREPARE • ACHIEVE</div>
+            <h1 class="hero-heading">
+                <span data-en="Your Journey to a" data-bn="সরকারি চাকরির">Your Journey to a</span><br>
+                <span data-en="Government Job Starts" data-bn="যাত্রা শুরু হোক">Government Job Starts</span><br>
+                <em class="hero-highlight" data-en="Here!" data-bn="এখান থেকে!">Here!</em>
+            </h1>
+            <p class="hero-sub" data-en="Study smart with authentic notes, mock tests, updated syllabus and real-time exam notifications — 100% free for all aspirants." data-bn="বিনামূল্যে পরীক্ষার নোট, মক টেস্ট, সিলেবাস ও সর্বশেষ আপডেট পান।">Study smart with authentic notes, mock tests, updated syllabus and real-time exam notifications — 100% free for all aspirants.</p>
+            <div class="hero-search">
+                <input type="text" placeholder="Search exam, topic or notes..." data-en-placeholder="Search exam, topic or notes..." data-bn-placeholder="পরীক্ষা, বিষয় বা নোট খুঁজুন..." id="heroSearch">
+                <button class="hero-search-btn" onclick="handleSearch()" aria-label="Search">🔍</button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><span class="hstat-icon">✅</span><span data-en="Verified Content" data-bn="যাচাইকৃত কন্টেন্ট">Verified Content</span></div>
+                <div class="hero-stat"><span class="hstat-icon">🔄</span><span data-en="Regular Updates" data-bn="নিয়মিত আপডেট">Regular Updates</span></div>
+                <div class="hero-stat"><span class="hstat-icon">💎</span><span data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</span></div>
+                <div class="hero-stat"><span class="hstat-icon">🏆</span><span data-en="Expert Content" data-bn="বিশেষজ্ঞ কন্টেন্ট">Expert Content</span></div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="{{ url_for('static', filename='images/hero-illustration.png') }}" alt="Student preparing for government competitive exams in India" class="hero-img">
+        </div>
+    </div>
+</section>
+
+<!-- POPULAR EXAMS -->
+<section class="exams-section" id="popular-exams">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text">Popular Exams</span>
+            <span class="label-line"></span>
+        </div>
+        <h2 class="section-heading">Choose Your Exam</h2>
+        <p class="section-subtitle">আপনার পছন্দের পরীক্ষাটি নির্বাচন করুন এবং সম্পূর্ণ প্রস্তুতি শুরু করুন।</p>
+        <div class="exam-grid">
+
+            <!-- 1. West Bengal Police – Khaki -->
+            <a href="/exam/wbp-constable/" class="exam-card ec-khaki">
+                <div class="exam-icon">🛡️</div>
+                <h3 class="exam-name">West Bengal Police</h3>
+                <p class="exam-desc">Constable &amp; SI Preparation</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 2. Kolkata Police – Soft Light Blue -->
+            <a href="/exam/kolkata-police/" class="exam-card ec-skyblue">
+                <div class="exam-icon">👮</div>
+                <h3 class="exam-name">Kolkata Police</h3>
+                <p class="exam-desc">Constable &amp; SI Preparation</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 3. WBSSC Group C – Soft Purple -->
+            <a href="/exam/wbssc-group-c/" class="exam-card ec-purple">
+                <div class="exam-icon">📋</div>
+                <h3 class="exam-name">WBSSC Group C</h3>
+                <p class="exam-desc">Clerical Recruitment</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 4. WBSSC Group D – Soft Golden Yellow -->
+            <a href="/exam/wbssc-group-d/" class="exam-card ec-golden">
+                <div class="exam-icon">🏗️</div>
+                <h3 class="exam-name">WBSSC Group D</h3>
+                <p class="exam-desc">Support Staff Recruitment</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 5. Panchayat – Soft Green -->
+            <a href="/exam/panchayat/" class="exam-card ec-green">
+                <div class="exam-icon">🌿</div>
+                <h3 class="exam-name">Panchayat</h3>
+                <p class="exam-desc">West Bengal Panchayat Exam</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+            <!-- 6. Railway Group D – Soft Red -->
+            <a href="/exam/railway-group-d/" class="exam-card ec-red">
+                <div class="exam-icon">🚆</div>
+                <h3 class="exam-name">Railway Group D</h3>
+                <p class="exam-desc">RRB Group D Preparation</p>
+                <div class="card-tags">
+                    <span class="card-tag">Exam Pattern</span>
+                    <span class="card-tag">Study Materials</span>
+                    <span class="card-tag">Mock Test</span>
+                </div>
+                <span class="btn-explore">Explore →</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- WHY TRUST US -->
+<section class="trust-section">
+    <div class="container trust-inner">
+        <div class="trust-left">
+            <p class="trust-sub" data-en="Why Aspirants" data-bn="কেন পরীক্ষার্থীরা">Why Aspirants</p>
+            <h2 class="trust-heading" data-en="Trust Us?" data-bn="আমাদের বিশ্বাস করে?">Trust Us?</h2>
+            <a href="/about/" class="btn-know" data-en="Know More →" data-bn="আরও জানুন →">Know More →</a>
+        </div>
+        <div class="trust-features">
+            <div class="trust-feature">
+                <div class="tf-icon">📖</div>
+                <div><h4 data-en="Authentic Content" data-bn="প্রামাণিক কন্টেন্ট">Authentic Content</h4><p data-en="Sourced from official notifications and expert educators." data-bn="সরকারি বিজ্ঞপ্তি থেকে সংগৃহীত।">Sourced from official notifications and expert educators.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">🧩</div>
+                <div><h4 data-en="Mock Tests" data-bn="মক টেস্ট">Mock Tests</h4><p data-en="Real exam pattern questions with instant scoring." data-bn="বাস্তব প্রশ্নপত্রের ধাঁচে মক টেস্ট।">Real exam pattern questions with instant scoring.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">🔔</div>
+                <div><h4 data-en="Auto Notifications" data-bn="স্বয়ংক্রিয় আপডেট">Auto Notifications</h4><p data-en="Scraped from official sites every 6 hours automatically." data-bn="প্রতি ৬ ঘণ্টায় স্বয়ংক্রিয়ভাবে আপডেট।">Scraped from official sites every 6 hours automatically.</p></div>
+            </div>
+            <div class="trust-feature">
+                <div class="tf-icon">💎</div>
+                <div><h4 data-en="100% Free" data-bn="১০০% ফ্রি">100% Free</h4><p data-en="All resources, notes and tests are completely free." data-bn="সম্পূর্ণ বিনামূল্যে সব সংস্থান।">All resources, notes and tests are completely free.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LATEST NOTIFICATIONS -->
+<section class="notif-section">
+    <div class="container">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text">LATEST NOTIFICATIONS</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="notif-ticker">
+            <a href="/exam/wbp-constable/" class="notif-item">
+                <span class="notif-badge">WB POLICE</span>
+                <span class="notif-title">West Bengal Police – Constable Recruitment Notification Released</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/exam/kolkata-police/" class="notif-item">
+                <span class="notif-badge">KOL POLICE</span>
+                <span class="notif-title">Kolkata Police – Constable Recruitment Update</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/exam/wbssc-group-c/" class="notif-item">
+                <span class="notif-badge">WBSSC C</span>
+                <span class="notif-title">WBSSC Group C – New Recruitment Notice 2026</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/exam/wbssc-group-d/" class="notif-item">
+                <span class="notif-badge">WBSSC D</span>
+                <span class="notif-title">WBSSC Group D – Recruitment Notification 2026</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/exam/panchayat/" class="notif-item">
+                <span class="notif-badge">PANCHAYAT</span>
+                <span class="notif-title">Panchayat – Recruitment Advertisement 2026</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+            <a href="/exam/railway-group-d/" class="notif-item">
+                <span class="notif-badge">RAILWAY</span>
+                <span class="notif-title">Railway Group D – RRB Group D Latest Update 2026</span>
+                <span class="notif-date">Jul 2026</span>
+            </a>
+        </div>
+        <div style="text-align:center; margin-top:14px;">
+            <a href="/notes/" class="ca-link">View All Notifications →</a>
+        </div>
+    </div>
+</section>
+
+<!-- MONTHLY CURRENT AFFAIRS + RESOURCES -->
+<section class="resources-section">
+    <div class="container resources-inner">
+        <div class="resource-left">
+            <p class="resource-tag" data-en="STUDY RESOURCES" data-bn="পড়ার সংস্থান">STUDY RESOURCES</p>
+            <h2 class="resource-heading" data-en="Notes, Quizzes & More" data-bn="নোট, কুইজ ও আরও কিছু">Notes, Quizzes & More</h2>
+            <p class="resource-desc" data-en="Access handwritten notes, practice quizzes, monthly current affairs and everything you need to crack your dream exam — completely free." data-bn="হাতে লেখা নোট, প্র্যাকটিস কুইজ, মাসিক কারেন্ট অ্যাফেয়ার্স এবং আপনার প্রয়োজনীয় সবকিছু সম্পূর্ণ বিনামূল্যে।">Access handwritten notes, practice quizzes, monthly current affairs and everything you need to crack your dream exam — completely free.</p>
+            <div class="resource-btns">
+                <a href="/notes/" class="btn-resource-outline" data-en="Explore Notes →" data-bn="নোট দেখুন →">Explore Notes →</a>
+                <a href="/quiz/" class="btn-resource-solid" data-en="Try Mock Test →" data-bn="মক টেস্ট →">Try Mock Test →</a>
+            </div>
+        </div>
+        <div class="resource-right">
+            <div class="current-affairs-card">
+                <div class="ca-header">
+                    <span data-en="Monthly Current Affairs – June 2026" data-bn="মাসিক কারেন্ট অ্যাফেয়ার্স – জুন ২০২৬">Monthly Current Affairs – June 2026</span>
+                    <span class="ca-badge">New</span>
+                </div>
+                <ul class="ca-list">
+                    <li data-en="Monthly Current Affairs – June 2026 Digest" data-bn="মাসিক কারেন্ট অ্যাফেয়ার্স – জুন ২০২৬">Monthly Current Affairs – June 2026 Digest</li>
+                    <li data-en="Important Govt. Schemes & Programmes 2026" data-bn="গুরুত্বপূর্ণ সরকারি প্রকল্প ২০২৬">Important Govt. Schemes & Programmes 2026</li>
+                    <li data-en="Union Budget 2026 – Key Highlights" data-bn="কেন্দ্রীয় বাজেট ২০২৬ হাইলাইটস">Union Budget 2026 – Key Highlights</li>
+                    <li data-en="Appointments, Awards & National Events" data-bn="নিয়োগ, পুরস্কার ও জাতীয় ঘটনা">Appointments, Awards & National Events</li>
+                </ul>
+                <a href="/notes/demo-notes/" class="ca-link" data-en="View All Monthly CA Updates →" data-bn="সব মাসিক CA আপডেট দেখুন →">View All Monthly CA Updates →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function handleSearch(){
+    const q=document.getElementById('heroSearch').value.trim().toLowerCase();
+    const map={wbcs:'/wbcs/',psc:'/psc/',ssc:'/ssc/',railway:'/railway/',police:'/exam/wbp-constable/',notes:'/notes/',quiz:'/quiz/',constable:'/exam/wbp-constable/',kolkata:'/exam/kolkata-police/',panchayat:'/exam/panchayat/',wbssc:'/exam/wbssc-group-c/'};
+    for(const[k,v] of Object.entries(map)){if(q.includes(k)){window.location.href=v;return;}}
+    if(q)window.location.href='/notes/';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('heroSearch').addEventListener('keydown',e=>{if(e.key==='Enter')handleSearch();});
+});
+</script>
+{% endblock %}
