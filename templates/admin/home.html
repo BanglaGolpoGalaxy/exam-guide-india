@@ -1,0 +1,220 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – Home | Exam Guide India{% endblock %}
+{% block admin_page_label %}🏠 Home Page{% endblock %}
+
+{% block admin_content %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-left">
+            <div class="hero-badge">✦ DREAM • PREPARE • ACHIEVE</div>
+            <h1 class="hero-heading">
+                Your Journey to a<br>
+                Government Job Starts<br>
+                <em class="hero-highlight">Here!</em>
+            </h1>
+            <p class="hero-sub">Study smart with authentic notes, mock tests, updated syllabus and real-time exam notifications — 100% free for all aspirants.</p>
+            <div class="hero-stats">
+                <div class="hero-stat"><span class="hstat-icon">✅</span> Verified Content</div>
+                <div class="hero-stat"><span class="hstat-icon">🔄</span> Regular Updates</div>
+                <div class="hero-stat"><span class="hstat-icon">💎</span> 100% Free</div>
+                <div class="hero-stat"><span class="hstat-icon">🏆</span> Expert Content</div>
+            </div>
+            <!-- Admin: Hero Controls -->
+            <div class="admin-hero-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Hero Heading">✏ Edit Heading</button>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Hero Subtext">✏ Edit Subtext</button>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Hero Badge">✏ Edit Badge</button>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Hero Stats">✏ Edit Stats</button>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="{{ url_for('static', filename='images/hero-illustration.png') }}" alt="Hero illustration" class="hero-img">
+            <div style="margin-top:10px; text-align:center;">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Hero Image">✏ Replace Image</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POPULAR EXAMS -->
+<section class="exams-section" id="popular-exams">
+    <div class="container">
+        <div class="admin-section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">Popular Exams</span>
+                <span class="label-line"></span>
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Section Label – Popular Exams">✏ Edit Label</button>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Section Heading – Choose Your Exam">✏ Edit Heading</button>
+            </div>
+        </div>
+
+        <div class="exam-grid">
+            <!-- WBP Constable -->
+            <div class="admin-exam-card-wrap admin-editable">
+                <a href="/exam/wbp-constable/" class="exam-card ec-khaki">
+                    <div class="exam-icon">🛡️</div>
+                    <h3 class="exam-name">West Bengal Police</h3>
+                    <p class="exam-desc">Constable &amp; SI Preparation</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Exam Pattern</span>
+                        <span class="card-tag">Study Materials</span>
+                        <span class="card-tag">Mock Test</span>
+                    </div>
+                    <span class="btn-explore">Explore →</span>
+                </a>
+                <div class="admin-controls-overlay">
+                    <span class="admin-status admin-status-published">● Live</span>
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBP Constable Card">✏</button>
+                    <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WBP Constable Card">🗑</button>
+                </div>
+            </div>
+
+            <!-- Kolkata Police -->
+            <div class="admin-exam-card-wrap admin-editable">
+                <a href="/exam/kolkata-police/" class="exam-card ec-navy">
+                    <div class="exam-icon">🚔</div>
+                    <h3 class="exam-name">Kolkata Police</h3>
+                    <p class="exam-desc">Constable &amp; Lady Constable</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Exam Pattern</span>
+                        <span class="card-tag">Study Materials</span>
+                        <span class="card-tag">Mock Test</span>
+                    </div>
+                    <span class="btn-explore">Explore →</span>
+                </a>
+                <div class="admin-controls-overlay">
+                    <span class="admin-status admin-status-published">● Live</span>
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Kolkata Police Card">✏</button>
+                    <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Kolkata Police Card">🗑</button>
+                </div>
+            </div>
+
+            <!-- WBSSC Group C -->
+            <div class="admin-exam-card-wrap admin-editable">
+                <a href="/exam/wbssc-group-c/" class="exam-card ec-green">
+                    <div class="exam-icon">📋</div>
+                    <h3 class="exam-name">WBSSC Group C</h3>
+                    <p class="exam-desc">Clerkship &amp; Office Posts</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Exam Pattern</span>
+                        <span class="card-tag">Study Materials</span>
+                        <span class="card-tag">Mock Test</span>
+                    </div>
+                    <span class="btn-explore">Explore →</span>
+                </a>
+                <div class="admin-controls-overlay">
+                    <span class="admin-status admin-status-published">● Live</span>
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBSSC Group C Card">✏</button>
+                    <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WBSSC Group C Card">🗑</button>
+                </div>
+            </div>
+
+            <!-- WBSSC Group D -->
+            <div class="admin-exam-card-wrap admin-editable">
+                <a href="/exam/wbssc-group-d/" class="exam-card ec-orange">
+                    <div class="exam-icon">🏗️</div>
+                    <h3 class="exam-name">WBSSC Group D</h3>
+                    <p class="exam-desc">Peon, Guard &amp; Support Staff</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Exam Pattern</span>
+                        <span class="card-tag">Study Materials</span>
+                        <span class="card-tag">Mock Test</span>
+                    </div>
+                    <span class="btn-explore">Explore →</span>
+                </a>
+                <div class="admin-controls-overlay">
+                    <span class="admin-status admin-status-published">● Live</span>
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBSSC Group D Card">✏</button>
+                    <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WBSSC Group D Card">🗑</button>
+                </div>
+            </div>
+
+            <!-- Panchayat -->
+            <div class="admin-exam-card-wrap admin-editable">
+                <a href="/exam/panchayat/" class="exam-card ec-teal">
+                    <div class="exam-icon">🌿</div>
+                    <h3 class="exam-name">Panchayat</h3>
+                    <p class="exam-desc">Gram Panchayet Karmee</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Exam Pattern</span>
+                        <span class="card-tag">Study Materials</span>
+                        <span class="card-tag">Mock Test</span>
+                    </div>
+                    <span class="btn-explore">Explore →</span>
+                </a>
+                <div class="admin-controls-overlay">
+                    <span class="admin-status admin-status-published">● Live</span>
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Panchayat Card">✏</button>
+                    <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Panchayat Card">🗑</button>
+                </div>
+            </div>
+
+            <!-- Railway Group D -->
+            <div class="admin-exam-card-wrap admin-editable">
+                <a href="/exam/railway-group-d/" class="exam-card ec-red">
+                    <div class="exam-icon">🚆</div>
+                    <h3 class="exam-name">Railway Group D</h3>
+                    <p class="exam-desc">RRB Level-1 Posts</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Exam Pattern</span>
+                        <span class="card-tag">Study Materials</span>
+                        <span class="card-tag">Mock Test</span>
+                    </div>
+                    <span class="btn-explore">Explore →</span>
+                </a>
+                <div class="admin-controls-overlay">
+                    <span class="admin-status admin-status-published">● Live</span>
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway Group D Card">✏</button>
+                    <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway Group D Card">🗑</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new exam card -->
+        <div class="admin-add-row">
+            <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Exam Card">➕ Add New Exam Card</button>
+        </div>
+    </div>
+</section>
+
+<!-- ANNOUNCEMENT BAR TEXT -->
+<section style="padding: 24px 0;">
+    <div class="container">
+        <div class="admin-section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">Announcement Bar</span>
+                <span class="label-line"></span>
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Announcement Bar Text">✏ Edit Marquee Text</button>
+            </div>
+        </div>
+        <div style="background:#f5f3ff;border:1.5px dashed #c4b5fd;border-radius:8px;padding:12px 16px;font-size:0.82rem;color:#4c1d95;">
+            📢 West Bengal Police Update &nbsp;•&nbsp; Kolkata Police Recruitment &nbsp;•&nbsp; WBSSC Group C &nbsp;•&nbsp; WBSSC Group D &nbsp;•&nbsp; Panchayat Recruitment &nbsp;•&nbsp; Railway Group D &nbsp;•&nbsp; Free Notes Available &nbsp;•&nbsp; Mock Test &nbsp;•&nbsp; Current Affairs
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER TEXT CONTROLS -->
+<div class="container" style="padding-bottom: 32px;">
+    <div class="admin-section-header">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span class="label-text">Footer</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Footer Brand Description">✏ Edit Brand Description</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Footer Links">✏ Edit Quick Links</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Footer Social Links">✏ Edit Social Links</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

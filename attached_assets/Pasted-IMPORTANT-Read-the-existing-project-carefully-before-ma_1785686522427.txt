@@ -1,0 +1,143 @@
+IMPORTANT:
+Read the existing project carefully before making any changes.
+
+Do NOT recreate the website.
+
+Do NOT redesign any existing public pages.
+
+Do NOT change the current UI, navigation, colors, routes, business logic or frontend design.
+
+Your task is ONLY to build the foundation of a Visual Admin Panel based on the existing website.
+
+==================================================
+PROJECT GOAL
+==================================================
+
+This project is NOT a traditional CMS.
+
+The Admin Panel must look and behave exactly like the public website.
+
+Every page that users can see should also have an Admin version with editing controls.
+
+The admin should feel like they are directly editing their own website.
+
+Avoid table-based admin interfaces whenever possible.
+
+==================================================
+ADMIN DESIGN PRINCIPLE
+==================================================
+
+Reuse the existing page layouts.
+
+Do NOT create new dashboard pages for Notes, Quiz, Exams etc.
+
+Instead, use the existing pages and simply add editing capabilities.
+
+For example:
+
+Public:
+Exam Home
+ ├── Syllabus
+ ├── Notes
+ ├── Quiz
+ ├── Mock Test
+
+Admin:
+Exam Home
+ ├── Syllabus      ✏ Edit   🗑 Delete
+ ├── Notes         ✏ Edit   🗑 Delete
+ ├── Quiz          ✏ Edit   🗑 Delete
+ ├── Mock Test     ✏ Edit   🗑 Delete
+ └── + Add Module
+
+The same rule must apply everywhere.
+
+==================================================
+ADMIN NAVIGATION
+==================================================
+
+Keep exactly the same navigation flow as the public website.
+
+Example:
+
+Home
+
+↓
+
+Exam
+
+↓
+
+Notes
+
+↓
+
+Subject
+
+↓
+
+Topic
+
+↓
+
+Lesson
+
+The admin must manage content from the same pages.
+
+No separate table-based management pages.
+
+==================================================
+EDIT CONTROLS
+==================================================
+
+Every manageable item should support:
+
+Add
+
+Edit
+
+Delete
+
+Publish / Unpublish
+
+Reorder (where appropriate)
+
+These controls should appear naturally beside cards or content.
+
+==================================================
+THIS STEP ONLY
+==================================================
+
+For this step DO NOT implement CRUD functionality yet.
+
+Only prepare the complete Admin Panel architecture.
+
+Create:
+
+• Admin Blueprint
+• Admin Layout
+• Admin Sidebar
+• Admin Navbar
+• Admin Base Template
+• Admin Route Structure
+• Admin Mode Detection
+• Placeholder Edit Controls
+• Placeholder Add Buttons
+
+The buttons do not need to work yet.
+
+==================================================
+VERY IMPORTANT
+==================================================
+
+Do NOT modify the public website.
+
+Do NOT change any existing functionality.
+
+Simply prepare the project so every page can later become editable from Admin Mode.
+
+Keep the code modular and production-ready.
+
+Use the existing SQLite database.
+
+MongoDB integration will be done later.

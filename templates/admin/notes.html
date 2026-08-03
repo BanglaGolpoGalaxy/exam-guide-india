@@ -1,0 +1,167 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – Notes & Study Materials | Exam Guide India{% endblock %}
+{% block admin_page_label %}📚 Notes & Study Materials{% endblock %}
+
+{% block admin_content %}
+<section class="page-hero" style="--cat-color:#0d9488;--cat-light:#f0fdfa;">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <span>Notes</span>
+        </div>
+        <div class="page-hero-icon">📚</div>
+        <h1 class="page-hero-title">Free Study Notes &amp; Materials</h1>
+        <p class="page-hero-desc">Topic-wise notes, monthly current affairs digests, PDF guides and practice sets — all free for every aspirant.</p>
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Notes Page – Title">✏ Edit Title</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Notes Page – Description">✏ Edit Description</button>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:48px 24px;">
+
+    <!-- Featured Banner -->
+    <div class="admin-editable">
+        <div class="guide-section" style="background:linear-gradient(135deg,#0d9488,#0891b2);border:none;margin-bottom:32px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+                <div>
+                    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:#99f6e4;text-transform:uppercase;margin-bottom:6px;">FEATURED</div>
+                    <h2 style="color:white;font-size:1.3rem;font-weight:700;margin-bottom:6px;">Monthly Current Affairs – June 2026</h2>
+                    <p style="color:#ccfbf1;font-size:0.84rem;">National, International, Sports, Science &amp; WB Special – preview available now.</p>
+                </div>
+                <a href="#" class="btn-resource-solid" style="background:white;color:#0d9488;border-color:white;">📄 View Notes Preview →</a>
+            </div>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Notes Page – Featured Banner">✏ Edit Featured Banner</button>
+            <button class="admin-btn admin-btn-unpublish" data-admin-action="unpublish" data-admin-context="Notes Page – Featured Banner">⏸ Hide Banner</button>
+        </div>
+    </div>
+
+    <div class="admin-section-header">
+        <div class="section-label" style="margin-bottom:0;">
+            <span class="label-line"></span>
+            <span class="label-text">FREE STUDY MATERIALS</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Notes Page – Section Label">✏ Edit Label</button>
+            <button class="admin-btn admin-btn-reorder" data-admin-action="reorder" data-admin-context="Notes Page – Exam Sections">↕ Reorder Sections</button>
+        </div>
+    </div>
+
+    <div class="notes-category-grid" style="margin-top:28px;">
+
+        <!-- WB Police Notes -->
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid #be123c;">
+                <div class="ncc-header" style="color:#be123c;">🛡️ WB Police Notes</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/wbp-constable/notes/">General Knowledge – Complete Notes</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WB Police – GK Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WB Police – GK Notes">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/wbp-constable/notes/">Arithmetic – Practice Set</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WB Police – Arithmetic Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WB Police – Arithmetic Notes">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/wbp-constable/notes/">Bengali Language – Grammar Notes</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WB Police – Bengali Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WB Police – Bengali Notes">🗑</button>
+                        </span>
+                    </li>
+                </ul>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:8px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="WB Police Notes – List Item">➕ Add Note</button>
+                </div>
+                <a href="/admin-panel/exam/wbp-constable/notes/" class="ncc-btn" style="background:#fff1f2;color:#be123c;">View WB Police Notes →</a>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WB Police Notes Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WB Police Notes Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Kolkata Police Notes -->
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid #0369a1;">
+                <div class="ncc-header" style="color:#0369a1;">🚔 Kolkata Police Notes</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/kolkata-police/notes/">General Knowledge – Complete Notes</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Kolkata Police – GK Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Kolkata Police – GK Notes">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/kolkata-police/notes/">Arithmetic – Practice Set</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Kolkata Police – Arithmetic Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Kolkata Police – Arithmetic Notes">🗑</button>
+                        </span>
+                    </li>
+                </ul>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:8px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Kolkata Police Notes – List Item">➕ Add Note</button>
+                </div>
+                <a href="/admin-panel/exam/kolkata-police/notes/" class="ncc-btn" style="background:#f0f9ff;color:#0369a1;">View Kolkata Police Notes →</a>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Kolkata Police Notes Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Kolkata Police Notes Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Railway Group D Notes -->
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid #ea580c;">
+                <div class="ncc-header" style="color:#ea580c;">🚆 Railway Group D Notes</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/railway-group-d/notes/">General Science – Complete Notes</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway GD – Science Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway GD – Science Notes">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/railway-group-d/notes/">Mathematics – Practice Set</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway GD – Math Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway GD – Math Notes">🗑</button>
+                        </span>
+                    </li>
+                </ul>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:8px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Railway GD Notes – List Item">➕ Add Note</button>
+                </div>
+                <a href="/admin-panel/exam/railway-group-d/notes/" class="ncc-btn" style="background:#fff7ed;color:#ea580c;">View Railway Notes →</a>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway Group D Notes Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway Group D Notes Card">🗑</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add new exam section -->
+    <div class="admin-add-row">
+        <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Notes Page – Exam Notes Section">➕ Add Exam Notes Section</button>
+    </div>
+
+</div>
+{% endblock %}

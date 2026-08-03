@@ -1,0 +1,165 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – {{ exam.name }} Dashboard | Exam Guide India{% endblock %}
+{% block admin_page_label %}📊 {{ exam.name }} – Dashboard{% endblock %}
+
+{% block admin_head %}
+<style>:root{--exam-color:{{ exam.color }};--exam-light:{{ exam.light }};}</style>
+{% endblock %}
+
+{% block admin_content %}
+
+<section class="page-hero" style="--cat-color:{{ exam.color }};--cat-light:{{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <span>{{ exam.name }}</span>
+        </div>
+        <div class="page-hero-icon">{{ exam.icon }}</div>
+        <h1 class="page-hero-title">{{ exam.full_name }}</h1>
+        <p class="page-hero-desc">{{ exam.overview[:200] }}...</p>
+        <div class="exam-quick-links">
+            <a href="{{ exam.apply_link }}" target="_blank" rel="noopener" class="btn-apply">📋 Apply Online</a>
+            <a href="{{ exam.official_url }}" target="_blank" rel="noopener" class="btn-official">🌐 Official Site</a>
+        </div>
+        <!-- Admin: Hero controls -->
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Icon">✏ Edit Icon</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Full Name">✏ Edit Name</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Overview">✏ Edit Overview</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Apply / Official Links">✏ Edit Links</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Color Theme">🎨 Change Color</button>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding: 48px 24px;">
+
+    <div class="admin-section-header">
+        <div class="section-label" style="margin-bottom:0;">
+            <span class="label-line"></span>
+            <span class="label-text">CHOOSE A SECTION</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Section Label – Choose a Section">✏ Edit Label</button>
+        </div>
+    </div>
+    <p style="text-align:center;font-size:0.86rem;color:#64748b;margin-top:8px;margin-bottom:32px;">Select any section below to start your preparation</p>
+
+    <div class="dashboard-grid">
+
+        <!-- Syllabus & Exam Pattern -->
+        <div class="admin-dash-card-wrap admin-editable">
+            <a href="{{ url_for('admin.admin_exam_detail', slug=slug) }}" class="dash-card dc-blue">
+                <div class="dash-card-icon">📖</div>
+                <div class="dash-card-content">
+                    <h3 class="dash-card-title">Syllabus &amp; Exam Pattern</h3>
+                    <p class="dash-card-desc">Overview · Eligibility · Exam Pattern · Syllabus · Selection Process</p>
+                </div>
+                <span class="dash-card-arrow">→</span>
+            </a>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Syllabus Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ exam.name }} – Syllabus Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="admin-dash-card-wrap admin-editable">
+            <a href="{{ url_for('admin.admin_exam_notes', slug=slug) }}" class="dash-card dc-green">
+                <div class="dash-card-icon">📚</div>
+                <div class="dash-card-content">
+                    <h3 class="dash-card-title">Notes</h3>
+                    <p class="dash-card-desc">Subject-wise notes, topic summaries and free PDF study materials</p>
+                </div>
+                <span class="dash-card-arrow">→</span>
+            </a>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Notes Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ exam.name }} – Notes Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="admin-dash-card-wrap admin-editable">
+            <a href="{{ url_for('admin.admin_exam_quiz', slug=slug) }}" class="dash-card dc-orange">
+                <div class="dash-card-icon">📝</div>
+                <div class="dash-card-content">
+                    <h3 class="dash-card-title">Quiz</h3>
+                    <p class="dash-card-desc">Subject-wise practice quizzes with real exam-pattern questions</p>
+                </div>
+                <span class="dash-card-arrow">→</span>
+            </a>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Quiz Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ exam.name }} – Quiz Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Mock Test -->
+        <div class="admin-dash-card-wrap admin-editable">
+            <a href="{{ url_for('admin.admin_exam_mock_test', slug=slug) }}" class="dash-card dc-purple">
+                <div class="dash-card-icon">🎯</div>
+                <div class="dash-card-content">
+                    <h3 class="dash-card-title">Mock Test</h3>
+                    <p class="dash-card-desc">Full-length mock tests with instant scoring and detailed answer key</p>
+                </div>
+                <span class="dash-card-arrow">→</span>
+            </a>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-coming">● Coming</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Mock Test Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ exam.name }} – Mock Test Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Current Affairs -->
+        <div class="admin-dash-card-wrap admin-editable">
+            <a href="{{ url_for('admin.admin_exam_current_affairs', slug=slug) }}" class="dash-card dc-cyan">
+                <div class="dash-card-icon">📰</div>
+                <div class="dash-card-content">
+                    <h3 class="dash-card-title">Current Affairs</h3>
+                    <p class="dash-card-desc">Monthly current affairs digest — national, state and WB special updates</p>
+                </div>
+                <span class="dash-card-arrow">→</span>
+            </a>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Current Affairs Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ exam.name }} – Current Affairs Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Previous Papers -->
+        <div class="admin-dash-card-wrap admin-editable">
+            <a href="{{ url_for('admin.admin_exam_papers', slug=slug) }}" class="dash-card dc-gold">
+                <div class="dash-card-icon">📜</div>
+                <div class="dash-card-content">
+                    <h3 class="dash-card-title">Previous Year Papers</h3>
+                    <p class="dash-card-desc">Solved previous year question papers with explanations</p>
+                </div>
+                <span class="dash-card-arrow">→</span>
+            </a>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-coming">● Coming</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Previous Papers Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ exam.name }} – Previous Papers Card">🗑</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add Module -->
+    <div class="admin-add-row" style="margin-top:24px;">
+        <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Dashboard Module">➕ Add Module</button>
+    </div>
+
+    <div class="cat-back" style="margin-top:32px;">
+        <a href="{{ url_for('admin.admin_home') }}" class="btn-back-home">← Admin Home</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,517 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   EXAM GUIDE INDIA – ADMIN PANEL STYLES
+   Overlay-only styles. Never modifies public page appearance.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Admin Top Bar ────────────────────────────────────────────────────────── */
+.admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 24px;
+    height: 48px;
+    background: linear-gradient(90deg, #1e1048 0%, #3b1d8a 60%, #6c3fbf 100%);
+    box-shadow: 0 2px 12px rgba(30,16,72,0.35);
+    font-family: 'Poppins', sans-serif;
+    flex-wrap: wrap;
+}
+
+.admin-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.admin-topbar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a78bfa;
+    border: 1.5px solid #6c3fbf;
+    border-radius: 20px;
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.06);
+}
+
+.admin-topbar-badge .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #86efac;
+    box-shadow: 0 0 6px #86efac;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.admin-topbar-page {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+}
+
+.admin-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.admin-topbar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.admin-topbar-link:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+.admin-topbar-link.danger:hover {
+    background: rgba(239,68,68,0.2);
+    color: #fca5a5;
+}
+
+.admin-topbar-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.15);
+}
+
+/* ── Editable Zone Wrapper ────────────────────────────────────────────────── */
+.admin-editable {
+    position: relative;
+    border-radius: 8px;
+    transition: outline 0.15s;
+}
+
+.admin-editable:hover {
+    outline: 2px dashed #a78bfa;
+    outline-offset: 4px;
+}
+
+/* ── Inline Control Strip ─────────────────────────────────────────────────── */
+.admin-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(108, 63, 191, 0.25);
+}
+
+/* Controls that appear inside a card / section – flush top-right */
+.admin-controls-overlay {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.admin-editable:hover .admin-controls-overlay {
+    opacity: 1;
+}
+
+/* ── Control Buttons ──────────────────────────────────────────────────────── */
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s, transform 0.1s;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
+}
+
+.admin-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.admin-btn:active { transform: translateY(0); }
+
+.admin-btn-edit {
+    background: #f0f4ff;
+    color: #3b1d8a;
+    border: 1.5px solid #c4b5fd;
+}
+
+.admin-btn-delete {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1.5px solid #fecdd3;
+}
+
+.admin-btn-add {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1.5px solid #bbf7d0;
+}
+
+.admin-btn-publish {
+    background: #f0f9ff;
+    color: #0369a1;
+    border: 1.5px solid #bae6fd;
+}
+
+.admin-btn-unpublish {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1.5px solid #fed7aa;
+}
+
+.admin-btn-reorder {
+    background: #f5f3ff;
+    color: #6c3fbf;
+    border: 1.5px solid #ddd6fe;
+    cursor: grab;
+}
+
+/* ── Section Add Row ──────────────────────────────────────────────────────── */
+.admin-add-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border: 2px dashed #c4b5fd;
+    border-radius: 10px;
+    background: rgba(245, 243, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    margin-top: 16px;
+}
+
+.admin-add-row:hover {
+    background: #f5f3ff;
+    border-color: #a78bfa;
+}
+
+.admin-add-row span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6c3fbf;
+    letter-spacing: 0.04em;
+}
+
+/* ── Status Badges ────────────────────────────────────────────────────────── */
+.admin-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.admin-status-published {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.admin-status-draft {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.admin-status-coming {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+/* ── Admin Section Header (page section labels with controls) ─────────────── */
+.admin-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-section-header .section-label {
+    margin-bottom: 0;
+}
+
+/* ── Admin Card Wrapper (wraps public cards for editable hover) ───────────── */
+.admin-card-wrap {
+    position: relative;
+}
+
+/* ── Admin Hero Controls ──────────────────────────────────────────────────── */
+.admin-hero-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.12);
+    border: 1px dashed rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+}
+
+.admin-hero-controls .admin-btn-edit {
+    background: rgba(255,255,255,0.9);
+}
+
+/* ── Admin Dash Card Overlay ──────────────────────────────────────────────── */
+.admin-dash-card-wrap {
+    position: relative;
+    border-radius: 12px;
+    overflow: visible;
+}
+
+.admin-dash-card-wrap .admin-controls-overlay {
+    top: -8px;
+    right: -4px;
+    background: white;
+    padding: 3px 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+}
+
+/* ── Notes Category Card Admin Overlay ───────────────────────────────────── */
+.admin-notes-card-wrap {
+    position: relative;
+}
+
+.admin-notes-card-wrap .admin-controls-overlay {
+    top: 6px;
+    right: 6px;
+    background: white;
+    padding: 3px 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e5e7eb;
+}
+
+/* ── Admin Notes List Item Controls ──────────────────────────────────────── */
+.admin-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.admin-list-item a {
+    flex: 1;
+}
+
+.admin-list-item-controls {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.admin-list-item:hover .admin-list-item-controls {
+    opacity: 1;
+}
+
+/* ── Admin Exam Card (home page) ──────────────────────────────────────────── */
+.admin-exam-card-wrap {
+    position: relative;
+}
+
+.admin-exam-card-wrap .admin-controls-overlay {
+    top: 8px;
+    right: 8px;
+    background: rgba(255,255,255,0.95);
+    padding: 4px 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border: 1px solid #e5e7eb;
+}
+
+/* ── Admin Info Banner ────────────────────────────────────────────────────── */
+.admin-info-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    border: 1.5px solid #c4b5fd;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    font-size: 0.8rem;
+    color: #4c1d95;
+    font-weight: 500;
+}
+
+.admin-info-banner .info-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ── Admin Login Page ─────────────────────────────────────────────────────── */
+.admin-login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e1048 0%, #3b1d8a 50%, #6c3fbf 100%);
+    padding: 24px;
+}
+
+.admin-login-card {
+    background: white;
+    border-radius: 18px;
+    padding: 44px 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(30,16,72,0.35);
+}
+
+.admin-login-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.admin-login-logo .logo-emoji {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.admin-login-logo h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1e1048;
+    margin: 0;
+}
+
+.admin-login-logo p {
+    font-size: 0.78rem;
+    color: #6c3fbf;
+    margin: 4px 0 0;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.admin-login-form .form-group {
+    margin-bottom: 18px;
+}
+
+.admin-login-form label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+}
+
+.admin-login-form input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    color: #1f2937;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+}
+
+.admin-login-form input:focus {
+    border-color: #6c3fbf;
+    box-shadow: 0 0 0 3px rgba(108,63,191,0.12);
+}
+
+.admin-login-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(90deg, #1e1048, #6c3fbf);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+    margin-top: 6px;
+}
+
+.admin-login-btn:hover { opacity: 0.88; }
+
+.admin-login-error {
+    background: #fff1f2;
+    border: 1.5px solid #fecdd3;
+    color: #be123c;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.admin-login-back {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+.admin-login-back a {
+    color: #6c3fbf;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .admin-topbar { height: auto; padding: 8px 16px; flex-wrap: wrap; }
+    .admin-topbar-page { max-width: 180px; }
+    .admin-login-card { padding: 32px 20px; }
+}

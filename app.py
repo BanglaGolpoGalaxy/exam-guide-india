@@ -8,7 +8,11 @@ from scraper.scraper import (
 )
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
-app.secret_key = os.environ.get('SECRET_KEY', 'examguideindia2026')
+app.secret_key = os.environ.get('SESSION_SECRET', os.environ.get('SECRET_KEY', 'examguideindia2026'))
+
+# ── Admin Panel Blueprint ────────────────────────────────────────────────────
+from admin_panel import admin_bp
+app.register_blueprint(admin_bp)
 
 NOTICE_TEXT = "No active notification as of June 2026. Visit the official website for latest updates."
 VACANCY_TEXT = "Official notification yet to be released – visit official website for latest updates."

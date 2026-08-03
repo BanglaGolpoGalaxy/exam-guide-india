@@ -1,0 +1,83 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – {{ exam.name }} Previous Papers | Exam Guide India{% endblock %}
+{% block admin_page_label %}📜 {{ exam.name }} – Previous Year Papers{% endblock %}
+
+{% block admin_head %}
+<style>:root{--exam-color:{{ exam.color }};--exam-light:{{ exam.light }};}</style>
+{% endblock %}
+
+{% block admin_content %}
+<section class="page-hero" style="--cat-color:{{ exam.color }};--cat-light:{{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}">{{ exam.name }}</a> <span>›</span>
+            <span>Previous Year Papers</span>
+        </div>
+        <div class="page-hero-icon">📜</div>
+        <h1 class="page-hero-title">{{ exam.name }} – Previous Year Papers</h1>
+        <p class="page-hero-desc">Solved previous year question papers for {{ exam.full_name }} with explanations.</p>
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Papers – Page Title">✏ Edit Title</button>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:48px 24px;">
+
+    <!-- Coming Soon Banner -->
+    <div class="admin-editable">
+        <div class="guide-section" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px dashed #d97706;text-align:center;margin-bottom:32px;">
+            <div style="font-size:2.5rem;margin-bottom:12px;">📜</div>
+            <h2 style="font-size:1.2rem;font-weight:700;color:#92400e;margin-bottom:8px;">Previous Year Papers – Coming Soon</h2>
+            <p style="font-size:0.84rem;color:#78350f;margin-bottom:16px;">We are compiling solved previous year papers for {{ exam.name }} with detailed explanations.</p>
+            <a href="/contact/" class="btn-apply-big" style="background:#d97706;border-color:#d97706;">📩 Notify Me When Ready</a>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Papers – Coming Soon Banner">✏ Edit Banner</button>
+            <button class="admin-btn admin-btn-unpublish" data-admin-action="unpublish" data-admin-context="{{ exam.name }} Papers – Coming Soon Banner">⏸ Hide When Papers Added</button>
+        </div>
+    </div>
+
+    <!-- Paper Upload / Manage -->
+    <div class="admin-editable">
+        <div class="guide-section">
+            <h2 class="gs-title">📂 Upload Previous Year Papers</h2>
+            <p style="font-size:0.88rem;color:#64748b;margin-bottom:16px;">Add solved PDFs or typed question papers for {{ exam.name }}.</p>
+            <div style="background:#f8fafc;border:1.5px dashed #cbd5e1;border-radius:8px;padding:24px;text-align:center;">
+                <p style="color:#94a3b8;font-size:0.84rem;">No papers uploaded yet.</p>
+            </div>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Previous Year Paper">➕ Upload Paper PDF</button>
+            <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Previous Year Paper (typed)">➕ Add Typed Questions</button>
+        </div>
+    </div>
+
+    <!-- Sample Questions -->
+    <div class="admin-editable">
+        <div class="guide-section">
+            <h2 class="gs-title">📋 {{ exam.name }} – Sample Previous Year Questions</h2>
+            <ul class="syllabus-list">
+                <li><strong>Q:</strong> Which article of the Indian Constitution deals with Right to Equality? <em>Ans: Article 14</em></li>
+                <li><strong>Q:</strong> Who is the author of the national song "Vande Mataram"? <em>Ans: Bankim Chandra Chattopadhyay</em></li>
+                <li><strong>Q:</strong> What is the capital of West Bengal? <em>Ans: Kolkata</em></li>
+                <li><strong>Q:</strong> Which river flows through Kolkata? <em>Ans: Hooghly (Ganga)</em></li>
+                <li><strong>Q:</strong> If 15% of a number is 90, what is the number? <em>Ans: 600</em></li>
+            </ul>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Papers – Sample Questions">✏ Edit Sample Questions</button>
+            <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} Papers – Sample Question">➕ Add Question</button>
+        </div>
+    </div>
+
+    <div class="admin-add-row">
+        <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Paper Year">➕ Add New Year Paper</button>
+    </div>
+
+    <div class="cat-back" style="margin-top:24px;">
+        <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}" class="btn-back-home">← Back to {{ exam.name }} Dashboard</a>
+    </div>
+</div>
+{% endblock %}

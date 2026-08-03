@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{# Admin base – wraps every public page with the admin topbar and edit styles #}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% block admin_head %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+{# ── Admin Top Bar ───────────────────────────────────────────────────────── #}
+<div class="admin-topbar" role="banner" aria-label="Admin panel toolbar">
+    <div class="admin-topbar-left">
+        <span class="admin-topbar-badge">
+            <span class="badge-dot"></span>
+            🔐 Admin Mode
+        </span>
+        <span class="admin-topbar-page">
+            {% block admin_page_label %}Admin Panel{% endblock %}
+        </span>
+    </div>
+    <div class="admin-topbar-right">
+        <a href="{{ url_for('admin.admin_home') }}" class="admin-topbar-link" title="Admin Home">
+            🏠 Dashboard
+        </a>
+        <div class="admin-topbar-divider"></div>
+        <a href="/" class="admin-topbar-link" target="_blank" rel="noopener" title="Open public site">
+            🌐 Public Site ↗
+        </a>
+        <div class="admin-topbar-divider"></div>
+        <a href="{{ url_for('admin.admin_logout') }}" class="admin-topbar-link danger" title="Logout">
+            🚪 Logout
+        </a>
+    </div>
+</div>
+
+{# ── Info Banner (shown once per page, reminds admin they're in edit mode) ── #}
+<div class="container" style="padding-top:16px; padding-bottom:0;">
+    <div class="admin-info-banner">
+        <span class="info-icon">ℹ️</span>
+        <span>
+            You are in <strong>Admin Edit Mode</strong>.
+            Hover over any section to reveal edit controls.
+            Buttons are placeholders — CRUD functionality will be added in the next phase.
+        </span>
+    </div>
+</div>
+
+{# ── Page content (each admin template fills this block) ────────────────── #}
+{% block admin_content %}{% endblock %}
+
+{% endblock %}{# /content #}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% block admin_scripts %}{% endblock %}
+{% endblock %}

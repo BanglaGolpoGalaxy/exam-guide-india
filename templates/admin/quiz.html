@@ -1,0 +1,165 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – Quiz & Mock Tests | Exam Guide India{% endblock %}
+{% block admin_page_label %}📝 Quiz & Mock Tests{% endblock %}
+
+{% block admin_content %}
+<section class="page-hero" style="--cat-color:#6c3fbf;--cat-light:#f5f0ff;">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <span>Quiz</span>
+        </div>
+        <div class="page-hero-icon">📝</div>
+        <h1 class="page-hero-title">Free Quiz &amp; Mock Tests</h1>
+        <p class="page-hero-desc">Subject-wise practice quizzes and full-length mock tests for all WB government exams — 100% free.</p>
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Quiz Page – Title">✏ Edit Title</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Quiz Page – Description">✏ Edit Description</button>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:48px 24px;">
+
+    <div class="admin-section-header">
+        <div class="section-label" style="margin-bottom:0;">
+            <span class="label-line"></span>
+            <span class="label-text">EXAM-WISE QUIZ</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Quiz Page – Section Label">✏ Edit Label</button>
+            <button class="admin-btn admin-btn-reorder" data-admin-action="reorder" data-admin-context="Quiz Page – Exam Sections">↕ Reorder</button>
+        </div>
+    </div>
+
+    <div class="notes-category-grid" style="margin-top:28px;">
+
+        <!-- WBP Constable Quiz -->
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid #be123c;">
+                <div class="ncc-header" style="color:#be123c;">🛡️ WBP Constable Quiz</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/wbp-constable/quiz/">General Knowledge Quiz</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBP – GK Quiz">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WBP – GK Quiz">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/wbp-constable/quiz/">Arithmetic Quiz</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBP – Arithmetic Quiz">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WBP – Arithmetic Quiz">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/wbp-constable/mock-test/">Full Mock Test</a>
+                        <span class="admin-list-item-controls">
+                            <span class="admin-status admin-status-coming" style="font-size:0.62rem;">Draft</span>
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBP – Mock Test">✏</button>
+                        </span>
+                    </li>
+                </ul>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:8px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="WBP Quiz – List Item">➕ Add Quiz</button>
+                    <button class="admin-btn admin-btn-publish" data-admin-action="publish" data-admin-context="WBP Mock Test">✅ Publish Mock</button>
+                </div>
+                <a href="/admin-panel/exam/wbp-constable/quiz/" class="ncc-btn" style="background:#fff1f2;color:#be123c;">Manage WBP Quizzes →</a>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="WBP Quiz Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="WBP Quiz Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Railway Group D Quiz -->
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid #ea580c;">
+                <div class="ncc-header" style="color:#ea580c;">🚆 Railway Group D Quiz</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/railway-group-d/quiz/">General Science Quiz</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway – Science Quiz">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway – Science Quiz">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/railway-group-d/quiz/">Mathematics Quiz</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway – Math Quiz">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway – Math Quiz">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/railway-group-d/mock-test/">Full Mock Test</a>
+                        <span class="admin-list-item-controls">
+                            <span class="admin-status admin-status-coming" style="font-size:0.62rem;">Draft</span>
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway – Mock Test">✏</button>
+                        </span>
+                    </li>
+                </ul>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:8px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Railway Quiz – List Item">➕ Add Quiz</button>
+                </div>
+                <a href="/admin-panel/exam/railway-group-d/quiz/" class="ncc-btn" style="background:#fff7ed;color:#ea580c;">Manage Railway Quizzes →</a>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Railway Quiz Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Railway Quiz Card">🗑</button>
+            </div>
+        </div>
+
+        <!-- Panchayat Quiz -->
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid #0d9488;">
+                <div class="ncc-header" style="color:#0d9488;">🌿 Panchayat Quiz</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="/admin-panel/exam/panchayat/quiz/">General Studies Quiz</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Panchayat – GS Quiz">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Panchayat – GS Quiz">🗑</button>
+                        </span>
+                    </li>
+                </ul>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:8px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Panchayat Quiz – List Item">➕ Add Quiz</button>
+                </div>
+                <a href="/admin-panel/exam/panchayat/quiz/" class="ncc-btn" style="background:#f0fdfa;color:#0d9488;">Manage Panchayat Quizzes →</a>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-published">● Live</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Panchayat Quiz Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="Panchayat Quiz Card">🗑</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add new exam section -->
+    <div class="admin-add-row">
+        <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Quiz Page – Exam Quiz Section">➕ Add Exam Quiz Section</button>
+    </div>
+
+    <!-- Question Bank Global -->
+    <div class="admin-editable" style="margin-top:36px;">
+        <div class="guide-section">
+            <h2 class="gs-title">📂 Global Question Bank</h2>
+            <p style="font-size:0.88rem;color:#64748b;">Manage all quiz questions from a central question bank. Assign questions to specific exams and subjects.</p>
+            <div style="background:#f8fafc;border:1.5px dashed #cbd5e1;border-radius:8px;padding:24px;text-align:center;margin-top:12px;">
+                <p style="color:#94a3b8;font-size:0.84rem;">Question bank management coming in the next phase.</p>
+            </div>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="Global Question Bank – Question">➕ Add Question</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="Global Question Bank">✏ Manage All Questions</button>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

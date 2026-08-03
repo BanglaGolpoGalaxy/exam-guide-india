@@ -1,0 +1,107 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – {{ exam.name }} Notes | Exam Guide India{% endblock %}
+{% block admin_page_label %}📚 {{ exam.name }} – Notes{% endblock %}
+
+{% block admin_head %}
+<style>:root{--exam-color:{{ exam.color }};--exam-light:{{ exam.light }};}</style>
+{% endblock %}
+
+{% block admin_content %}
+<section class="page-hero" style="--cat-color:{{ exam.color }};--cat-light:{{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}">{{ exam.name }}</a> <span>›</span>
+            <span>Notes</span>
+        </div>
+        <div class="page-hero-icon">📚</div>
+        <h1 class="page-hero-title">{{ exam.name }} – Study Notes</h1>
+        <p class="page-hero-desc">Subject-wise notes, topic summaries and free PDF study materials for {{ exam.full_name }}.</p>
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Notes – Page Title">✏ Edit Title</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Notes – Page Description">✏ Edit Description</button>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:48px 24px;">
+
+    <div class="admin-section-header">
+        <div class="section-label" style="margin-bottom:0;">
+            <span class="label-line"></span>
+            <span class="label-text">CHOOSE A SUBJECT</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Notes – Section Label">✏ Edit Label</button>
+            <button class="admin-btn admin-btn-reorder" data-admin-action="reorder" data-admin-context="{{ exam.name }} Notes – Subject Cards">↕ Reorder Subjects</button>
+        </div>
+    </div>
+    <p style="text-align:center;font-size:0.86rem;color:#64748b;margin-top:8px;margin-bottom:32px;">Select a subject to explore topic-wise notes</p>
+
+    <div class="notes-category-grid">
+        {% for subj in exam.subjects %}
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid {{ exam.color }};">
+                <div class="ncc-header" style="color:{{ exam.color }};">{{ subj.icon }} {{ subj.name }}</div>
+                <ul class="ncc-list">
+                    <li class="admin-list-item">
+                        <a href="#">{{ subj.name }} – Complete Notes</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ subj.name }} – Complete Notes">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ subj.name }} – Complete Notes">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="#">{{ subj.name }} – Quick Revision</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ subj.name }} – Quick Revision">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ subj.name }} – Quick Revision">🗑</button>
+                        </span>
+                    </li>
+                    <li class="admin-list-item">
+                        <a href="#">{{ subj.name }} – Practice Set</a>
+                        <span class="admin-list-item-controls">
+                            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ subj.name }} – Practice Set">✏</button>
+                            <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ subj.name }} – Practice Set">🗑</button>
+                        </span>
+                    </li>
+                </ul>
+                <div style="font-size:0.73rem;color:#94a3b8;padding:4px 0 8px;font-style:italic;">{{ subj.desc }}</div>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:6px;">
+                    <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ subj.name }} – Notes List">➕ Add Note</button>
+                    <button class="admin-btn admin-btn-publish" data-admin-action="publish" data-admin-context="{{ subj.name }} Card">✅ Publish</button>
+                </div>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-coming">● Draft</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ subj.name }} Subject Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ subj.name }} Subject Card">🗑</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add Subject -->
+    <div class="admin-add-row">
+        <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Subject Card">➕ Add Subject</button>
+    </div>
+
+    <!-- Coming Soon Banner -->
+    <div class="admin-editable" style="margin-top:36px;">
+        <div class="guide-section" style="background:linear-gradient(135deg,#1e1048,#3b1d8a);border:none;">
+            <h2 style="color:white;font-size:1.2rem;margin-bottom:8px;">📥 Full Notes – Coming Soon</h2>
+            <p style="color:#c4b5fd;margin-bottom:16px;font-size:0.84rem;">We are preparing comprehensive {{ exam.name }}-specific notes for all subjects.</p>
+            <a href="/contact/" class="btn-resource-solid" style="background:#a78bfa;border-color:#a78bfa;color:#1e1048;">📩 Get Notified</a>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} Notes – Coming Soon Banner">✏ Edit Banner</button>
+            <button class="admin-btn admin-btn-unpublish" data-admin-action="unpublish" data-admin-context="{{ exam.name }} Notes – Coming Soon Banner">⏸ Hide Banner</button>
+        </div>
+    </div>
+
+    <div class="cat-back" style="margin-top:28px;">
+        <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}" class="btn-back-home">← Back to {{ exam.name }} Dashboard</a>
+    </div>
+</div>
+{% endblock %}

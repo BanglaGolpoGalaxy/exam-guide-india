@@ -1,0 +1,184 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – {{ exam.name }} Syllabus & Exam Pattern | Exam Guide India{% endblock %}
+{% block admin_page_label %}📖 {{ exam.name }} – Syllabus & Exam Pattern{% endblock %}
+
+{% block admin_head %}
+<style>:root{--exam-color:{{ exam.color }};--exam-light:{{ exam.light }};}</style>
+{% endblock %}
+
+{% block admin_content %}
+<section class="page-hero" style="--cat-color:{{ exam.color }};--cat-light:{{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <span>{{ exam.name }}</span>
+        </div>
+        <div class="page-hero-icon">{{ exam.icon }}</div>
+        <h1 class="page-hero-title">{{ exam.full_name }}</h1>
+        <p class="page-hero-desc">{{ exam.overview[:180] }}...</p>
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Overview Text">✏ Edit Overview</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Apply Link">✏ Edit Apply Link</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Result Link">✏ Edit Result Link</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Official URL">✏ Edit Official URL</button>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="exam-tabs" id="examTabs">
+        <button class="tab-btn active" data-tab="overview">📖 Overview</button>
+        <button class="tab-btn" data-tab="eligibility">👤 Eligibility</button>
+        <button class="tab-btn" data-tab="notifications">🔔 Notifications</button>
+        <button class="tab-btn" data-tab="vacancies">💼 Vacancies</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div class="tab-content active" id="tab-overview">
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">📌 Exam Overview</h2>
+                <p style="font-size:0.9rem;color:#374151;line-height:1.8;">{{ exam.overview }}</p>
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Exam Overview Block">✏ Edit Overview</button>
+            </div>
+        </div>
+
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">📅 Key Dates</h2>
+                <table class="exam-table">
+                    <tbody>
+                        <tr><td>Notification Release</td><td>{{ exam.get('notification_date', 'To be announced') }}</td></tr>
+                        <tr><td>Application Start</td><td>{{ exam.get('application_start', 'To be announced') }}</td></tr>
+                        <tr><td>Application End</td><td>{{ exam.get('application_end', 'To be announced') }}</td></tr>
+                        <tr><td>Exam Date</td><td>{{ exam.get('exam_date', 'To be announced') }}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Key Dates Table">✏ Edit Dates</button>
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Key Dates Row">➕ Add Row</button>
+            </div>
+        </div>
+
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">📝 Exam Pattern</h2>
+                {% if exam.exam_pattern is defined and exam.exam_pattern %}
+                    {% for stage in exam.exam_pattern %}
+                    <h3 style="font-size:0.95rem;color:#374151;font-weight:700;margin:16px 0 8px;">{{ loop.index }}. {{ stage.stage }}</h3>
+                    <table class="exam-table">
+                        <thead><tr>{% for col in stage.columns %}<th>{{ col }}</th>{% endfor %}</tr></thead>
+                        <tbody>{% for row in stage.rows %}<tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+                    </table>
+                    {% endfor %}
+                {% else %}
+                    <p style="font-size:0.88rem;color:#64748b;">Exam pattern data not yet available. Add it using the controls below.</p>
+                {% endif %}
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Exam Pattern">✏ Edit Exam Pattern</button>
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Exam Pattern Stage">➕ Add Stage</button>
+            </div>
+        </div>
+
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">📚 Syllabus</h2>
+                {% if exam.syllabus is defined and exam.syllabus %}
+                    {% for subject, topics in exam.syllabus.items() %}
+                    <h3 style="font-size:0.9rem;color:#374151;font-weight:700;margin:14px 0 6px;">{{ subject }}</h3>
+                    <ul class="syllabus-list">{% for t in topics %}<li>{{ t }}</li>{% endfor %}</ul>
+                    {% endfor %}
+                {% else %}
+                    <p style="font-size:0.88rem;color:#64748b;">Syllabus data not yet available.</p>
+                {% endif %}
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Syllabus">✏ Edit Syllabus</button>
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Syllabus Subject">➕ Add Subject</button>
+            </div>
+        </div>
+
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">🔁 Selection Process</h2>
+                {% if exam.selection_process is defined %}
+                <ul class="selection-steps">
+                    {% for step in exam.selection_process %}
+                    <li>{{ loop.index }}. {{ step }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Selection Process">✏ Edit Selection Process</button>
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Selection Step">➕ Add Step</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: ELIGIBILITY -->
+    <div class="tab-content" id="tab-eligibility">
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">👤 Eligibility Criteria</h2>
+                {% if exam.eligibility is defined %}
+                <table class="exam-table">
+                    <tbody>
+                        {% for key, val in exam.eligibility.items() %}
+                        <tr><td><strong>{{ key }}</strong></td><td>{{ val }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p style="font-size:0.88rem;color:#64748b;">Eligibility data not yet added.</p>
+                {% endif %}
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Eligibility">✏ Edit Eligibility</button>
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Eligibility Row">➕ Add Row</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: NOTIFICATIONS -->
+    <div class="tab-content" id="tab-notifications">
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">🔔 Latest Notifications</h2>
+                <p style="font-size:0.88rem;color:#64748b;">Notifications are fetched from the scraper. Manage them from the scraper dashboard.</p>
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Notification">➕ Add Manual Notification</button>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Notifications">✏ Manage Notifications</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: VACANCIES -->
+    <div class="tab-content" id="tab-vacancies">
+        <div class="admin-editable">
+            <div class="guide-section">
+                <h2 class="gs-title">💼 Vacancy Details</h2>
+                <p style="font-size:0.88rem;color:#64748b;">Vacancies are fetched from the scraper. Manage them from the scraper dashboard.</p>
+            </div>
+            <div class="admin-controls">
+                <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} – Vacancy">➕ Add Manual Vacancy</button>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} – Vacancies">✏ Manage Vacancies</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cat-back" style="margin:32px 0;">
+        <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}" class="btn-back-home">← Back to {{ exam.name }} Dashboard</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block admin_scripts %}
+<script src="{{ url_for('static', filename='js/exam-page.js') }}"></script>
+{% endblock %}

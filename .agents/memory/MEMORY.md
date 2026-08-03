@@ -1,0 +1,1 @@
+- [Admin Panel Architecture](admin-panel-arch.md) — Blueprint at /admin-panel/, session auth, placeholder edit controls; CRUD comes later.

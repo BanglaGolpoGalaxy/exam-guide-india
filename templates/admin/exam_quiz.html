@@ -1,0 +1,99 @@
+{% extends "admin/base.html" %}
+{% block title %}Admin – {{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} | Exam Guide India{% endblock %}
+{% block admin_page_label %}{% if mock_test %}🎯{% else %}📝{% endif %} {{ exam.name }} – {% if mock_test %}Mock Test{% else %}Quiz{% endif %}{% endblock %}
+
+{% block admin_head %}
+<style>:root{--exam-color:{{ exam.color }};--exam-light:{{ exam.light }};}</style>
+{% endblock %}
+
+{% block admin_content %}
+<section class="page-hero" style="--cat-color:{{ exam.color }};--cat-light:{{ exam.light }};">
+    <div class="container page-hero-inner">
+        <div class="breadcrumb">
+            <a href="{{ url_for('admin.admin_home') }}">Admin Home</a> <span>›</span>
+            <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}">{{ exam.name }}</a> <span>›</span>
+            <span>{% if mock_test %}Mock Test{% else %}Quiz{% endif %}</span>
+        </div>
+        <div class="page-hero-icon">{% if mock_test %}🎯{% else %}📝{% endif %}</div>
+        <h1 class="page-hero-title">{{ exam.name }} – {% if mock_test %}Mock Test{% else %}Practice Quiz{% endif %}</h1>
+        <p class="page-hero-desc">{% if mock_test %}Full-length mock test for {{ exam.full_name }}.{% else %}Subject-wise practice quizzes for {{ exam.full_name }}.{% endif %}</p>
+        <div class="admin-hero-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Page Title">✏ Edit Title</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Description">✏ Edit Description</button>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="padding:48px 24px;">
+
+    <!-- Coming Soon Notice -->
+    <div class="admin-editable">
+        <div class="guide-section" style="background:#faf8ff;border:2px dashed {{ exam.color }};text-align:center;margin-bottom:28px;">
+            <p style="font-size:0.9rem;font-weight:600;color:#5b21b6;">🔔 {{ exam.name }}-specific {% if mock_test %}mock tests{% else %}subject quizzes{% endif %} are coming soon!</p>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Coming Soon Notice">✏ Edit Notice</button>
+            <button class="admin-btn admin-btn-unpublish" data-admin-action="unpublish" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Coming Soon Notice">⏸ Hide Notice</button>
+        </div>
+    </div>
+
+    {% if not mock_test %}
+    <!-- Subject Cards -->
+    <div class="admin-section-header">
+        <div class="section-label" style="margin-bottom:0;">
+            <span class="label-line"></span>
+            <span class="label-text">PRACTICE QUIZ</span>
+            <span class="label-line"></span>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-reorder" data-admin-action="reorder" data-admin-context="{{ exam.name }} Quiz – Subject Cards">↕ Reorder</button>
+        </div>
+    </div>
+
+    <div class="notes-category-grid" style="margin:24px 0 32px;">
+        {% for subj in exam.subjects %}
+        <div class="admin-notes-card-wrap admin-editable">
+            <div class="notes-cat-card" style="border-top:4px solid {{ exam.color }};">
+                <div class="ncc-header" style="color:{{ exam.color }};">{{ subj.icon }} {{ subj.name }}</div>
+                <div style="font-size:0.78rem;color:#64748b;margin:8px 0 12px;">{{ subj.desc }}</div>
+                <div style="font-size:0.73rem;color:#94a3b8;margin-bottom:10px;">📊 5 Questions · ⏱️ 10 Mins</div>
+                <div class="admin-controls" style="border-top:none;padding-top:0;margin-top:6px;">
+                    <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ subj.name }} Quiz Card – Stats">✏ Edit Stats</button>
+                </div>
+            </div>
+            <div class="admin-controls-overlay">
+                <span class="admin-status admin-status-coming">● Draft</span>
+                <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ subj.name }} Quiz Card">✏</button>
+                <button class="admin-btn admin-btn-delete" data-admin-action="delete" data-admin-context="{{ subj.name }} Quiz Card">🗑</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="admin-add-row">
+        <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} Quiz – Subject Card">➕ Add Subject Quiz</button>
+    </div>
+    {% endif %}
+
+    <!-- Demo Questions -->
+    <div class="admin-editable" style="margin-top:28px;">
+        <div class="guide-section">
+            <h2 class="gs-title">📋 {% if mock_test %}Mock Test{% else %}Demo Quiz{% endif %} Instructions</h2>
+            <ul class="syllabus-list">
+                <li>This {% if mock_test %}mock test{% else %}quiz{% endif %} contains 10 sample questions.</li>
+                <li>Each correct answer gives 1 mark. No negative marking.</li>
+                <li>Click an option to select it. Correct answer is shown immediately.</li>
+            </ul>
+        </div>
+        <div class="admin-controls">
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Instructions">✏ Edit Instructions</button>
+            <button class="admin-btn admin-btn-add" data-admin-action="add" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Question Bank">➕ Add Question</button>
+            <button class="admin-btn admin-btn-edit" data-admin-action="edit" data-admin-context="{{ exam.name }} {% if mock_test %}Mock Test{% else %}Quiz{% endif %} – Question Bank">✏ Manage Questions</button>
+        </div>
+    </div>
+
+    <div class="cat-back" style="margin-top:28px;">
+        <a href="{{ url_for('admin.admin_exam_dashboard', slug=slug) }}" class="btn-back-home">← Back to {{ exam.name }} Dashboard</a>
+    </div>
+</div>
+{% endblock %}
